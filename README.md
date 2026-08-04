@@ -1,11 +1,15 @@
 # Dienstplan
 
-Schichtplanung für Wohngruppen der Jugendhilfe. Kostenlos, auf Spendenbasis.
+Schichtplanung für Wohngruppen der Jugendhilfe. **19,99 € einmalig — kein Abo,
+keine Folgekosten.**
 
 Die Anwendung läuft vollständig auf dem Rechner im Haus — ohne Internet, ohne Konto,
 ohne Cloud. Dienstpläne, Namen und Stundenkonten verlassen das Haus nicht.
 
-**Herunterladen:** [Releases](../../releases/latest) · **Webseite:** https://dienstplan-jugendhilfe.de
+**Webseite und Kauf:** https://dienstplan-jugendhilfe.de
+
+Dieses Repository enthält die Webseite. Die Anwendung selbst wird nach dem Kauf
+ausgeliefert und liegt nicht hier.
 
 ## Was sie kann
 
@@ -19,9 +23,3 @@ ohne Cloud. Dienstpläne, Namen und Stundenkonten verlassen das Haus nicht.
 
 - macOS 11 oder neuer (Apple-Chip oder Intel)
 - Windows 10 oder 11, 64 Bit
-
-## Haftung
-
-Die Anwendung wird unentgeltlich und ohne Gewährleistung überlassen. Die
-Arbeitszeitprüfungen sind eine Arbeitshilfe und keine Rechtsberatung; die Verantwortung
-für die Rechtmäßigkeit eines Dienstplans verbleibt beim Arbeitgeber.

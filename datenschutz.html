@@ -252,6 +252,15 @@
   .spende p{color:var(--tinte-matt);font-size:.95rem}
   .spende p strong{color:var(--tinte);font-weight:650}
   .spende-wege{display:flex;flex-wrap:wrap;gap:.5rem}
+  /* Preiskarte: der Betrag trägt den Abschnitt, alles andere ordnet sich unter. */
+  .preiskarte .betrag{display:flex;align-items:baseline;gap:.55rem}
+  .preiskarte .betrag b{font-family:var(--display);font-size:2.5rem;font-weight:800;
+                        letter-spacing:-.035em;color:var(--tinte);line-height:1}
+  .preiskarte .betrag span{font-size:.95rem;color:var(--tinte-leise)}
+  .preis-liste{list-style:none;padding:0;display:flex;flex-direction:column;gap:.55rem}
+  .preis-liste li{display:flex;gap:.55rem;font-size:.93rem;color:var(--tinte-matt);line-height:1.45}
+  .preis-liste li svg{flex-shrink:0;margin-top:.24rem;color:var(--gruen)}
+  .preiskarte .knopf{justify-content:center;margin-top:.3rem}
   .spende-fuss{display:flex;align-items:flex-start;gap:.45rem;margin-top:.2rem;
                padding-top:.8rem;border-top:1px solid var(--linie-fein);
                font-size:.84rem;color:var(--tinte-leise)}
@@ -270,6 +279,9 @@
   .lade .groesse{font-family:var(--mono);font-size:.8rem;color:var(--tinte-leise);
                  font-variant-numeric:tabular-nums}
   .lade .knopf{margin-top:.6rem;justify-content:center}
+  .kaufzeile{display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem 1.8rem;margin-top:1.8rem}
+  .kaufzeile p{color:var(--tinte-matt);font-size:.93rem;max-width:44ch;flex:1 1 22rem}
+  .knopf-gross{font-size:1.05rem;padding:.95rem 2rem}
 
   /* Fragen */
   .fragen{border-top:1px solid var(--linie);margin-top:.5rem}
@@ -414,12 +426,17 @@
        bei Anbahnung eines Vertrags auch lit. b. Die Daten werden gelöscht, sobald die
        Anfrage abschließend bearbeitet ist und keine Aufbewahrungspflichten entgegenstehen.</p>
 
-    <h2>Spenden</h2>
-    <p>Die Spendenmöglichkeiten sind Verweise auf externe Anbieter beziehungsweise eine
-       Bankverbindung. Erst wenn Sie einen solchen Verweis anklicken, gelangen Daten an den
-       jeweiligen Anbieter — für dessen Verarbeitung gilt dessen eigene Datenschutzerklärung.
-       Bei einer Überweisung erhalte ich die Angaben, die Ihre Bank im Verwendungszweck
-       übermittelt. Diese werden nur zur Zuordnung der Zahlung verwendet.</p>
+    <h2>Kauf und Zahlungsabwicklung</h2>
+    <p>Der Kaufknopf führt zu <span class="platzhalter">Zahlungsanbieter eintragen</span>. Erst mit dem Klick
+       gelangen Daten dorthin; für die Verarbeitung beim Anbieter gilt dessen eigene
+       Datenschutzerklärung. Zahlungsdaten wie Kartennummern erreichen mich zu keinem
+       Zeitpunkt.</p>
+    <p>Von der Abwicklung erhalte ich die Angaben, die für Vertrag und Buchhaltung nötig
+       sind — insbesondere Name, E-Mail-Adresse, Rechnungsland und Kaufbetrag.
+       Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung), für die
+       Aufbewahrung Art. 6 Abs. 1 lit. c DSGVO in Verbindung mit den handels- und
+       steuerrechtlichen Fristen. Rechnungsunterlagen werden entsprechend zehn Jahre
+       aufbewahrt.</p>
 
     <h2>Verschlüsselung</h2>
     <p>Diese Seite wird ausschließlich über eine verschlüsselte Verbindung (HTTPS)

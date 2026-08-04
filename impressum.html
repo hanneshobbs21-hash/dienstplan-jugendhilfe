@@ -252,6 +252,15 @@
   .spende p{color:var(--tinte-matt);font-size:.95rem}
   .spende p strong{color:var(--tinte);font-weight:650}
   .spende-wege{display:flex;flex-wrap:wrap;gap:.5rem}
+  /* Preiskarte: der Betrag trägt den Abschnitt, alles andere ordnet sich unter. */
+  .preiskarte .betrag{display:flex;align-items:baseline;gap:.55rem}
+  .preiskarte .betrag b{font-family:var(--display);font-size:2.5rem;font-weight:800;
+                        letter-spacing:-.035em;color:var(--tinte);line-height:1}
+  .preiskarte .betrag span{font-size:.95rem;color:var(--tinte-leise)}
+  .preis-liste{list-style:none;padding:0;display:flex;flex-direction:column;gap:.55rem}
+  .preis-liste li{display:flex;gap:.55rem;font-size:.93rem;color:var(--tinte-matt);line-height:1.45}
+  .preis-liste li svg{flex-shrink:0;margin-top:.24rem;color:var(--gruen)}
+  .preiskarte .knopf{justify-content:center;margin-top:.3rem}
   .spende-fuss{display:flex;align-items:flex-start;gap:.45rem;margin-top:.2rem;
                padding-top:.8rem;border-top:1px solid var(--linie-fein);
                font-size:.84rem;color:var(--tinte-leise)}
@@ -270,6 +279,9 @@
   .lade .groesse{font-family:var(--mono);font-size:.8rem;color:var(--tinte-leise);
                  font-variant-numeric:tabular-nums}
   .lade .knopf{margin-top:.6rem;justify-content:center}
+  .kaufzeile{display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem 1.8rem;margin-top:1.8rem}
+  .kaufzeile p{color:var(--tinte-matt);font-size:.93rem;max-width:44ch;flex:1 1 22rem}
+  .knopf-gross{font-size:1.05rem;padding:.95rem 2rem}
 
   /* Fragen */
   .fragen{border-top:1px solid var(--linie);margin-top:.5rem}
@@ -360,30 +372,29 @@
       <span class="platzhalter">PLZ und Ort</span><br>
       Deutschland
     </p>
-    <p>Diese Seite wird von einer Privatperson betrieben. Es besteht kein Handelsregister-,
-       Vereins- oder Umsatzsteuereintrag.</p>
 
     <h2>Kontakt</h2>
     <p>E-Mail: <a href="mailto:kontakt@dienstplan-jugendhilfe.de">kontakt@dienstplan-jugendhilfe.de</a></p>
+
+    <h2>Umsatzsteuer</h2>
+    <p><span class="platzhalter">Umsatzsteuer-Angabe eintragen</span></p>
 
     <h2>Verantwortlich für den Inhalt</h2>
     <p>Nach § 18 Abs. 2 Medienstaatsvertrag: die oben genannte Person unter der oben
        genannten Anschrift.</p>
 
-    <h2>Haftung für die Software</h2>
-    <p>Die hier angebotene Anwendung „Dienstplan“ wird <strong>unentgeltlich und ohne
-       Gewährleistung</strong> überlassen. Eine Haftung für Mängel der Software ist
-       ausgeschlossen, soweit gesetzlich zulässig.</p>
+    <h2>Zum Umfang der Arbeitszeitprüfung</h2>
     <p>Die Anwendung enthält Prüfungen zu Ruhezeiten, aufeinanderfolgenden Arbeitstagen und
        Nachtdienst-Kontingenten. Diese Prüfungen sind eine <strong>Arbeitshilfe und keine
        Rechtsberatung</strong>. Sie können weder Tarifverträge und Dienstvereinbarungen noch
        den Einzelfall vollständig abbilden und arbeiten ausschließlich mit den Angaben, die
        der Nutzer selbst einträgt. <strong>Die Verantwortung für die Rechtmäßigkeit eines
        Dienstplans verbleibt beim Arbeitgeber.</strong></p>
-    <p>Für unmittelbare oder mittelbare Schäden, die aus der Nutzung oder Nichtnutzbarkeit
-       der Anwendung entstehen, wird nicht gehaftet. Unberührt bleibt die Haftung für
-       Vorsatz und grobe Fahrlässigkeit sowie für Schäden aus der Verletzung des Lebens,
-       des Körpers oder der Gesundheit.</p>
+    <p>Die gesetzlichen Mängelrechte bleiben davon unberührt. Die Haftung für einfache
+       Fahrlässigkeit ist auf die Verletzung wesentlicher Vertragspflichten und den dabei
+       typischerweise vorhersehbaren Schaden begrenzt; für Vorsatz, grobe Fahrlässigkeit
+       sowie für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit wird
+       unbeschränkt gehaftet.</p>
     <p>Für die Datensicherung ist der Nutzer selbst verantwortlich. Die Anwendung legt
        täglich automatisch eine Sicherung an; diese ersetzt keine eigene Sicherungsstrategie.</p>
 
@@ -395,8 +406,9 @@
 
     <h2>Urheberrecht</h2>
     <p>Die auf dieser Seite erstellten Inhalte und Werke unterliegen dem deutschen
-       Urheberrecht. Die Anwendung darf innerhalb einer Einrichtung frei genutzt,
-       installiert und weitergegeben werden.</p>
+       Urheberrecht. Mit dem Kauf erwirbt die Einrichtung das Recht, die Anwendung dauerhaft
+       und auf beliebig vielen eigenen Arbeitsplätzen zu nutzen. Die Weitergabe an Dritte
+       außerhalb der Einrichtung ist nicht gestattet.</p>
 
     <h2>Streitbeilegung</h2>
     <p>Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer

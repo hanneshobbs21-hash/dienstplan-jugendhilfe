@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dienstplan – Schichtplanung für Wohngruppen der Jugendhilfe</title>
-<meta name="description" content="Kostenloser Dienstplan für Wohngruppen der Jugendhilfe: Schichten verteilen, Arbeitszeitregeln automatisch prüfen, Stunden und Urlaub abrechnen. Läuft offline auf dem Rechner im Haus — keine Cloud, kein Konto, kein Abo.">
+<meta name="description" content="Dienstplan für Wohngruppen der Jugendhilfe: Schichten verteilen, Arbeitszeitregeln automatisch prüfen, Stunden und Urlaub abrechnen. Läuft offline auf dem Rechner im Haus. 19,99 € einmalig — kein Abo, keine Folgekosten.">
 <link rel="canonical" href="https://dienstplan-jugendhilfe.de/">
 <meta name="theme-color" content="#FCFCFD" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0B0D18" media="(prefers-color-scheme: dark)">
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Dienstplan">
 <meta property="og:locale" content="de_DE">
 <meta property="og:title" content="Dienstplan – Schichtplanung für Wohngruppen der Jugendhilfe">
-<meta property="og:description" content="Kostenloser Dienstplan für Wohngruppen der Jugendhilfe: Schichten verteilen, Arbeitszeitregeln automatisch prüfen, Stunden und Urlaub abrechnen. Läuft offline auf dem Rechner im Haus — keine Cloud, kein Konto, kein Abo.">
+<meta property="og:description" content="Dienstplan für Wohngruppen der Jugendhilfe: Schichten verteilen, Arbeitszeitregeln automatisch prüfen, Stunden und Urlaub abrechnen. Läuft offline auf dem Rechner im Haus. 19,99 € einmalig — kein Abo, keine Folgekosten.">
 <meta property="og:url" content="https://dienstplan-jugendhilfe.de/">
 <meta property="og:image" content="https://dienstplan-jugendhilfe.de/vorschau.jpg">
 <meta property="og:image:width" content="2400">
@@ -259,6 +259,15 @@
   .spende p{color:var(--tinte-matt);font-size:.95rem}
   .spende p strong{color:var(--tinte);font-weight:650}
   .spende-wege{display:flex;flex-wrap:wrap;gap:.5rem}
+  /* Preiskarte: der Betrag trägt den Abschnitt, alles andere ordnet sich unter. */
+  .preiskarte .betrag{display:flex;align-items:baseline;gap:.55rem}
+  .preiskarte .betrag b{font-family:var(--display);font-size:2.5rem;font-weight:800;
+                        letter-spacing:-.035em;color:var(--tinte);line-height:1}
+  .preiskarte .betrag span{font-size:.95rem;color:var(--tinte-leise)}
+  .preis-liste{list-style:none;padding:0;display:flex;flex-direction:column;gap:.55rem}
+  .preis-liste li{display:flex;gap:.55rem;font-size:.93rem;color:var(--tinte-matt);line-height:1.45}
+  .preis-liste li svg{flex-shrink:0;margin-top:.24rem;color:var(--gruen)}
+  .preiskarte .knopf{justify-content:center;margin-top:.3rem}
   .spende-fuss{display:flex;align-items:flex-start;gap:.45rem;margin-top:.2rem;
                padding-top:.8rem;border-top:1px solid var(--linie-fein);
                font-size:.84rem;color:var(--tinte-leise)}
@@ -277,6 +286,9 @@
   .lade .groesse{font-family:var(--mono);font-size:.8rem;color:var(--tinte-leise);
                  font-variant-numeric:tabular-nums}
   .lade .knopf{margin-top:.6rem;justify-content:center}
+  .kaufzeile{display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem 1.8rem;margin-top:1.8rem}
+  .kaufzeile p{color:var(--tinte-matt);font-size:.93rem;max-width:44ch;flex:1 1 22rem}
+  .knopf-gross{font-size:1.05rem;padding:.95rem 2rem}
 
   /* Fragen */
   .fragen{border-top:1px solid var(--linie);margin-top:.5rem}
@@ -330,10 +342,10 @@
     <nav class="kopf-nav">
       <a href="#koennen">Was sie kann</a>
       <a href="#vergleich">Vergleich</a>
-      <a href="#kostenlos">Kostenlos</a>
-      <a href="#laden">Herunterladen</a>
+      <a href="#preis">Preis</a>
+      <a href="#laden">Kaufen</a>
     </nav>
-    <a class="knopf" href="#laden">Kostenlos laden</a>
+    <a class="knopf" href="#laden">Kaufen · 19,99 €</a>
   </div>
 </header>
 
@@ -342,20 +354,20 @@
   <section class="banner">
     <div class="huelle">
       <p class="augenbraue">Läuft auf dem Rechner im Haus — ohne Internet</p>
-      <p class="preis-pille"><b>Kostenlos</b> <span>auf Spendenbasis · keine Lizenz, kein Abo</span></p>
+      <p class="preis-pille"><b>19,99 € einmalig</b> <span>kein Abo, keine Folgekosten</span></p>
       <h1>Schichtplanung, die am <span>Brett verständlich</span> ist.</h1>
       <p class="banner-text">
         Dienste verteilen, Arbeitszeitregeln automatisch prüfen, Stunden und Urlaub abrechnen.
         Für Wohngruppen der Jugendhilfe gebaut — von jemandem, der selbst darin arbeitet.
       </p>
       <div class="knopfzeile">
-        <a class="knopf knopf-hell" href="#laden">Kostenlos herunterladen</a>
+        <a class="knopf knopf-hell" href="#laden">Kaufen · 19,99 €</a>
         <a class="knopf knopf-still" href="#koennen">Was sie kann</a>
       </div>
       <div class="siegel">
         <div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Keine Cloud, kein Konto</div>
         <div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> macOS &amp; Windows</div>
-        <div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> In zwei Schritten eingerichtet</div>
+        <div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Einmal zahlen, dauerhaft nutzen</div>
       </div>
     </div>
   </section>
@@ -396,8 +408,8 @@
         </div>
       </div>
       <div class="zahlen">
-        <div class="zahl"><b>0 €</b><span>dauerhaft, ohne Nutzergrenze</span></div>
-        <div class="zahl"><b>2</b><span>Schritte bis zur ersten Gruppe</span></div>
+        <div class="zahl"><b>19,99 €</b><span>einmalig, ohne Nutzergrenze</span></div>
+        <div class="zahl"><b>0 €</b><span>laufende Kosten, dauerhaft</span></div>
         <div class="zahl"><b>7</b><span>Regeln, die mitlaufen</span></div>
         <div class="zahl"><b>0</b><span>Daten, die das Haus verlassen</span></div>
       </div>
@@ -465,7 +477,7 @@
             <tr><th scope="col"></th><th scope="col">Papier &amp; Excel</th>
                 <th scope="col">Cloud-Dienstplaner</th><th scope="col" class="uns">Dienstplan</th></tr>
           </thead>
-          <tbody><tr><td>Kosten</td><td>keine</td><td>meist monatlich je Person</td><td class='uns'>keine, ohne Nutzergrenze</td></tr><tr><td>Wo die Daten liegen</td><td>bei euch</td><td>beim Anbieter</td><td class='uns'>bei euch, auf dem Rechner</td></tr><tr><td>Ohne Internet</td><td>ja</td><td>nein</td><td class='uns'>ja, vollständig</td></tr><tr><td>Arbeitszeitregeln</td><td>selbst im Kopf behalten</td><td>meist vorhanden</td><td class='uns'>laufen mit, mit Begründung</td></tr><tr><td>Nachtbereitschaft</td><td>von Hand nachrechnen</td><td>selten vorgesehen</td><td class='uns'>Splitdienst mit einstellbarem Anteil</td></tr><tr><td>Aushang</td><td>von Hand formatieren</td><td>Ausdruck der Bildschirmansicht</td><td class='uns'>eigens gebaut, auch für Kinder lesbar</td></tr><tr><td>Wenn etwas schiefgeht</td><td>Strg+Z, wenn ihr Glück habt</td><td>je nach Anbieter</td><td class='uns'>alles protokolliert und rücknehmbar</td></tr></tbody>
+          <tbody><tr><td>Kosten</td><td>keine</td><td>monatlich, meist je Person</td><td class='uns'>19,99 € einmalig, ohne Nutzergrenze</td></tr><tr><td>Nach fünf Jahren</td><td>keine</td><td>läuft weiter, Monat für Monat</td><td class='uns'>immer noch 19,99 €</td></tr><tr><td>Wenn ihr aufhört zu zahlen</td><td>—</td><td>Zugriff endet, auch auf alte Pläne</td><td class='uns'>nichts ändert sich</td></tr><tr><td>Wo die Daten liegen</td><td>bei euch</td><td>beim Anbieter</td><td class='uns'>bei euch, auf dem Rechner</td></tr><tr><td>Ohne Internet</td><td>ja</td><td>nein</td><td class='uns'>ja, vollständig</td></tr><tr><td>Arbeitszeitregeln</td><td>selbst im Kopf behalten</td><td>meist vorhanden</td><td class='uns'>laufen mit, mit Begründung</td></tr><tr><td>Nachtbereitschaft</td><td>von Hand nachrechnen</td><td>selten vorgesehen</td><td class='uns'>Splitdienst mit einstellbarem Anteil</td></tr><tr><td>Aushang</td><td>von Hand formatieren</td><td>Ausdruck der Bildschirmansicht</td><td class='uns'>eigens gebaut, auch für Kinder lesbar</td></tr><tr><td>Wenn etwas schiefgeht</td><td>Strg+Z, wenn ihr Glück habt</td><td>je nach Anbieter</td><td class='uns'>alles protokolliert und rücknehmbar</td></tr></tbody>
         </table>
       </div>
       <p style="margin-top:1rem;font-size:.88rem;color:var(--tinte-leise);max-width:62ch">
@@ -492,24 +504,25 @@
     </div>
   </section>
 
-  <section class="person" id="kostenlos">
+  <section class="person" id="preis">
     <div class="huelle person-raster">
       <div>
-        <p class="augenbraue">Kostenlos, auf Spendenbasis</p>
-        <h2>Weniger Bürokratie in unserem Beruf.</h2>
+        <p class="augenbraue">Der Preis</p>
+        <h2>Einmal 19,99 €. Danach nie wieder.</h2>
         <p>
-          Es gibt keine bezahlte Fassung, neben der diese die kleine wäre — nur diese eine,
-          vollständig, ohne Begrenzung auf Personen, Gruppen oder Arbeitsplätze.
+          Kein Abo, keine Gebühr je Mitarbeitendem, keine Staffel nach Gruppengröße, keine
+          Verlängerung, die man rechtzeitig kündigen muss. Sie zahlen einmal, und die
+          Anwendung gehört dem Haus.
         </p>
         <p>
-          Wir verbringen zu viel Zeit mit Verwaltung statt mit den Kindern. Jede Stunde, die
-          diese App einer Gruppe abnimmt, ist eine Stunde mehr für die eigentliche Arbeit.
-          Genau dafür wird sie weitergebaut.
+          Das ist der eigentliche Unterschied. Ein Dienstplaner, der monatlich abrechnet,
+          kostet über die Jahre ein Vielfaches — und wenn die Zahlung endet, endet auch der
+          Zugriff auf die eigenen Pläne. Hier liegt alles auf eurem Rechner und bleibt dort,
+          ob ihr noch zahlt oder nicht.
         </p>
         <p>
-          Was hereinkommt, fließt in die Weiterentwicklung — <strong>und in die Einrichtung,
-          die ich gerade aufbaue.</strong> Beides gehört zusammen: Das hier ist entstanden,
-          weil ich den Papierkram in meiner eigenen Gruppe loswerden wollte.
+          Entstanden ist die Anwendung, weil ich den Papierkram in meiner eigenen Gruppe
+          loswerden wollte. Wir verbringen zu viel Zeit mit Verwaltung statt mit den Kindern.
         </p>
         <p class="unterschrift">
           Gebaut in der Jugendhilfe, für die Jugendhilfe — von
@@ -518,25 +531,18 @@
         </p>
       </div>
 
-      <div class="spende">
-        <h3>Die App läuft auf Spenden</h3>
-        <p>
-          Wenn sie euch Arbeit abnimmt, haltet sie am Leben. Jeder Betrag geht in die nächsten
-          Schritte — <strong>Feiertage aller Bundesländer</strong> und den
-          <strong>Betrieb über einen hausinternen Server</strong>, damit mehrere Arbeitsplätze
-          denselben Plan sehen.
-        </p>
-        <div class="spende-wege">
-          <span class="platzhalter">PayPal-Link eintragen</span>
-          <span class="platzhalter">IBAN eintragen</span>
-        </div>
-        <p class="spende-fuss">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Freiwillig. In der App kommt das Thema nirgends vor —
-          keine Erinnerung, keine gesperrte Funktion.
-        </p>
+      <div class="spende preiskarte">
+        <p class="betrag"><b>19,99 €</b> <span>einmalig</span></p>
+        <ul class="preis-liste">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Alle Funktionen — es gibt keine größere Fassung</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Ohne Grenze bei Mitarbeitenden, Gruppen oder Arbeitsplätzen</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>macOS und Windows, beide dabei</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Läuft auch dann noch, wenn es mich einmal nicht mehr gibt</span></li>
+        </ul>
+        <a class="knopf" href="#laden">Zum Kauf</a>
         <p class="spende-fuss spende-fuss-still">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg> Ich bin nicht als gemeinnützig anerkannt. Eine Spendenquittung
-          fürs Finanzamt kann ich deshalb nicht ausstellen.
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg> <span class="platzhalter">Steuerhinweis eintragen</span> ·
+          Zahlung über <span class="platzhalter">Anbieter eintragen</span>.
         </p>
       </div>
     </div>
@@ -545,11 +551,12 @@
   <section class="abschnitt" id="laden">
     <div class="huelle">
       <div class="kopfzeile">
-        <p class="augenbraue">Herunterladen</p>
+        <p class="augenbraue">Kaufen</p>
         <h2>Doppelklick, Passwort, erste Gruppe.</h2>
         <p>
-          Beim ersten Start führt ein kurzer Assistent durch zwei Schritte. Danach steht eine
-          leere Installation bereit. Es muss nichts nachgeladen werden — auch kein Internet.
+          Nach dem Kauf bekommt ihr den Download für beide Systeme. Beim ersten Start führt
+          ein kurzer Assistent durch zwei Schritte, danach steht eine leere Installation
+          bereit. Es muss nichts nachgeladen werden — auch kein Internet.
         </p>
       </div>
       <div class="download">
@@ -557,25 +564,29 @@
           <h3>macOS · Apple-Chip</h3>
           <p class="system">M1 bis M4 · macOS 11 oder neuer</p>
           <p class="groesse">386 MB · .dmg</p>
-          <a class="knopf" href="https://github.com/hanneshobbs21-hash/dienstplan/releases/latest/download/Dienstplan-Mac-AppleChip.dmg">Herunterladen</a>
         </div>
         <div class="lade">
           <h3>macOS · Intel</h3>
           <p class="system">Ältere Mac-Modelle · macOS 11 oder neuer</p>
           <p class="groesse">438 MB · .dmg</p>
-          <a class="knopf" href="https://github.com/hanneshobbs21-hash/dienstplan/releases/latest/download/Dienstplan-Mac-Intel.dmg">Herunterladen</a>
         </div>
         <div class="lade">
           <h3>Windows</h3>
           <p class="system">Windows 10 oder 11 · 64 Bit</p>
           <p class="groesse">329 MB · .exe</p>
-          <a class="knopf" href="https://github.com/hanneshobbs21-hash/dienstplan/releases/latest/download/Dienstplan-Windows-Setup.exe">Herunterladen</a>
         </div>
       </div>
-      <p style="margin-top:1.2rem;color:var(--tinte-matt);font-size:.93rem;max-width:62ch">
-        Nicht sicher, welche Fassung? Auf dem Mac unter  → „Über diesen Mac“ nachsehen:
-        Steht dort „Apple M…“, ist es die erste. Fragen gern an
-        <a href="mailto:kontakt@dienstplan-jugendhilfe.de">kontakt@dienstplan-jugendhilfe.de</a>.
+      <div class="kaufzeile">
+        <a class="knopf knopf-gross" href="KAUF-LINK-EINTRAGEN">Kaufen · 19,99 €</a>
+        <p>
+          Alle drei Fassungen sind enthalten — ihr ladet die, die zu eurem Rechner passt.
+          Auf dem Mac steht unter  → „Über diesen Mac“, welche es ist: heißt es dort
+          „Apple M…“, ist es die erste.
+        </p>
+      </div>
+      <p style="margin-top:1.4rem;color:var(--tinte-matt);font-size:.93rem;max-width:62ch">
+        Fragen vor dem Kauf? Schreibt an <a href="mailto:kontakt@dienstplan-jugendhilfe.de">kontakt@dienstplan-jugendhilfe.de</a> —
+        ich antworte selbst.
       </p>
     </div>
   </section>
@@ -586,7 +597,7 @@
         <p class="augenbraue">Häufige Fragen</p>
         <h2>Was Träger meistens wissen wollen.</h2>
       </div>
-      <div class="fragen"><details open><summary>Was kostet die App?</summary><p>Nichts. Keine Lizenzgebühr, kein Abonnement, keine Begrenzung auf eine bestimmte Zahl von Mitarbeitenden, Gruppen oder Arbeitsplätzen. Sie finanziert sich über Spenden — freiwillig, und in der Anwendung selbst kommt das Thema nirgends vor.</p></details><details><summary>Können wir uns auf die Arbeitszeitprüfung verlassen?</summary><p>Sie ist eine Hilfe, keine Rechtsberatung. Die App prüft Ruhezeiten, Arbeitstage am Stück und Nachtdienst-Kontingente nach den Regeln des Arbeitszeitgesetzes und meldet, was ihr auffällt — die Verantwortung für den Plan bleibt bei euch. Tarifverträge, Dienstvereinbarungen und Sonderfälle kann kein Programm vollständig kennen, und geprüft wird nur, was ihr eintragt.</p></details><details><summary>Können wir mehrere Wohngruppen verwalten?</summary><p>Ja, beliebig viele — mit eigenen Diensten, Kindern und Zeiten. Mitarbeitende lassen sich mehreren Gruppen anteilig zuordnen; ihre Stunden zählen trotzdem nur einmal. Eine Installation trägt dabei einen Träger.</p></details><details><summary>Läuft sie auf mehreren Rechnern gleichzeitig?</summary><p>Jede Installation hat ihre eigene Datenbank auf ihrem Rechner. Der gemeinsame Zugriff mehrerer Arbeitsplätze über einen hausinternen Server ist vorgesehen, aber noch nicht Teil dieser Fassung.</p></details><details><summary>Wie ist es mit Feiertagen außerhalb Baden-Württembergs?</summary><p>Derzeit sind die gesetzlichen Feiertage Baden-Württembergs hinterlegt, inklusive der beweglichen. Andere Bundesländer sind vorgesehen — sprechen Sie uns an, wenn Sie sie brauchen.</p></details><details><summary>Was passiert bei einem Update mit unseren Daten?</summary><p>Sie bleiben erhalten. Die Datenbank liegt getrennt von der Anwendung; beim Start wird sie automatisch auf den neuen Stand gebracht und vorher gesichert.</p></details><details><summary>Brauchen Mitarbeitende eigene Zugänge?</summary><p>Optional. Jede Person kann ein eigenes Passwort bekommen und sieht dann ihren Plan, ihr Stunden- und ihr Urlaubskonto — nicht die der anderen. Die Verwaltung hat ein getrenntes Passwort.</p></details></div>
+      <div class="fragen"><details open><summary>Was kostet die App?</summary><p>19,99 € einmalig für das ganze Haus. Kein Abonnement, keine Gebühr je Mitarbeitendem, keine Begrenzung auf eine bestimmte Zahl von Personen, Gruppen oder Arbeitsplätzen. Nach dem Kauf gehört die Anwendung euch — auch dann noch, wenn ihr nie wieder etwas von mir hört.</p></details><details><summary>Gibt es Folgekosten oder eine Verlängerung?</summary><p>Nein. Es gibt nichts, was sich verlängert, und nichts, was gekündigt werden müsste. Die Anwendung braucht keinen Server bei mir, deshalb entstehen mir auch keine laufenden Kosten, die ich weitergeben müsste. Was ihr einmal zahlt, ist alles.</p></details><details><summary>Können wir uns auf die Arbeitszeitprüfung verlassen?</summary><p>Sie ist eine Hilfe, keine Rechtsberatung. Die App prüft Ruhezeiten, Arbeitstage am Stück und Nachtdienst-Kontingente nach den Regeln des Arbeitszeitgesetzes und meldet, was ihr auffällt — die Verantwortung für den Plan bleibt bei euch. Tarifverträge, Dienstvereinbarungen und Sonderfälle kann kein Programm vollständig kennen, und geprüft wird nur, was ihr eintragt.</p></details><details><summary>Können wir mehrere Wohngruppen verwalten?</summary><p>Ja, beliebig viele — mit eigenen Diensten, Kindern und Zeiten. Mitarbeitende lassen sich mehreren Gruppen anteilig zuordnen; ihre Stunden zählen trotzdem nur einmal. Eine Installation trägt dabei einen Träger.</p></details><details><summary>Läuft sie auf mehreren Rechnern gleichzeitig?</summary><p>Jede Installation hat ihre eigene Datenbank auf ihrem Rechner. Der gemeinsame Zugriff mehrerer Arbeitsplätze über einen hausinternen Server ist vorgesehen, aber noch nicht Teil dieser Fassung.</p></details><details><summary>Wie ist es mit Feiertagen außerhalb Baden-Württembergs?</summary><p>Derzeit sind die gesetzlichen Feiertage Baden-Württembergs hinterlegt, inklusive der beweglichen. Andere Bundesländer sind vorgesehen — sprechen Sie uns an, wenn Sie sie brauchen.</p></details><details><summary>Was passiert bei einem Update mit unseren Daten?</summary><p>Sie bleiben erhalten. Die Datenbank liegt getrennt von der Anwendung; beim Start wird sie automatisch auf den neuen Stand gebracht und vorher gesichert.</p></details><details><summary>Brauchen Mitarbeitende eigene Zugänge?</summary><p>Optional. Jede Person kann ein eigenes Passwort bekommen und sieht dann ihren Plan, ihr Stunden- und ihr Urlaubskonto — nicht die der anderen. Die Verwaltung hat ein getrenntes Passwort.</p></details></div>
     </div>
   </section>
 </main>
