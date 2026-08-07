@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dienstplan – Schichtplanung für Wohngruppen der Jugendhilfe</title>
-<meta name="description" content="Dienstplanung für Wohngruppen der Jugendhilfe. Läuft auf dem Rechner im Haus, ohne Cloud und ohne Konto. Arbeitszeitregeln laufen mit, Aushang fürs Brett inklusive. Einmal 149 €.">
+<meta name="description" content="Dienstplanung für Wohngruppen der Jugendhilfe und Betriebe mit Schichtdienst. Läuft auf dem Rechner im Haus, ohne Cloud und ohne Konto. Arbeitszeitregeln laufen mit, Aushang fürs Brett inklusive. 179 € einmalig, kein Abo.">
 <link rel="canonical" href="https://dienstplan-jugendhilfe.de/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:title" content="Dienstplan – Schichtplanung für Wohngruppen der Jugendhilfe">
-<meta property="og:description" content="Läuft auf dem Rechner im Haus, ohne Cloud und ohne Konto. Arbeitszeitregeln laufen mit. Einmal 149 €, kein Abo.">
+<meta property="og:description" content="Läuft auf dem Rechner im Haus, ohne Cloud und ohne Konto. Arbeitszeitregeln laufen mit. 179 € einmalig, kein Abo, keine Gebühr je Kopf.">
 <meta property="og:url" content="https://dienstplan-jugendhilfe.de/">
 <meta property="og:image" content="https://dienstplan-jugendhilfe.de/vorschau.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -45,6 +45,8 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
     </a>
     <nav>
       <a href="#koennen">Was sie kann</a>
+      <a href="#verwaltungsweg">Erste Schritte</a>
+      <a href="#rundgang">Für das Team</a>
       <a href="#haus">Für das ganze Haus</a>
       <a href="#vergleich">Vergleich</a>
       <a href="#preis">Preis</a>
@@ -55,7 +57,7 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
           <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
         </svg>
       </button>
-      <a class="knopf knopf-voll knopf-klein" href="#preis">Vormerken<span class="nur-breit"> · 149 €</span></a>
+      <a class="knopf knopf-voll knopf-klein" href="#kaufen">Bestellen</a>
     </div>
   </div>
 </header>
@@ -79,13 +81,13 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
         Für Wohngruppen der Jugendhilfe gebaut — von jemandem, der selbst darin arbeitet.
       </p>
       <div style="display:flex; flex-wrap:wrap; gap:.7rem">
-        <a class="knopf knopf-voll" href="#preis">Vormerken lassen · 149 € einmalig</a>
+        <a class="knopf knopf-voll" href="#kaufen">Bestellen</a>
         <a class="knopf" href="#koennen">Was sie kann</a>
       </div>
       <div class="merkmale">
         <span><svg class="haken" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Keine Cloud, kein Konto</span>
         <span><svg class="haken" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> macOS &amp; Windows</span>
-        <span><svg class="haken" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Einmal zahlen, dauerhaft nutzen</span>
+        <span><svg class="haken" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Alle Updates inklusive</span>
       </div>
     </div>
 
@@ -135,6 +137,19 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
             <tbody id="planzeilen"><!-- wird beim Laden erzeugt --></tbody>
           </table>
         </div>
+        <ul class="lese-hinweise">
+          <li><strong>Der Nachtdienst bleibt ein Eintrag.</strong> Er steht am Tag, an dem er
+            beginnt — nichts wird über zwei Tage zerrissen. Die Stunden nach Mitternacht
+            rechnet die App trotzdem richtig, und auf dem Aushang läuft der Block mit Pfeil
+            in den Folgetag.</li>
+          <li><strong>Eingeteilt wird nach Stunden.</strong> Jede Person hat ihr Monats-Soll aus
+            den Vertragsstunden. Die automatische Verteilung nimmt zuerst, wer am wenigsten
+            davon erfüllt hat — und der Punkt am Namen zeigt es jederzeit: grün = noch Luft,
+            blau = im Soll, rot = darüber.</li>
+          <li><strong>Lücken rufen laut.</strong> Ein Dienst ohne Menschen steht rot im Plan,
+            Unterbesetzung gelb — und die Warnleiste oben sagt ehrlich, wenn der Monat
+            rechnerisch nicht aufgeht.</li>
+        </ul>
         <p class="leise" style="font-size:.72rem; margin-top:.6rem">
           Nachgebaut mit den Farben und Abständen der Anwendung. Echte Aufnahmen weiter unten.
         </p>
@@ -142,13 +157,69 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
     </div>
 
     <div class="zaehler">
-      <div><b>149 €</b><span>einmalig, ohne Nutzergrenze</span></div>
+      <div><b>179 €</b><span>einmal — ohne Nutzergrenze</span></div>
       <div><b>0 €</b><span>laufende Kosten, dauerhaft</span></div>
-      <div><b>7</b><span>Regeln, die mitlaufen</span></div>
+      <div><b>1,1 s</b><span>je Monat — einmal eingerichtet, gemessen</span></div>
       <div><b>0</b><span>Daten, die das Haus verlassen</span></div>
     </div>
   </div>
 </section>
+
+<!-- ====================== Neun Schlagwörter ====================== -->
+<section class="abschnitt" id="schlagworte" style="padding-top:2.5rem">
+  <div class="huelle">
+    <p class="augenbraue">In neun Worten</p>
+    <h2 class="mittel" style="margin-top:.5rem">Warum dieses Programm — zum Anklicken.</h2>
+    <div class="schlagworte" style="margin-top:1.5rem">
+      <a class="schlagwort" href="#sekunden">
+        <span class="schlagwort-nr mono">1</span>
+        <b>Sekundenschnell</b>
+        <span>Einmal eingerichtet, füllt ein Klick den ganzen Monat — 1,1 s, gemessen.</span>
+      </a>
+      <a class="schlagwort" href="#rundgang">
+        <span class="schlagwort-nr mono">2</span>
+        <b>Sofort verstanden</b>
+        <span>Anmelden per Namenskachel. Jeder Schritt erklärt sich selbst.</span>
+      </a>
+      <a class="schlagwort" href="#datenschutz-kurz">
+        <span class="schlagwort-nr mono">3</span>
+        <b>Alles im Haus</b>
+        <span>Keine Cloud, kein Konto. Die Daten verlassen den Rechner nicht.</span>
+      </a>
+      <a class="schlagwort" href="#preis">
+        <span class="schlagwort-nr mono">4</span>
+        <b>179 € einmalig</b>
+        <span>Kein Abo, keine Gebühr je Kopf. Alle Updates inklusive.</span>
+      </a>
+      <a class="schlagwort" href="#koennen">
+        <span class="schlagwort-nr mono">5</span>
+        <b>Gesetz im Blick</b>
+        <span>Ruhezeiten, Tage am Stück, Nachtdienst-Kontingente laufen mit.</span>
+      </a>
+      <a class="schlagwort" href="#verwaltungsweg">
+        <span class="schlagwort-nr mono">6</span>
+        <b>Zyklen &amp; Routinen</b>
+        <span>Einmal hinterlegt, jeden Monat von selbst eingetragen.</span>
+      </a>
+      <a class="schlagwort" href="#zeitkonten">
+        <span class="schlagwort-nr mono">7</span>
+        <b>Zeitkonten von selbst</b>
+        <span>Soll, Ist, Übertrag, Urlaub — nachvollziehbar bis zur Stunde.</span>
+      </a>
+      <a class="schlagwort" href="#aushang">
+        <span class="schlagwort-nr mono">8</span>
+        <b>Aushang fertig</b>
+        <span>Ein Klick: der Plan fürs Brett, als Druck, PDF und Excel.</span>
+      </a>
+      <a class="schlagwort" href="#betriebe">
+        <span class="schlagwort-nr mono">9</span>
+        <b>Jede Branche</b>
+        <span>Jugendhilfe mit Kinder-Funktionen — oder Betrieb ohne.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <!-- ====================== Was sie kann ====================== -->
 <section class="abschnitt" id="koennen">
@@ -167,7 +238,7 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
           <li><span><strong>Beliebig viele Dienstarten</strong> je Gruppe, minutengenau.</span></li>
           <li><span><strong>Splitdienst über Nacht</strong> mit zwei Blöcken und Bereitschaft dazwischen.</span></li>
           <li><span><strong>Monat und Woche</strong> im Umschalter, auch über den Monatswechsel.</span></li>
-          <li><span><strong>Automatisch füllen</strong> — verteilt fair und markiert, wo es klemmt.</span></li>
+          <li><span><strong>Automatisch füllen</strong> — verteilt fair nach Stunden-Soll und markiert, wo es klemmt.</span></li>
           <li><span><strong>Zyklen und Routinen</strong> für wiederkehrende Dienste.</span></li>
           <li><span><strong>Wunschfrei</strong> je Person, beim Verteilen berücksichtigt.</span></li>
         </ul>
@@ -198,10 +269,13 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
     </div>
 
     <div class="karte" style="margin-top:1.25rem; padding:1.4rem">
-      <h3 class="klein-h">Tages-Abdeckung — wie viele Personen zu welcher Uhrzeit da sind</h3>
+      <h3 class="klein-h">Tages-Abdeckung — wer ist wann im Haus?</h3>
       <p class="leise" style="font-size:.85rem; margin-top:.35rem">
-        Über den ganzen Tag, 0 bis 24 Uhr. Splitdienste zählen inklusive Nachtbereitschaft bis
-        zum Morgenblock. So sieht man Lücken, bevor sie jemandem auffallen.
+        Unter jedem Tag zeichnet die App diese Leiste: <strong>je höher der Balken, desto mehr
+        Menschen sind zu dieser Uhrzeit da</strong> — von 0 bis 24 Uhr, halbstundengenau,
+        Splitdienste samt Morgenblock mitgerechnet. Nachts einer, nachmittags zur
+        Hausaufgabenzeit drei. Sackt die Leiste auf null, klafft eine Lücke — und das sieht
+        man hier, bevor es abends jemand im Flur merkt.
       </p>
       <div class="abdeckung" aria-hidden="true">
         <i></i><i></i><i></i><i></i><i></i><i></i>
@@ -211,16 +285,214 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
         <i class="s1"></i><i class="s1"></i><i class="s1"></i>
       </div>
       <div class="stundenachse"><span>0</span><span>6</span><span>12</span><span>18</span><span>24</span></div>
+      <p class="leise" style="font-size:.75rem; margin-top:.5rem">
+        Im Beispiel: eine Person durch die Nacht, ab morgens zwei, über Mittag und zur
+        Hausaufgabenzeit drei, zum Abend hin wieder weniger.
+      </p>
     </div>
   </div>
 </section>
 
+<!-- ====================== Für die Verwaltung ====================== -->
+<section class="abschnitt" id="verwaltungsweg">
+  <div class="huelle">
+    <p class="augenbraue">Für die Leitung — so fängt es an</p>
+    <h2 class="mittel" style="margin-top:.5rem">Einmal einstellen. Dann steht der Monat in Sekunden.</h2>
+    <p class="fliess" style="margin-top:.9rem; max-width:65ch">
+      Wir gehen es mit euch durch, vom ersten Start bis zum fertigen Plan. Dienstplanung
+      kostet nicht beim Ausfüllen die Zeit, sondern beim Immer-wieder-neu-Erfinden — deshalb
+      steckt die Arbeit hier in der Einrichtung, <strong>einmal</strong>, und danach macht
+      der Monat sich fast von selbst:
+    </p>
+
+    <div class="systeme" style="margin-top:1.5rem">
+      <div class="karte system">
+        <h3>1 · Abteilung anlegen</h3>
+        <p>Der Assistent beim ersten Start fragt zwei Dinge: ein Passwort für die Leitung
+        und den Namen eurer ersten Gruppe. Früh-, Spät- und Nachtdienst stehen sofort als
+        Vorschlag bereit — Zeiten und Besetzung passt ihr an eure Wirklichkeit an, Team
+        eintragen, fertig. Jede weitere Abteilung ist ein Klick. Gespeichert wird
+        automatisch, einen Speichern-Knopf gibt es nicht.</p>
+      </div>
+      <div class="karte system">
+        <h3>2 · Muster hinterlegen</h3>
+        <p><strong>Zyklen</strong> („Anna jeden Montag Früh"), <strong>Routinen</strong> mit
+        eigenen Zeiten („freitags 10–13 Teamvorbereitung"), <strong>Gruppentermine</strong>
+        (Teamsitzung wöchentlich, Supervision alle vier Wochen) und die
+        <strong>Hot-Phasen</strong> eurer Tagesstruktur.</p>
+      </div>
+      <div class="karte system">
+        <h3>3 · Jeden Monat: ein Klick</h3>
+        <p>„Plan automatisch füllen → Nach Verwaltungsvorgaben" trägt erst die Zyklen ein,
+        füllt dann fair nach Stunden-Soll, besetzt Hot-Phasen mit und überspringt, wer im
+        Urlaub ist. Bestehende Einträge bleiben unangetastet.</p>
+      </div>
+    </div>
+
+    <p class="chip" id="sekunden" style="margin-top:2.5rem">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Gemessen, nicht behauptet: 1,1 Sekunden für den ganzen Monat
+    </p>
+    <div class="paar" style="margin-top:1rem">
+      <figure class="bild" style="margin:0">
+        <img src="bilder/monat-leer.jpg" alt="Leerer September: alle Dienste unbesetzt, oben der Knopf ‚Plan automatisch füllen'" width="1200" height="700" loading="lazy">
+        <figcaption>Vorher: der 1. des Monats, noch kein einziger Eintrag</figcaption>
+      </figure>
+      <figure class="bild" style="margin:0">
+        <img src="bilder/monat-gefuellt.jpg" alt="Derselbe September nach einem Klick: alle Dienste besetzt, Teamsitzung für das ganze Team eingetragen, Hausaufgaben-Phase besetzt" width="1200" height="700" loading="lazy">
+        <figcaption>Nachher: 1,1 Sekunden später — 179 Einträge, Zyklen, Teamsitzungen, Hot-Phasen</figcaption>
+      </figure>
+    </div>
+
+    <div class="paar gedreht" style="margin-top:3rem">
+      <figure class="bild" style="margin:0">
+        <img src="bilder/monatsplan.jpg" alt="Monatsplan mit zwei Wohngruppen als Reiter, farbigen Namen je Dienst, Extra-Spalte mit individuellen Zeiten und einer Warnung, wenn die Stunden knapp werden" width="1200" height="740" loading="lazy">
+        <figcaption>Echte Aufnahme aus der App · Beispieldaten, alle Namen erfunden</figcaption>
+      </figure>
+      <div>
+        <p class="augenbraue">Das Ergebnis</p>
+        <h3 class="mittel" style="margin-top:.5rem; font-size:1.35rem">Der Plan – für beliebig viele Gruppen.</h3>
+        <p class="fliess" style="margin-top:.9rem">Jede Gruppe hat ihren eigenen Plan mit eigenen
+        Diensten und Zeiten. Jeder Name trägt seine Farbe, kleine Punkte zeigen die Auslastung, und
+        in der Extra-Spalte stehen Einsätze mit frei gezogenen Zeiten — hier ein Zooausflug
+        13:00–16:30.</p>
+      <p class="fliess" style="margin-top:.9rem">Und wenn die Stunden nicht reichen, sagt die App
+        das offen — im Bild die Warnung: <em>„Das geht auf, aber ohne Luft."</em></p>
+      </div>
+    </div>
+
+
+    <div class="paar gedreht" style="margin-top:3rem">
+      <figure class="bild" style="margin:0">
+        <img src="bilder/zyklen.jpg" alt="Verwaltung: Zyklen mit festen Diensten und Routinen mit individuellen Zeiten" width="1200" height="700" loading="lazy">
+        <figcaption>Verwaltung · Zyklen &amp; Routinen — einmal angelegt, jeden Monat automatisch eingetragen</figcaption>
+      </figure>
+      <div>
+        <p class="augenbraue">4 · Feinschliff, wo nötig</p>
+        <h3 class="mittel" style="margin-top:.5rem; font-size:1.35rem">Die App schlägt vor. Ihr entscheidet.</h3>
+        <p class="fliess" style="margin-top:.9rem">
+          Das Zuweisen-Menü an jeder Lücke sortiert die Vorschläge: <strong>★ zuerst, wer noch
+          Stunden offen hat.</strong> Wer gegen eine Regel verstoßen würde, bekommt ein ⚠ mit
+          Begründung — die Verwaltung darf trotzdem, sie wird nur nie blind hineinlaufen.
+          Und jeder Schritt ist mit Strg+Z rückholbar.
+        </p>
+        <p class="fliess" style="margin-top:.9rem">
+          Im Hintergrund laufen die Prüfungen des Arbeitszeitgesetzes mit (Ruhezeit, Tage am
+          Stück, Nachtdienst-Kontingente), die Zeitkonten und der Urlaub rechnen sich selbst,
+          und am Ende sind es zwei Klicks: <strong>Aushang drucken, fertig.</strong>
+        </p>
+      </div>
+    </div>
+    <div class="paar gedreht" style="margin-top:3rem">
+      <figure class="bild" style="margin:0">
+        <img src="bilder/hotphasen.jpg" alt="Hot-Phasen-Editor: orange Balken je Wochentag, mit der Maus verschiebbar und in der Länge ziehbar" width="1200" height="700" loading="lazy">
+        <figcaption>Echte Aufnahme aus der App · Beispieldaten, alle Namen erfunden</figcaption>
+      </figure>
+      <div>
+        <p class="augenbraue">5 · Eure Tagesstruktur</p>
+        <h3 class="mittel" style="margin-top:.5rem; font-size:1.35rem">Eure Tagesstruktur, mit der Maus gezogen.</h3>
+        <p class="fliess" style="margin-top:.9rem">Hausaufgabenzeit, Abendroutine, Wochenendprogramm:
+        Wann es bei euch dicht zugeht, wisst nur ihr. Die Hot-Phasen zieht ihr als Balken über die
+        Woche — verschieben, länger oder kürzer ziehen, loslassen, gespeichert. Beim automatischen
+        Verteilen werden sie mitbesetzt.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====================== Rundgang ====================== -->
+<section class="abschnitt" id="rundgang">
+  <div class="huelle">
+    <p class="augenbraue">Für das Team</p>
+    <h2 class="mittel" style="margin-top:.5rem">Und so erleben es die Mitarbeitenden.</h2>
+    <p class="fliess" style="margin-top:.9rem; max-width:65ch">
+      Der Plan steht — jetzt die andere Seite. Dieselbe Beispiel-Einrichtung, aus Sicht
+      derer, die den Plan jeden Tag benutzen: anmelden, die eigene Woche sehen, beantragen
+      statt bitten. Auch das entlastet die Leitung: Wünsche kommen nicht mehr per Zettel
+      und Zuruf, sondern an einer Stelle, wo sie niemand vergisst.
+    </p>
+
+    <div class="paar" style="margin-top:3rem">
+      <figure class="bild" style="margin:0">
+        <img src="bilder/anmeldung.jpg" alt="Anmeldung: jede Person tippt ihre Namenskachel an, die Verwaltung meldet sich mit Passwort an" width="1200" height="650" loading="lazy">
+        <figcaption>Echte Aufnahme aus der App · Beispieldaten, alle Namen erfunden</figcaption>
+      </figure>
+      <div>
+        <p class="augenbraue">Schritt 1</p>
+        <h3 class="mittel" style="margin-top:.5rem; font-size:1.35rem">Anmelden – ohne Hürde.</h3>
+        <p class="fliess" style="margin-top:.9rem">Jede Person tippt ihre Kachel an — auf Wunsch
+        mit eigenem Passwort. Die Verwaltung hat einen eigenen, passwortgeschützten Zugang.
+        Kein Konto bei einem Anbieter, keine E-Mail-Adresse nötig.</p>
+      </div>
+    </div>
+
+    <div class="paar" style="margin-top:3rem">
+      <figure class="bild" style="margin:0">
+        <img src="bilder/wochenansicht.jpg" alt="Wochenansicht aus Sicht einer Mitarbeiterin: Karten je Tag mit allen Diensten und Extra-Einsätzen" width="1200" height="720" loading="lazy">
+        <figcaption>Echte Aufnahme aus der App · Beispieldaten, alle Namen erfunden</figcaption>
+      </figure>
+      <div>
+        <p class="augenbraue">Schritt 2</p>
+        <h3 class="mittel" style="margin-top:.5rem; font-size:1.35rem">Jede und jeder sieht die eigene Woche.</h3>
+        <p class="fliess" style="margin-top:.9rem">Mitarbeitende melden sich an und sehen sofort,
+        wer wann arbeitet. Eintragen, Austragen, Tauschen — alles geht direkt am Plan, wird aber
+        zum <strong>Antrag</strong>: Bis die Verwaltung entscheidet, bleibt der Plan, wie er ist.
+        Der Aushang stimmt also immer.</p>
+      </div>
+    </div>
+
+    <div class="paar gedreht" style="margin-top:3rem">
+      <figure class="bild" style="margin:0">
+        <img src="bilder/antraege.jpg" alt="Antragsseite der Verwaltung: eine kurzfristige Abmeldung ruft nach Ersatz, darunter zwei Anträge mit Genehmigen- und Ablehnen-Knopf" width="1200" height="720" loading="lazy">
+        <figcaption>Echte Aufnahme aus der App · Beispieldaten, alle Namen erfunden</figcaption>
+      </figure>
+      <div>
+        <p class="augenbraue">Schritt 3</p>
+        <h3 class="mittel" style="margin-top:.5rem; font-size:1.35rem">Anträge – und der Ernstfall.</h3>
+        <p class="fliess" style="margin-top:.9rem">Mehrstunden, Urlaub, Tausch — die Verwaltung
+        entscheidet mit einem Klick und sieht vorher, was eine Genehmigung auslösen würde.</p>
+      <p class="fliess" style="margin-top:.9rem">Wer sich kurz vor Dienstbeginn abmeldet, wartet
+        nicht auf eine Genehmigung: Die Abmeldung gilt sofort, der Dienst steht sichtbar unbesetzt
+        im Plan, und die Verwaltung bekommt die rote Meldung <em>„Dienst unbesetzt — Ersatz
+        gesucht"</em>.</p>
+      </div>
+    </div>
+
+    <div class="paar" style="margin-top:3rem">
+      <figure class="bild" style="margin:0">
+        <img src="bilder/stunden.jpg" alt="Stundenübersicht: Soll und Ist je Person, Differenz und Zeitkonto farbig, Korrektur-Stift daneben" width="1200" height="700" loading="lazy">
+        <figcaption>Echte Aufnahme aus der App · Beispieldaten, alle Namen erfunden</figcaption>
+      </figure>
+      <div>
+        <p class="augenbraue">Schritt 4</p>
+        <h3 class="mittel" id="zeitkonten" style="margin-top:.5rem; font-size:1.35rem">Stunden und Konten rechnen sich selbst.</h3>
+        <p class="fliess" style="margin-top:.9rem">Soll und Ist je Person, Urlaub zählt als
+        erbracht, das Zeitkonto läuft über Monatsgrenzen weiter. Wer in mehreren Gruppen arbeitet —
+        etwa 60 % hier, 40 % dort — wird einmal gezählt, nicht doppelt.</p>
+      <p class="fliess" style="margin-top:.9rem">Korrekturen (ausbezahlte Stunden, alte Überträge)
+        trägt die Verwaltung mit Begründung ein — nichts wird überschrieben, alles bleibt
+        nachvollziehbar.</p>
+      </div>
+    </div>
+
+    <p class="fliess" style="margin-top:3rem; max-width:65ch">
+      Und der fertige Plan? Der kommt als <a href="#aushang">Aushang ans Brett</a> — und was
+      sich sonst noch alles einstellen lässt, steht in der
+      <a href="#einstellungen">Verwaltung</a>. Beides direkt hier darunter.
+    </p>
+  </div>
+</section>
+
 <!-- ====================== Aushang ====================== -->
-<section class="abschnitt">
+<section class="abschnitt" id="aushang">
   <div class="huelle">
     <div class="paar">
       <figure class="bild" style="margin:0">
-        <img src="bilder/druckansicht.jpg" alt="Der Aushang: Monatsplan als mehrseitige Tabelle mit Legende und Feiertagen" width="1200" height="691" loading="lazy">
+        <img src="bilder/druckansicht.jpg" alt="Der Aushang: Monatsplan als mehrseitige Tabelle mit Legende und Feiertagen" width="1200" height="780" loading="lazy">
         <figcaption>Druckansicht · echte Aufnahme aus der App</figcaption>
       </figure>
       <div>
@@ -241,11 +513,11 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
 </section>
 
 <!-- ====================== Verwaltung ====================== -->
-<section class="abschnitt">
+<section class="abschnitt" id="einstellungen">
   <div class="huelle">
     <div class="paar gedreht">
       <figure class="bild" style="margin:0">
-        <img src="bilder/verwaltung.jpg" alt="Verwaltung: Dienstarten mit Zeiten, Besetzung und dem Anteil der Nachtbereitschaft" width="1200" height="691" loading="lazy">
+        <img src="bilder/verwaltung.jpg" alt="Verwaltung: Dienstarten mit Zeiten, Besetzung und dem Anteil der Nachtbereitschaft" width="1200" height="705" loading="lazy">
         <figcaption>Verwaltung · Dienste</figcaption>
       </figure>
       <div>
@@ -275,6 +547,14 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
       Deshalb kann die Installation im Haus freigegeben werden: Der Rechner im Büro trägt die
       Daten, alle anderen Arbeitsplätze und Diensthandys rufen den Plan über das hauseigene
       Netz auf — im Browser, ohne Installation.
+    </p>
+    <p class="chip" style="margin-top:1rem">Ehrlich gesagt: noch im Probelauf (Beta)</p>
+    <p class="fliess" style="margin-top:.75rem; max-width:65ch">
+      Das Hausnetz ist fertig gebaut und läuft — es hat aber noch nicht genug fremde Häuser
+      gesehen, um es ohne dieses Wort zu verkaufen. <strong>Gekauft wird hier vorrangig die
+      Anwendung selbst</strong>, die vollständig auf einem Rechner arbeitet. Das Hausnetz
+      schaltet ihr dazu, sobald ihr mögt — und weil <strong>alle Updates inklusive</strong>
+      sind, bekommt jedes Haus den fertigen Stand automatisch, ohne Aufpreis.
     </p>
 
     <div class="netz">
@@ -324,9 +604,9 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
           </tr>
         </thead>
         <tbody>
-          <tr><td>Kosten</td><td>keine</td><td>monatlich, meist je Person</td><td class="unsere">149 € einmalig, ohne Nutzergrenze</td></tr>
-          <tr><td>Nach fünf Jahren</td><td>keine</td><td>läuft weiter, Monat für Monat</td><td class="unsere">immer noch 149 €</td></tr>
-          <tr><td>Wenn ihr aufhört zu zahlen</td><td>—</td><td>Zugriff endet, auch auf alte Pläne</td><td class="unsere">nichts ändert sich</td></tr>
+          <tr><td>Kosten</td><td>keine</td><td>monatlich, meist je Person</td><td class="unsere">keine, ohne Nutzergrenze</td></tr>
+          <tr><td>Nach fünf Jahren</td><td>keine</td><td>läuft weiter, Monat für Monat</td><td class="unsere">immer noch keine</td></tr>
+          <tr><td>Wenn ihr aufhört zu zahlen</td><td>—</td><td>Zugriff endet, auch auf alte Pläne</td><td class="unsere">es gibt nichts zu zahlen</td></tr>
           <tr><td>Wo die Daten liegen</td><td>bei euch</td><td>beim Anbieter</td><td class="unsere">bei euch, auf eurem Rechner</td></tr>
           <tr><td>Ohne Internet</td><td>ja</td><td>nein</td><td class="unsere">ja, vollständig</td></tr>
           <tr><td>Mehrere Arbeitsplätze</td><td>eine Datei, die herumgereicht wird</td><td>ja, über den Anbieter</td><td class="unsere">ja, über das eigene Hausnetz</td></tr>
@@ -334,7 +614,7 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
           <tr><td>Nachtbereitschaft</td><td>von Hand nachrechnen</td><td>selten vorgesehen</td><td class="unsere">Splitdienst mit einstellbarem Anteil</td></tr>
           <tr><td>Aushang</td><td>von Hand formatieren</td><td>Ausdruck der Bildschirmansicht</td><td class="unsere">eigens gebaut, auch für Kinder lesbar</td></tr>
           <tr><td>Wenn etwas schiefgeht</td><td>Strg+Z, wenn ihr Glück habt</td><td>je nach Anbieter</td><td class="unsere">alles protokolliert und rücknehmbar</td></tr>
-          <tr><td>Betreuung</td><td>keine</td><td>Hotline, oft extra zu zahlen</td><td class="unsere">keine zugesagt — dafür der Preis</td></tr>
+          <tr><td>Betreuung</td><td>keine</td><td>Hotline, oft extra zu zahlen</td><td class="unsere">keine zugesagt — Fragen beantworte ich trotzdem</td></tr>
         </tbody>
       </table>
     </div>
@@ -383,69 +663,95 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
   </div>
 </section>
 
+<!-- ====================== Zweite Fassung: Betriebe ====================== -->
+<section class="abschnitt" id="betriebe">
+  <div class="huelle">
+    <p class="augenbraue">Nicht nur Jugendhilfe</p>
+    <h2 class="mittel" style="margin-top:.5rem">Dieselbe Anwendung, auch ohne Kinder-Funktionen.</h2>
+    <p class="fliess" style="margin-top:1rem; max-width:65ch">
+      Schichtdienst gibt es nicht nur in Wohngruppen. Beim ersten Start wählt ihr die
+      Fassung: <strong>Jugendhilfe</strong> — mit Kindern, Zuteilungen und dem Aushang für
+      die Gruppe — oder <strong>Betrieb</strong> für Pflege, Gastronomie, Handwerk und
+      Produktion: Gruppen heißen dann Abteilungen, die Kinder-Funktionen sind ausgeblendet,
+      und alles Übrige bleibt gleich — Dienste, Anträge, Tausch, Zeitkonten,
+      Arbeitszeitprüfung, Hausnetz. Ein Produkt, ein Preis, eure Wahl.
+    </p>
+  </div>
+</section>
+
 <!-- ====================== Preis ====================== -->
 <section class="abschnitt" id="preis">
   <div class="huelle">
-    <p class="augenbraue">Der Preis</p>
-    <h2 class="mittel" style="margin-top:.5rem">Einmal 149 €. Danach nie wieder.</h2>
-
-    <p class="chip" style="margin-top:1rem">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
-        <path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Der Verkauf startet in Kürze — bis dahin merke ich euch vor
-    </p>
+    <p class="augenbraue">Was sie kostet</p>
+    <h2 class="mittel" style="margin-top:.5rem">179 € einmal. Dann gehört sie dem Haus.</h2>
 
     <div class="preis-paar">
       <div>
         <p class="fliess">
-          Kein Abo, keine Gebühr je Mitarbeitendem, keine Staffel nach Gruppengröße, keine
-          Verlängerung, die man rechtzeitig kündigen muss. Ihr zahlt einmal, und die Anwendung
-          gehört dem Haus.
+          Ein Preis, einmal bezahlt — pro Einrichtung, egal wie viele Gruppen, Mitarbeitende
+          oder Arbeitsplätze. Kein Abo, keine Gebühr je Person, keine laufenden Kosten.
+          Die Anwendung läuft auf euren Rechnern und braucht keinen Server bei mir; es gibt
+          nichts, das jeden Monat Geld kosten könnte, und nichts, das jemand abschalten kann.
         </p>
         <p class="fliess" style="margin-top:1rem">
-          Das ist der eigentliche Unterschied. Ein Dienstplaner, der monatlich abrechnet, kostet
-          über die Jahre ein Vielfaches — und wenn die Zahlung endet, endet auch der Zugriff auf
-          die eigenen Pläne. Hier liegt alles auf eurem Rechner und bleibt dort, ob ihr noch
-          zahlt oder nicht.
+          <strong>Entscheiden könnt ihr hier.</strong> Diese Seite zeigt alles: echte
+          Aufnahmen aus jeder Ansicht, den Rundgang vom Anmelden bis zum Aushang, die
+          gemessene Füllzeit, den vollständigen Funktionsumfang. Was ihr seht, ist, was
+          ihr bekommt — es gibt keine größere Fassung und kein Kleingedrucktes.
         </p>
         <p class="fliess" style="margin-top:1rem">
-          <strong>Ihr kauft die Software, keine Betreuung.</strong> Es gibt keinen Wartungsvertrag
-          und keine Hotline — und genau deshalb kostet sie so wenig. Die App ist so gebaut, dass
-          sie ohne mich läuft: keine Anmeldung, kein Server bei mir, nichts, das jemand
-          abschalten könnte.
-        </p>
-        <p class="fliess" style="margin-top:1rem">
-          Entstanden ist sie, weil ich den Papierkram in meiner eigenen Gruppe loswerden wollte.
-          Wir verbringen zu viel Zeit mit Verwaltung statt mit den Kindern.
+          <strong>Zur Einordnung:</strong> Cloud-Dienstplaner kosten je Mitarbeitendem und
+          Monat. Ein Haus mit 20 Mitarbeitenden zahlt dort mehrere hundert Euro — jedes Jahr,
+          und die Dienstdaten liegen bei einem Anbieter. Hier zahlt ihr einmal, und alles
+          bleibt im Haus.
         </p>
         <p class="leise" style="margin-top:1.25rem; font-size:.88rem">
-          Gebaut in der Jugendhilfe, für die Jugendhilfe — von Mike Weinert.
+          Gebaut in der Jugendhilfe, im Betrieb erprobt — von Mike Weinert.
         </p>
       </div>
 
       <div class="karte preis-karte">
-        <div class="preis-zahl"><b>149 €</b><span class="leise">einmalig</span></div>
+        <div class="preis-zahl"><b>179 €</b><span class="leise">einmalig, pro Einrichtung</span></div>
         <ul class="preis-liste">
-          <li><svg class="haken" width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Alle Funktionen — es gibt keine größere Fassung</span></li>
+          <li><svg class="haken" width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Alle Funktionen — es gibt keine eingeschränkte und keine größere Fassung</span></li>
           <li><svg class="haken" width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ohne Grenze bei Mitarbeitenden, Gruppen oder Arbeitsplätzen</span></li>
-          <li><svg class="haken" width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Zugang übers Hausnetz für alle Arbeitsplätze</span></li>
+          <li><svg class="haken" width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Hausnetz für alle Arbeitsplätze schaltbar (zurzeit Beta, inklusive)</span></li>
           <li><svg class="haken" width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>macOS und Windows, beide dabei</span></li>
-          <li><svg class="haken" width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Feiertage aller 16 Bundesländer</span></li>
-          <li><svg class="haken" width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Läuft auch dann noch, wenn es mich einmal nicht mehr gibt</span></li>
+          <li><svg class="haken" width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Alle Updates inklusive — ohne Aufpreis, ohne Ablauf</span></li>
+          <li><svg class="haken" width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Hilfe per E-Mail von dem, der sie gebaut hat</span></li>
         </ul>
 
         <div class="geldzurueck">
-          <strong>30 Tage Geld zurück.</strong> Probiert sie in Ruhe an einem echten Monat aus.
-          Passt sie nicht, schreibt eine Mail — ihr bekommt den Betrag zurück, ohne Begründung.
+          <strong>So läuft die Bezahlung.</strong> Ihr bestellt per E-Mail und bekommt die
+          Anwendung mit einer ordentlichen Rechnung — Zahlung per Überweisung mit
+          14 Tagen Ziel, keine Vorkasse, kein Konto bei einem Zahlungsdienst nötig.
+          Genau so, wie eure Buchhaltung es braucht.
         </div>
 
-        <a class="knopf knopf-voll" style="width:100%; margin-top:1.25rem"
-           href="mailto:kontakt@dienstplan-jugendhilfe.de?subject=Dienstplan%20vormerken&amp;body=Guten%20Tag%2C%0A%0Awir%20haben%20Interesse%20am%20Dienstplan.%0A%0AEinrichtung%3A%20%0AAnzahl%20Wohngruppen%3A%20%0AAnzahl%20Mitarbeitende%3A%20%0ARechner%3A%20Mac%20oder%20Windows%3F%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen%0A">Vormerken lassen</a>
+        <a class="knopf knopf-voll" style="width:100%; margin-top:1.25rem" href="#kaufen">Bestellen</a>
         <p class="leise" style="font-size:.75rem; margin-top:.7rem">
-          Unverbindlich — ich melde mich, sobald der Verkauf startet. Gemäß § 19 UStG wird
-          keine Umsatzsteuer berechnet.
+          Kleinunternehmer nach § 19 UStG — es wird keine Umsatzsteuer ausgewiesen.
+        </p>
+      </div>
+    </div>
+
+    <div class="systeme" style="margin-top:1.5rem">
+      <div class="karte system">
+        <h3>Einrichten ohne fremde Hilfe</h3>
+        <p style="margin-top:.4rem">
+          Der Assistent beim ersten Start führt durch Passwort, Gruppe und Dienste; die
+          beiliegende Anleitung erklärt Klick für Klick den Rest — Installation, Team,
+          Sicherung. Und wo es doch hakt, hilft eine E-Mail: die Antwort kommt von dem,
+          der die Anwendung gebaut hat.
+        </p>
+      </div>
+      <div class="karte system">
+        <h3>Für Einrichtungen in der Startphase</h3>
+        <p style="margin-top:.4rem">
+          Ein Haus, das gerade erst aufbaut, hat andere Sorgen als Software-Rechnungen.
+          Schreibt mir zwei Sätze zu eurer Lage — dann finden wir einen Preis, der passt,
+          notfalls ist es eine Weile keiner. Dafür freue ich mich über Rückmeldungen aus
+          dem Alltag.
         </p>
       </div>
     </div>
@@ -455,15 +761,41 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
 <!-- ====================== Herunterladen ====================== -->
 <section class="abschnitt" id="kaufen">
   <div class="huelle">
-    <p class="augenbraue">Nach dem Kauf</p>
-    <h2 class="mittel" style="margin-top:.5rem">Doppelklick, Passwort, erste Gruppe.</h2>
-    <p class="fliess" style="margin-top:.9rem">
-      Nach dem Kauf bekommt ihr den Download für beide Systeme. Beim ersten Start führt ein
-      kurzer Assistent durch zwei Schritte, danach steht eine leere Installation mit Früh-,
-      Spät- und Nachtdienst bereit. Es muss nichts nachgeladen werden — auch kein Internet.
+    <p class="augenbraue">Bestellen</p>
+    <h2 class="mittel" style="margin-top:.5rem">Eine E-Mail genügt. Den Rest mache ich.</h2>
+
+    <p class="fliess" style="margin-top:1.25rem">
+      Es gibt keinen Warenkorb und kein Bezahlformular — bei einer Anwendung, die ein Haus
+      einmal anschafft, wäre beides nur im Weg. Ihr schreibt eine E-Mail, ich melde mich
+      am selben oder nächsten Tag zurück. Ausgeliefert wird, sobald die letzten Prüfungen
+      auf allen drei Systemen durch sind — das ist eine Frage von Tagen, und wer jetzt
+      bestellt, ist als Erstes dran.
     </p>
 
-    <div class="systeme">
+    <div class="systeme" style="margin-top:1.5rem">
+      <div class="karte system">
+        <h3>1 · Schreiben</h3>
+        <p>Eine kurze Mail: Einrichtung oder Betrieb, wie viele Gruppen bzw. Abteilungen,
+        Mac oder Windows. Mehr braucht es nicht.</p>
+      </div>
+      <div class="karte system">
+        <h3>2 · Erhalten</h3>
+        <p>Ihr bekommt die Anwendung für Mac und Windows, die Klick-für-Klick-Anleitung
+        und die Rechnung — alles in einer Sendung.</p>
+      </div>
+      <div class="karte system">
+        <h3>3 · Überweisen</h3>
+        <p>179 € mit 14 Tagen Ziel — nach Erhalt, keine Vorkasse, kein Zahlungsdienst,
+        kein Konto irgendwo. So, wie eure Buchhaltung es kennt.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem">
+      <a class="knopf knopf-voll" href="mailto:kontakt@dienstplan-jugendhilfe.de?subject=Dienstplan%20bestellen&amp;body=Guten%20Tag%2C%0A%0Awir%20m%C3%B6chten%20den%20Dienstplan%20bestellen.%0A%0AEinrichtung%20oder%20Betrieb%3A%20%0AAnzahl%20Gruppen%2FAbteilungen%3A%20%0AAnzahl%20Mitarbeitende%3A%20%0ARechner%3A%20Mac%20oder%20Windows%3F%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen%0A">Bestellen</a>
+    </div>
+
+    <p class="augenbraue" style="margin-top:2.5rem">Die drei Fassungen</p>
+    <div class="systeme" style="margin-top:1rem">
       <div class="karte system">
         <h3>macOS · Apple-Chip</h3>
         <p>M1 bis M4 · macOS 11 oder neuer</p>
@@ -480,14 +812,23 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
         <p class="groesse mono leise">329 MB · .exe</p>
       </div>
     </div>
-
-    <p class="leise" style="font-size:.85rem; margin-top:1.25rem; max-width:65ch">
-      Alle drei Fassungen sind enthalten — ihr ladet die, die zu eurem Rechner passt. Auf dem
-      Mac steht unter  → „Über diesen Mac“, welche es ist: heißt es dort „Apple M…“, ist es
-      die erste.
+    <p class="leise" style="font-size:.85rem; margin-top:1rem; max-width:65ch">
+      Alle drei Fassungen sind gebaut. Auf dem Mac steht unter  → „Über diesen Mac",
+      welche ihr braucht: heißt es dort „Chip: Apple M…", ist es die erste.
     </p>
-    <p class="leise" style="font-size:.85rem; margin-top:.75rem">
-      Fragen vor dem Kauf? Schreibt an
+
+    <div class="karte" style="margin-top:1.5rem; padding:1.3rem; max-width:65ch">
+      <h3 class="klein-h">Beim ersten Start meldet sich das Betriebssystem</h3>
+      <p class="leise" style="font-size:.88rem; margin-top:.4rem">
+        Die Anwendung ist noch nicht mit einem kostenpflichtigen Entwicklerzertifikat
+        signiert — deshalb fragt macOS beziehungsweise Windows einmalig nach. Das ist keine
+        Warnung vor Schadsoftware, sondern der Hinweis „Hersteller nicht hinterlegt". Wie ihr
+        weiterkommt, steht Schritt für Schritt in der Installationsanleitung, die beiliegt.
+      </p>
+    </div>
+
+    <p class="leise" style="font-size:.85rem; margin-top:1.25rem">
+      Fragen? Schreibt an
       <a href="mailto:kontakt@dienstplan-jugendhilfe.de">kontakt@dienstplan-jugendhilfe.de</a> —
       ich antworte selbst.
     </p>
@@ -502,24 +843,24 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
 
     <div class="fragen">
       <details>
-        <summary>Wann kann man sie kaufen?</summary>
-        <div class="antwort">Die Anwendung ist fertig und läuft — was noch fehlt, ist die Zahlungsabwicklung. Wer sich jetzt vormerken lässt, bekommt eine Nachricht, sobald es losgeht, und ist zu nichts verpflichtet. Wenn ihr vorher schon Fragen habt oder sie euch ansehen wollt: einfach schreiben.</div>
+        <summary>Ab wann kann man sie herunterladen?</summary>
+        <div class="antwort">In den nächsten Tagen. Die Anwendung ist fertig; was noch fehlt, ist ein Durchlauf auf jedem der drei Systeme durch jemanden, der sie nicht gebaut hat. Wer sich vormerken lässt, bekommt genau eine Nachricht, sobald es soweit ist — und kann sich vorher jederzeit melden, wenn er sie sich ansehen möchte.</div>
       </details>
       <details>
-        <summary>Was kostet die App?</summary>
-        <div class="antwort">149 € einmalig für das ganze Haus. Kein Abonnement, keine Gebühr je Mitarbeitendem, keine Begrenzung auf eine bestimmte Zahl von Personen, Gruppen oder Arbeitsplätzen. Nach dem Kauf gehört die Anwendung euch — auch dann noch, wenn ihr nie wieder etwas von mir hört.</div>
+        <summary>Was kostet sie?</summary>
+        <div class="antwort">179 € — einmal, pro Einrichtung. Kein Abonnement, keine Gebühr je Mitarbeitendem, keine Begrenzung bei Personen, Gruppen oder Arbeitsplätzen, alle Updates inklusive. Danach entstehen keine Kosten mehr, weil nichts laufen muss: kein Server, kein Konto, kein Vertrag.</div>
       </details>
       <details>
-        <summary>Gibt es Folgekosten oder eine Verlängerung?</summary>
-        <div class="antwort">Nein. Es gibt nichts, was sich verlängert, und nichts, was gekündigt werden müsste. Die Anwendung braucht keinen Server bei mir, deshalb entstehen mir auch keine laufenden Kosten, die ich weitergeben müsste. Was ihr einmal zahlt, ist alles.</div>
+        <summary>Wie läuft die Bezahlung?</summary>
+        <div class="antwort">Auf Rechnung, per Überweisung, mit 14 Tagen Zahlungsziel — so, wie Buchhaltungen es brauchen. Keine Vorkasse, keine Kreditkarte, kein Konto bei einem Zahlungsdienst. Bestellt wird formlos per E-Mail; die Rechnung kommt mit der Anwendung. Als Kleinunternehmer nach § 19 UStG weise ich keine Umsatzsteuer aus.</div>
       </details>
       <details>
-        <summary>Was, wenn sie uns doch nicht passt?</summary>
-        <div class="antwort">Dann bekommt ihr innerhalb von 30 Tagen nach dem Kauf den vollen Betrag zurück — eine Mail genügt, eine Begründung braucht es nicht. Ich halte nichts von Testfassungen, in denen die Hälfte gesperrt ist: Ihr sollt einen echten Monat damit planen und danach entscheiden.</div>
+        <summary>Können wir sie vorher sehen?</summary>
+        <div class="antwort">Genau dafür ist diese Seite gebaut: Der Rundgang zeigt echte Aufnahmen aus jeder Ansicht — Anmeldung, Plan, Anträge, Stunden, Aushang — aus einer Beispiel-Einrichtung mit zwei Gruppen, dazu die gemessene Füllzeit und der vollständige Funktionsumfang. Es gibt keine größere Fassung und nichts, was hier nicht steht. Bleibt eine Frage offen, beantworte ich sie per E-Mail, gern auch mit weiteren Bildschirmfotos.</div>
       </details>
       <details>
         <summary>Läuft sie auf mehreren Rechnern gleichzeitig?</summary>
-        <div class="antwort">Ja. Ein Rechner im Haus trägt die Daten und gibt die Anwendung übers Hausnetz frei; alle anderen Arbeitsplätze und Diensthandys rufen sie im Browser auf — verschlüsselt und ohne Internet. Jede Person meldet sich mit ihrem eigenen Zugang an. Wer das nicht braucht, lässt die Freigabe aus, dann läuft alles auf einem Rechner.</div>
+        <div class="antwort">Ja — als Beta. Ein Rechner im Haus trägt die Daten und gibt die Anwendung übers Hausnetz frei; alle anderen Arbeitsplätze und Diensthandys rufen sie im Browser auf — verschlüsselt und ohne Internet, jede Person mit eigenem Zugang. Das Hausnetz ist fertig gebaut, aber noch im Probelauf; gekauft wird vorrangig die Anwendung für den einen Rechner. Da alle Updates inklusive sind, wächst der fertige Hausnetz-Stand bei jedem Haus automatisch nach.</div>
       </details>
       <details>
         <summary>Können wir uns auf die Arbeitszeitprüfung verlassen?</summary>
@@ -538,8 +879,12 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
         <div class="antwort">Die Daten verlassen euren Rechner nicht — es gibt keinen Anbieter, an den sie gingen, und damit auch keinen Auftragsverarbeitungsvertrag, den jemand unterschreiben müsste. Jeder Zugang ist mit Passwort geschützt, jede Eintragung wird mit Urheber protokolliert, Anmeldeversuche werden begrenzt. Was ihr selbst tun solltet: die Festplatte des Rechners verschlüsseln (FileVault bzw. BitLocker). Die Einzelheiten stehen im Datenblatt oben.</div>
       </details>
       <details>
+        <summary>Wir sind keine Jugendhilfe — geht das trotzdem?</summary>
+        <div class="antwort">Ja. Beim ersten Start wählt ihr, ob die Anwendung für eine Einrichtung mit Kindern läuft oder als allgemeiner Dienstplaner für einen Betrieb — Pflege, Gastronomie, Handwerk, Produktion, überall wo in Schichten gearbeitet wird. In der Betriebs-Fassung heißen die Gruppen Abteilungen, die Kinder-Funktionen sind ausgeblendet, und alles andere — Dienste, Anträge, Zeitkonten, Arbeitszeitprüfung, Hausnetz — funktioniert genau gleich. Es ist dieselbe Anwendung zum selben Preis, kein zweites Produkt.</div>
+      </details>
+      <details>
         <summary>Gibt es Support?</summary>
-        <div class="antwort">Nicht als Vertrag. Ihr kauft die Software, keine Betreuung — deshalb ist sie so günstig. Ich beantworte Fragen, so gut es neben meiner Arbeit geht, aber einen Anspruch darauf gibt es nicht und eine Hotline schon gar nicht. Die gesetzlichen Mängelrechte bleiben davon unberührt. Genau dafür ist die App so gebaut, dass sie ohne mich läuft: keine Anmeldung, kein Server bei mir, nichts, das ich abschalten könnte.</div>
+        <div class="antwort">Hilfe per E-Mail ist beim Kauf dabei — von mir, nicht von einer Hotline. Ich antworte, so schnell es neben meiner Arbeit geht, in der Regel am selben oder nächsten Tag. Einen Wartungsvertrag braucht die Anwendung nicht: Sie läuft ohne Server bei mir, und die beiliegende Anleitung führt Schritt für Schritt durch Installation, Hausnetz und Sicherung.</div>
       </details>
       <details>
         <summary>Was passiert bei einem Update mit unseren Daten?</summary>
@@ -693,6 +1038,108 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
   zeilenBauen();
   // Kurz warten, damit die Schrift steht, bevor sich etwas bewegt.
   setTimeout(fuellen, ruhig ? 0 : 450);
+})();
+</script>
+<script>
+// Immersion: Leseband, sanftes Erscheinen, Leuchtkasten, Menü-Markierung.
+// Alles schmückt nur aus – ohne Skript ist jede Information genauso da.
+(function () {
+  var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Leseband: wie weit bin ich? In den Farben der drei Dienste.
+  var band = document.createElement("div");
+  band.className = "leseband";
+  band.setAttribute("aria-hidden", "true");
+  document.body.appendChild(band);
+  var wartet = false;
+  function messen() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - window.innerHeight;
+    band.style.transform = "scaleX(" + (max > 0 ? h.scrollTop / max : 0) + ")";
+    wartet = false;
+  }
+  window.addEventListener("scroll", function () {
+    if (!wartet) { wartet = true; requestAnimationFrame(messen); }
+  }, { passive: true });
+  messen();
+
+  // Sanftes Erscheinen beim Scrollen – Karten und Bildpaare gleiten herein,
+  // Geschwister leicht versetzt. Wer weniger Bewegung eingestellt hat, sieht
+  // alles sofort (siehe Stil).
+  if ("IntersectionObserver" in window) {
+    var wartende = [];
+    var beobachter = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) {
+        if (e.isIntersecting) { zeigen(e.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+    function zeigen(el) {
+      el.classList.add("sichtbar");
+      beobachter.unobserve(el);
+      var an = wartende.indexOf(el);
+      if (an !== -1) wartende.splice(an, 1);
+    }
+    document.querySelectorAll(".paar > *, .systeme > .karte, .preis-paar > *, .zaehler > div, .schlagworte > a")
+      .forEach(function (el) {
+        var i = Array.prototype.indexOf.call(el.parentElement.children, el);
+        el.style.setProperty("--verzug", Math.min(i * 90, 360) + "ms");
+        el.classList.add("einblenden");
+        wartende.push(el);
+        beobachter.observe(el);
+      });
+    // Sicherheitsnetz: Sollte der Beobachter in irgendeinem Browser nicht anspringen,
+    // deckt diese Runde jedes Element auf, das im Bild steht. Inhalte dürfen durch
+    // Schmuck niemals unsichtbar bleiben.
+    var netz = setInterval(function () {
+      if (!wartende.length) { clearInterval(netz); return; }
+      var hoehe = window.innerHeight || 0;
+      wartende.slice().forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < hoehe - hoehe * 0.05) zeigen(el);
+      });
+    }, 1200);
+  }
+
+  // Leuchtkasten: jede Aufnahme öffnet sich groß, Klick oder Esc schließt.
+  var kasten = document.createElement("dialog");
+  kasten.className = "leuchtkasten";
+  kasten.innerHTML = '<figure style="margin:0"><img alt=""><figcaption></figcaption></figure>';
+  document.body.appendChild(kasten);
+  var gross = kasten.querySelector("img");
+  var unterschrift = kasten.querySelector("figcaption");
+  if (typeof kasten.showModal === "function") {
+    document.querySelectorAll(".bild img").forEach(function (img) {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", function () {
+        gross.src = img.currentSrc || img.src;
+        gross.alt = img.alt;
+        unterschrift.textContent = img.alt;
+        kasten.showModal();
+      });
+    });
+    kasten.addEventListener("click", function () { kasten.close(); });
+    kasten.addEventListener("close", function () { gross.src = ""; });
+  }
+
+  // Menü: der Abschnitt, in dem man gerade liest, ist markiert.
+  var glieder = {};
+  document.querySelectorAll(".kopf nav a[href^='#']").forEach(function (a) {
+    glieder[a.getAttribute("href").slice(1)] = a;
+  });
+  var abschnitte = Object.keys(glieder)
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+  if (abschnitte.length && "IntersectionObserver" in window) {
+    var spion = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        Object.keys(glieder).forEach(function (id) { glieder[id].classList.remove("aktiv"); });
+        var a = glieder[e.target.id];
+        if (a) a.classList.add("aktiv");
+      });
+    }, { rootMargin: "-35% 0px -55% 0px" });
+    abschnitte.forEach(function (el) { spion.observe(el); });
+  }
 })();
 </script>
 </body>

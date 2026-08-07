@@ -228,7 +228,8 @@ table.plan td.tag{font-weight:500; color:var(--tinte); white-space:nowrap; width
 .person, .leerfeld{transition:opacity .28s ease, transform .28s ease}
 .faellt-ein{opacity:0; transform:translateY(-3px)}
 @media (prefers-reduced-motion: reduce){
-  .person,.leerfeld,.engpass{transition:none}
+  .person,.leerfeld,.engpass,.bild img{transition:none}
+  .einblenden{opacity:1; transform:none; transition:none}
 }
 
 .zaehler{display:grid; grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); gap:1px; background:var(--linie);
@@ -291,7 +292,10 @@ table.vergleich thead .unsere{color:var(--akzent-tinte)}
 
 /* Herunterladen */
 .systeme{display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:1rem; margin-top:2rem}
-.system{padding:1.2rem 1.3rem}
+.system{padding:1.2rem 1.3rem; display:flex; flex-direction:column; align-items:flex-start;
+  text-decoration:none; color:inherit; transition:border-color .15s ease, transform .15s ease}
+a.system:hover{border-color:var(--akzent); transform:translateY(-2px)}
+a.system:hover .knopf-voll{background:var(--akzent-tinte); border-color:var(--akzent-tinte)}
 .system h3{font-size:.95rem; margin-bottom:.25rem}
 .system p{font-size:.82rem; color:var(--leise)}
 .system .groesse{margin-top:.6rem; font-size:.75rem}
@@ -318,6 +322,60 @@ details .antwort{padding:0 2rem 1.2rem 0; font-size:.92rem; color:var(--tinte-2)
 .fuss .rechts{margin-left:auto; display:flex; gap:1.25rem; flex-wrap:wrap}
 
 .auszufuellen{background:var(--warn-flaeche); color:var(--warn-tinte); border-bottom:1px dashed var(--warn-kern); padding:0 .15rem}
+
+/* ---- Immersion: sanftes Erscheinen, Leseband, Leuchtkasten ---- */
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+}
+.einblenden{opacity:0; transform:translateY(22px);
+  transition:opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1);
+  transition-delay:var(--verzug,0s)}
+.einblenden.sichtbar{opacity:1; transform:none}
+
+.leseband{position:fixed; top:0; left:0; width:100%; height:3px; z-index:60;
+  transform-origin:0 50%; transform:scaleX(0); pointer-events:none;
+  background:linear-gradient(90deg, var(--frueh), var(--spaet), var(--nacht))}
+
+.kopf nav a.aktiv{color:var(--akzent-tinte)}
+
+.bild img{display:block; transition:transform .5s cubic-bezier(.16,1,.3,1)}
+@media (hover:hover){
+  .bild:hover img{transform:scale(1.015)}
+}
+
+.leuchtkasten{border:0; padding:0; background:transparent; max-width:min(1200px,94vw); cursor:zoom-out}
+.leuchtkasten::backdrop{background:rgba(9,9,11,.82); backdrop-filter:blur(6px)}
+.leuchtkasten img{display:block; width:100%; height:auto; border-radius:12px;
+  box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.leuchtkasten figcaption{color:#d4d4d8; text-align:center; font-size:.85rem; margin-top:.6rem}
+@media (prefers-reduced-motion: no-preference){
+  .leuchtkasten[open]{animation:kasten-auf .3s cubic-bezier(.16,1,.3,1)}
+  @keyframes kasten-auf{from{opacity:0; transform:scale(.965)}}
+}
+
+/* ---- Neun Schlagwörter ---- */
+.schlagworte{display:grid; gap:.9rem; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+/* Neun Worte gehoeren in ein Quadrat: ab Schreibtischbreite immer 3x3. */
+@media (min-width: 900px){ .schlagworte{grid-template-columns:repeat(3,1fr)} }
+.schlagwort{position:relative; display:block; padding:1.1rem 1.2rem 1.15rem; border:1px solid var(--linie);
+  border-radius:var(--rund); background:var(--flaeche); text-decoration:none; color:inherit;
+  box-shadow:var(--schatten); transition:transform .35s cubic-bezier(.16,1,.3,1),
+  border-color .35s ease, box-shadow .35s ease}
+.schlagwort b{display:block; font-size:1.06rem; letter-spacing:-.01em; color:var(--tinte)}
+.schlagwort > span:last-child{display:block; margin-top:.35rem; font-size:.85rem; line-height:1.45; color:var(--leise)}
+.schlagwort-nr{position:absolute; top:.9rem; right:1rem; font-size:.72rem; color:var(--leise); opacity:.55}
+@media (hover:hover){
+  .schlagwort:hover{transform:translateY(-3px); border-color:var(--akzent-linie);
+    box-shadow:0 10px 30px rgba(37,99,235,.10)}
+  .schlagwort:hover b{color:var(--akzent-tinte)}
+}
+.schlagwort:focus-visible{outline:2px solid var(--akzent); outline-offset:2px}
+
+/* Lese-Hinweise unter dem nachgebauten Plan */
+.lese-hinweise{display:grid; gap:.9rem 1.4rem; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));
+  list-style:none; margin:1rem 0 0; padding:.9rem 0 0; border-top:1px solid var(--linie);
+  font-size:.83rem; line-height:1.5; color:var(--leise)}
+.lese-hinweise strong{color:var(--tinte)}
 
 /* ---- Impressum und Datenschutzerklärung ---------------------------------- */
 .recht{max-width:46rem; padding-top:3.5rem; padding-bottom:4rem}
