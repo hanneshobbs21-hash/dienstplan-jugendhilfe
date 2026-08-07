@@ -1,0 +1,398 @@
+
+@font-face{font-family:Geist;font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(geist-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Geist;font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(geist-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Geist Mono";font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(geist-mono-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* ---------------------------------------------------------------------------
+   Farben und Maße sind aus der Anwendung übernommen, nicht neu erfunden:
+   zinc-50/zinc-900 als Grund, Weiß bzw. zinc-800 für Flächen, blue-600 als
+   einzige Akzentfarbe, 1px-Ringe statt Schatten. Wer die App kennt, soll die
+   Seite wiedererkennen – und umgekehrt.
+   --------------------------------------------------------------------------- */
+:root{
+  --grund:#fafafa;          /* zinc-50  */
+  --flaeche:#ffffff;
+  --flaeche-2:#f4f4f5;      /* zinc-100 */
+  --tinte:#18181b;          /* zinc-900 */
+  --tinte-2:#3f3f46;        /* zinc-700 */
+  --leise:#71717a;          /* zinc-500 */
+  --linie:#e4e4e7;          /* zinc-200 */
+  --akzent:#2563eb;         /* blue-600 */
+  --akzent-tinte:#1d4ed8;
+  --akzent-flaeche:#eff6ff; /* blue-50  */
+  --akzent-linie:#bfdbfe;   /* blue-200 */
+  --warn-flaeche:#fffbeb;   /* amber-50 */
+  --warn-linie:#fde68a;
+  --warn-tinte:#78350f;
+  --warn-kern:#f59e0b;
+  --gut:#059669;
+  --frueh:#f59e0b;
+  --spaet:#3b82f6;
+  --nacht:#6366f1;
+  --schatten:0 1px 2px rgba(24,24,27,.05);
+  --rund:.75rem;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --grund:#18181b; --flaeche:#27272a; --flaeche-2:#3f3f46;
+    --tinte:#f4f4f5; --tinte-2:#d4d4d8; --leise:#a1a1aa; --linie:#3f3f46;
+    --akzent:#3b82f6; --akzent-tinte:#93c5fd; --akzent-flaeche:#172554; --akzent-linie:#1e3a8a;
+    --warn-flaeche:#2a1e05; --warn-linie:#78350f; --warn-tinte:#fcd34d;
+    --gut:#34d399;
+    --schatten:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --grund:#18181b; --flaeche:#27272a; --flaeche-2:#3f3f46;
+  --tinte:#f4f4f5; --tinte-2:#d4d4d8; --leise:#a1a1aa; --linie:#3f3f46;
+  --akzent:#3b82f6; --akzent-tinte:#93c5fd; --akzent-flaeche:#172554; --akzent-linie:#1e3a8a;
+  --warn-flaeche:#2a1e05; --warn-linie:#78350f; --warn-tinte:#fcd34d;
+  --gut:#34d399;
+  --schatten:0 1px 2px rgba(0,0,0,.3);
+}
+:root[data-theme="light"]{
+  --grund:#fafafa; --flaeche:#ffffff; --flaeche-2:#f4f4f5;
+  --tinte:#18181b; --tinte-2:#3f3f46; --leise:#71717a; --linie:#e4e4e7;
+  --akzent:#2563eb; --akzent-tinte:#1d4ed8; --akzent-flaeche:#eff6ff; --akzent-linie:#bfdbfe;
+  --warn-flaeche:#fffbeb; --warn-linie:#fde68a; --warn-tinte:#78350f;
+  --gut:#059669;
+  --schatten:0 1px 2px rgba(24,24,27,.05);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--grund); color:var(--tinte);
+  font-family:Geist,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3{margin:0; line-height:1.15; text-wrap:balance; letter-spacing:-.022em}
+p{margin:0}
+a{color:var(--akzent-tinte); text-decoration-color:color-mix(in srgb,var(--akzent) 40%,transparent); text-underline-offset:2px}
+a:hover{text-decoration-color:currentColor}
+img{max-width:100%; height:auto; display:block}
+:focus-visible{outline:2px solid var(--akzent); outline-offset:2px; border-radius:4px}
+.mono{font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace; font-variant-numeric:tabular-nums}
+
+.huelle{max-width:72rem; margin:0 auto; padding:0 1rem}
+.abschnitt{padding:4.5rem 0}
+.abschnitt + .abschnitt{border-top:1px solid var(--linie)}
+@media (max-width:640px){ .abschnitt{padding:3rem 0} }
+
+/* Kopfleiste – bewusst identisch zur Anwendung: gleiche Höhe, gleiche Ringe. */
+.kopf{
+  position:sticky; top:0; z-index:20;
+  background:color-mix(in srgb,var(--flaeche) 88%,transparent);
+  backdrop-filter:saturate(180%) blur(8px);
+  border-bottom:1px solid var(--linie);
+}
+.kopf-innen{max-width:72rem; margin:0 auto; padding:.7rem 1rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap}
+.marke{display:flex; align-items:center; gap:.5rem; font-size:.875rem; font-weight:600; color:var(--tinte); text-decoration:none}
+.marke svg{width:20px; height:20px; flex:none}
+.kopf nav{display:flex; gap:1rem; font-size:.875rem}
+.kopf nav a{color:var(--leise); text-decoration:none}
+.kopf nav a:hover{color:var(--akzent)}
+.kopf-rechts{margin-left:auto; display:flex; align-items:center; gap:.6rem; flex:none}
+@media (max-width:760px){ .kopf nav{display:none} }
+/* Auf dem Handy muss die Leiste einzeilig bleiben – umgebrochen sähe man den
+   Seiteninhalt zwischen den beiden Zeilen durchscheinen. */
+@media (max-width:520px){
+  .kopf-innen{flex-wrap:nowrap; gap:.75rem}
+  .marke{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .nur-breit{display:none}
+}
+
+/* Knöpfe – exakt die Formensprache der App: rounded-md, 1px-Rand, kein Verlauf. */
+.knopf{
+  display:inline-flex; align-items:center; justify-content:center; gap:.45rem;
+  border-radius:.5rem; padding:.6rem 1rem; font-size:.875rem; font-weight:500;
+  border:1px solid var(--linie); background:var(--flaeche); color:var(--tinte-2);
+  text-decoration:none; cursor:pointer; font-family:inherit;
+  transition:background .15s ease, border-color .15s ease;
+}
+.knopf:hover{background:var(--flaeche-2)}
+.knopf-voll{background:var(--akzent); border-color:var(--akzent); color:#fff}
+.knopf-voll:hover{background:var(--akzent-tinte); border-color:var(--akzent-tinte)}
+:root[data-theme="dark"] .knopf-voll:hover, :root:not([data-theme="light"]) .knopf-voll:hover{filter:brightness(1.08)}
+.knopf-klein{padding:.35rem .75rem; font-size:.78rem}
+.knopf-schlicht{border-color:transparent; background:transparent}
+.knopf-schlicht:hover{background:var(--flaeche-2)}
+.mondknopf{width:2.3rem; height:2.3rem; padding:0; border-radius:.5rem}
+
+/* Karten und Marken */
+.karte{background:var(--flaeche); border:1px solid var(--linie); border-radius:var(--rund); box-shadow:var(--schatten)}
+.chip{
+  display:inline-flex; align-items:center; gap:.4rem; border-radius:999px;
+  padding:.28rem .7rem; font-size:.75rem; font-weight:500;
+  background:var(--akzent-flaeche); color:var(--akzent-tinte); border:1px solid var(--akzent-linie);
+  /* Im Raster würde die Marke sonst auf volle Breite gezogen. */
+  justify-self:start; width:fit-content;
+}
+.augenbraue{font-size:.75rem; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--leise)}
+.leise{color:var(--leise)}
+.gross{font-size:clamp(2.1rem,5.2vw,3.5rem); font-weight:600}
+.mittel{font-size:clamp(1.5rem,3.1vw,2.1rem); font-weight:600}
+.klein-h{font-size:1.05rem; font-weight:600}
+.fliess{max-width:65ch; color:var(--tinte-2)}
+
+/* ---------------------------------------------------------------------------
+   Der Kopfbereich zeigt keinen Screenshot, sondern einen echten Monatsplan in
+   der Bildsprache der App. Er füllt sich beim Aufruf selbst – genau das, was
+   der Knopf „Plan automatisch füllen" in der Anwendung tut.
+   --------------------------------------------------------------------------- */
+.kopfbereich{padding:3.5rem 0 0}
+.kopf-raster{display:grid; gap:1.75rem}
+.merkmale{display:flex; flex-wrap:wrap; gap:.5rem 1.4rem; font-size:.85rem; color:var(--leise)}
+.merkmale span{display:inline-flex; align-items:center; gap:.4rem}
+.haken{color:var(--gut); flex:none}
+
+.fenster{
+  margin-top:2.5rem; border:1px solid var(--linie); border-radius:1rem; overflow:hidden;
+  background:var(--flaeche); box-shadow:0 12px 32px -18px rgba(24,24,27,.35);
+}
+@media (prefers-color-scheme: dark){ .fenster{box-shadow:0 12px 32px -18px rgba(0,0,0,.7)} }
+.fenster-leiste{
+  display:flex; align-items:center; gap:.5rem; padding:.55rem .85rem;
+  background:var(--flaeche-2); border-bottom:1px solid var(--linie);
+}
+.ampel{display:flex; gap:.35rem}
+.ampel i{width:10px; height:10px; border-radius:50%; background:var(--linie)}
+.fenster-titel{font-size:.75rem; color:var(--leise); margin-left:.4rem;
+  min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.fenster-inhalt{padding:1rem 1rem 1.25rem}
+
+.plan-leiste{display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-bottom:.85rem}
+.plan-monat{font-size:1.05rem; font-weight:600; margin:0 .3rem}
+.umschalter{display:inline-flex; gap:.15rem; margin-left:auto}
+.umschalter button{
+  border:0; background:transparent; font-family:inherit; font-size:.8rem; font-weight:500;
+  color:var(--leise); padding:.35rem .7rem; border-radius:.5rem; cursor:pointer;
+}
+.umschalter button[aria-pressed="true"]{background:var(--tinte); color:var(--grund)}
+
+.legende{display:flex; flex-wrap:wrap; gap:.35rem .9rem; font-size:.72rem; color:var(--leise); margin-bottom:.7rem}
+.legende span{display:inline-flex; align-items:center; gap:.35rem}
+.punkt{width:8px; height:8px; border-radius:50%; flex:none}
+
+.engpass{
+  display:flex; gap:.55rem; align-items:flex-start;
+  background:var(--warn-flaeche); border:1px solid var(--warn-linie); color:var(--warn-tinte);
+  border-radius:.6rem; padding:.6rem .8rem; font-size:.78rem; margin-bottom:.8rem;
+  opacity:0; transform:translateY(-4px); transition:opacity .5s ease, transform .5s ease;
+}
+.engpass.da{opacity:1; transform:none}
+
+.tabellen-rahmen{overflow-x:auto; border:1px solid var(--linie); border-radius:.6rem}
+table.plan{width:100%; border-collapse:collapse; font-size:.78rem; min-width:36rem}
+table.plan th{
+  text-align:left; font-weight:600; font-size:.66rem; letter-spacing:.05em; text-transform:uppercase;
+  color:var(--leise); padding:.55rem .6rem; border-bottom:1px solid var(--linie); vertical-align:bottom;
+  white-space:nowrap;
+}
+table.plan th .zeit{font-weight:400; text-transform:none; letter-spacing:0; color:var(--leise); opacity:.8}
+table.plan td{padding:.4rem .6rem; border-bottom:1px solid var(--linie); vertical-align:middle}
+table.plan tr:last-child td{border-bottom:0}
+table.plan tr.wochenende td{background:var(--flaeche-2)}
+table.plan td.tag{font-weight:500; color:var(--tinte); white-space:nowrap; width:4.5rem}
+
+.person{
+  display:inline-flex; align-items:center; gap:.35rem; border-radius:999px;
+  padding:.2rem .55rem; font-size:.74rem; font-weight:500; white-space:nowrap;
+  background:color-mix(in srgb,var(--c) 15%,transparent);
+  color:color-mix(in srgb,var(--c) 78%,#000);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 38%,transparent);
+}
+@media (prefers-color-scheme: dark){
+  .person{background:color-mix(in srgb,var(--c) 22%,transparent); color:color-mix(in srgb,var(--c) 62%,#fff)}
+}
+:root[data-theme="dark"] .person{background:color-mix(in srgb,var(--c) 22%,transparent); color:color-mix(in srgb,var(--c) 62%,#fff)}
+:root[data-theme="light"] .person{background:color-mix(in srgb,var(--c) 15%,transparent); color:color-mix(in srgb,var(--c) 78%,#000)}
+.person .kennung{width:6px; height:6px; border-radius:50%; background:var(--c); flex:none}
+.person.konflikt{box-shadow:inset 0 0 0 1.5px var(--warn-kern)}
+.person.konflikt::after{content:"⚠"; font-size:.7rem; color:var(--warn-kern)}
+
+.zelle{min-height:1.75rem; display:flex; align-items:center}
+.leerfeld{
+  display:inline-flex; align-items:center; gap:.3rem;
+  font-size:.72rem; color:var(--leise); border:1px dashed var(--linie);
+  border-radius:.4rem; padding:.18rem .5rem; background:transparent;
+}
+/* Beim Füllen tauscht der Platzhalter gegen den Namen – kurz, nicht albern. */
+.person, .leerfeld{transition:opacity .28s ease, transform .28s ease}
+.faellt-ein{opacity:0; transform:translateY(-3px)}
+@media (prefers-reduced-motion: reduce){
+  .person,.leerfeld,.engpass,.bild img{transition:none}
+  .einblenden{opacity:1; transform:none; transition:none}
+}
+
+.zaehler{display:grid; grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); gap:1px; background:var(--linie);
+  border:1px solid var(--linie); border-radius:var(--rund); overflow:hidden; margin-top:2.5rem}
+.zaehler div{background:var(--flaeche); padding:1.1rem 1rem}
+.zaehler b{display:block; font-size:1.65rem; font-weight:600; letter-spacing:-.02em}
+.zaehler span{font-size:.78rem; color:var(--leise)}
+
+/* Inhaltsraster */
+.drei{display:grid; grid-template-columns:repeat(auto-fit,minmax(17rem,1fr)); gap:1.25rem; margin-top:2.25rem}
+.spalte{padding:1.4rem}
+.spalte h3{display:flex; align-items:center; gap:.5rem; margin-bottom:.9rem}
+.spalte ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.7rem; font-size:.9rem; color:var(--tinte-2)}
+.spalte li{display:flex; gap:.55rem; align-items:flex-start}
+.spalte li strong{color:var(--tinte); font-weight:600}
+.spalte li::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--akzent); margin-top:.55rem; flex:none}
+
+.paar{display:grid; grid-template-columns:1fr; gap:2rem; align-items:center; margin-top:2.25rem}
+@media (min-width:900px){
+  .paar{grid-template-columns:1.15fr 1fr; gap:3rem}
+  .paar.gedreht > .bild{order:2}
+}
+.bild{border:1px solid var(--linie); border-radius:var(--rund); overflow:hidden; background:var(--flaeche); box-shadow:var(--schatten)}
+.bild figcaption{font-size:.72rem; color:var(--leise); padding:.5rem .75rem; border-top:1px solid var(--linie); background:var(--flaeche-2)}
+
+/* Tages-Abdeckung: das Bild, das kein anderer Dienstplaner hat. */
+.abdeckung{display:grid; grid-template-columns:repeat(24,1fr); gap:2px; margin-top:1rem}
+.abdeckung i{height:26px; border-radius:2px; background:var(--linie)}
+.abdeckung .s1{background:color-mix(in srgb,var(--gut) 22%,var(--linie))}
+.abdeckung .s2{background:color-mix(in srgb,var(--gut) 48%,var(--linie))}
+.abdeckung .s3{background:color-mix(in srgb,var(--gut) 74%,var(--linie))}
+.stundenachse{display:flex; justify-content:space-between; font-size:.68rem; color:var(--leise); margin-top:.35rem}
+
+/* Hausnetz-Skizze */
+.netz{display:grid; grid-template-columns:1fr; gap:.75rem; margin-top:1.5rem}
+@media (min-width:720px){ .netz{grid-template-columns:repeat(3,1fr)} }
+.netz-kasten{padding:1rem 1.1rem; font-size:.85rem; color:var(--tinte-2)}
+.netz-kasten b{display:block; color:var(--tinte); font-size:.9rem; margin-bottom:.2rem}
+.netz-linie{display:flex; align-items:center; gap:.5rem; font-size:.75rem; color:var(--leise); margin-top:.8rem}
+
+/* Vergleich */
+.vergleich-rahmen{overflow-x:auto; margin-top:2rem; border:1px solid var(--linie); border-radius:var(--rund)}
+table.vergleich{width:100%; border-collapse:collapse; font-size:.86rem; min-width:44rem; background:var(--flaeche)}
+table.vergleich th, table.vergleich td{padding:.8rem .9rem; text-align:left; border-bottom:1px solid var(--linie); vertical-align:top}
+table.vergleich thead th{font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--leise); background:var(--flaeche-2)}
+table.vergleich tbody tr:last-child td{border-bottom:0}
+table.vergleich td:first-child{font-weight:500; color:var(--tinte); white-space:nowrap}
+table.vergleich .unsere{background:var(--akzent-flaeche); color:var(--tinte); font-weight:500}
+table.vergleich thead .unsere{color:var(--akzent-tinte)}
+
+/* Preis */
+.preis-paar{display:grid; grid-template-columns:1fr; gap:2rem; margin-top:2.25rem}
+@media (min-width:900px){ .preis-paar{grid-template-columns:1.1fr .9fr; gap:3rem} }
+.preis-karte{padding:1.75rem}
+.preis-zahl{display:flex; align-items:baseline; gap:.5rem}
+.preis-zahl b{font-size:3rem; font-weight:600; letter-spacing:-.03em}
+.preis-liste{list-style:none; margin:1.25rem 0 0; padding:0; display:flex; flex-direction:column; gap:.6rem; font-size:.88rem; color:var(--tinte-2)}
+.preis-liste li{display:flex; gap:.55rem; align-items:flex-start}
+.geldzurueck{margin-top:1.25rem; border:1px solid var(--linie); border-radius:.6rem; padding:.8rem .9rem; font-size:.82rem; color:var(--tinte-2); background:var(--flaeche-2)}
+
+/* Herunterladen */
+.systeme{display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:1rem; margin-top:2rem}
+.system{padding:1.2rem 1.3rem; display:flex; flex-direction:column; align-items:flex-start;
+  text-decoration:none; color:inherit; transition:border-color .15s ease, transform .15s ease}
+a.system:hover{border-color:var(--akzent); transform:translateY(-2px)}
+a.system:hover .knopf-voll{background:var(--akzent-tinte); border-color:var(--akzent-tinte)}
+.system h3{font-size:.95rem; margin-bottom:.25rem}
+.system p{font-size:.82rem; color:var(--leise)}
+.system .groesse{margin-top:.6rem; font-size:.75rem}
+
+/* Fragen */
+details{border-bottom:1px solid var(--linie)}
+details summary{
+  cursor:pointer; list-style:none; padding:1.05rem 2rem 1.05rem 0; position:relative;
+  font-weight:500; color:var(--tinte); font-size:.98rem;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{
+  content:"+"; position:absolute; right:.25rem; top:50%; transform:translateY(-50%);
+  font-size:1.25rem; font-weight:400; color:var(--leise); line-height:1;
+}
+details[open] summary::after{content:"–"}
+details .antwort{padding:0 2rem 1.2rem 0; font-size:.92rem; color:var(--tinte-2); max-width:70ch}
+.fragen{margin-top:2rem; border-top:1px solid var(--linie)}
+
+/* Fuß */
+.fuss{border-top:1px solid var(--linie); padding:2.5rem 0; font-size:.83rem; color:var(--leise)}
+.fuss-innen{display:flex; flex-wrap:wrap; gap:1rem 2rem; align-items:center}
+.fuss a{color:var(--leise)}
+.fuss .rechts{margin-left:auto; display:flex; gap:1.25rem; flex-wrap:wrap}
+
+.auszufuellen{background:var(--warn-flaeche); color:var(--warn-tinte); border-bottom:1px dashed var(--warn-kern); padding:0 .15rem}
+
+/* ---- Immersion: sanftes Erscheinen, Leseband, Leuchtkasten ---- */
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+}
+.einblenden{opacity:0; transform:translateY(22px);
+  transition:opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1);
+  transition-delay:var(--verzug,0s)}
+.einblenden.sichtbar{opacity:1; transform:none}
+
+.leseband{position:fixed; top:0; left:0; width:100%; height:3px; z-index:60;
+  transform-origin:0 50%; transform:scaleX(0); pointer-events:none;
+  background:linear-gradient(90deg, var(--frueh), var(--spaet), var(--nacht))}
+
+.kopf nav a.aktiv{color:var(--akzent-tinte)}
+
+.bild img{display:block; transition:transform .5s cubic-bezier(.16,1,.3,1)}
+@media (hover:hover){
+  .bild:hover img{transform:scale(1.015)}
+}
+
+.leuchtkasten{border:0; padding:0; background:transparent; max-width:min(1200px,94vw); cursor:zoom-out}
+.leuchtkasten::backdrop{background:rgba(9,9,11,.82); backdrop-filter:blur(6px)}
+.leuchtkasten img{display:block; width:100%; height:auto; border-radius:12px;
+  box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.leuchtkasten figcaption{color:#d4d4d8; text-align:center; font-size:.85rem; margin-top:.6rem}
+@media (prefers-reduced-motion: no-preference){
+  .leuchtkasten[open]{animation:kasten-auf .3s cubic-bezier(.16,1,.3,1)}
+  @keyframes kasten-auf{from{opacity:0; transform:scale(.965)}}
+}
+
+/* ---- Neun Schlagwörter ---- */
+.schlagworte{display:grid; gap:.9rem; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+/* Neun Worte gehoeren in ein Quadrat: ab Schreibtischbreite immer 3x3. */
+@media (min-width: 900px){ .schlagworte{grid-template-columns:repeat(3,1fr)} }
+.schlagwort{position:relative; display:block; padding:1.1rem 1.2rem 1.15rem; border:1px solid var(--linie);
+  border-radius:var(--rund); background:var(--flaeche); text-decoration:none; color:inherit;
+  box-shadow:var(--schatten); transition:transform .35s cubic-bezier(.16,1,.3,1),
+  border-color .35s ease, box-shadow .35s ease}
+.schlagwort b{display:block; font-size:1.06rem; letter-spacing:-.01em; color:var(--tinte)}
+.schlagwort > span:last-child{display:block; margin-top:.35rem; font-size:.85rem; line-height:1.45; color:var(--leise)}
+.schlagwort-nr{position:absolute; top:.9rem; right:1rem; font-size:.72rem; color:var(--leise); opacity:.55}
+@media (hover:hover){
+  .schlagwort:hover{transform:translateY(-3px); border-color:var(--akzent-linie);
+    box-shadow:0 10px 30px rgba(37,99,235,.10)}
+  .schlagwort:hover b{color:var(--akzent-tinte)}
+}
+.schlagwort:focus-visible{outline:2px solid var(--akzent); outline-offset:2px}
+
+/* Lese-Hinweise unter dem nachgebauten Plan */
+.lese-hinweise{display:grid; gap:.9rem 1.4rem; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));
+  list-style:none; margin:1rem 0 0; padding:.9rem 0 0; border-top:1px solid var(--linie);
+  font-size:.83rem; line-height:1.5; color:var(--leise)}
+.lese-hinweise strong{color:var(--tinte)}
+
+/* ---- Impressum und Datenschutzerklärung ---------------------------------- */
+.recht{max-width:46rem; padding-top:3.5rem; padding-bottom:4rem}
+.recht h1{font-size:clamp(1.8rem,4vw,2.5rem); font-weight:600; margin:.4rem 0 0}
+.recht h2{font-size:1.1rem; font-weight:600; margin:2.2rem 0 .5rem}
+.recht h3{font-size:.98rem; font-weight:600; margin:1.5rem 0 .4rem}
+.recht p{margin:0 0 .9rem; color:var(--tinte-2); max-width:65ch}
+.recht ul{margin:0 0 1rem; padding-left:1.15rem; color:var(--tinte-2); max-width:65ch}
+.recht li{margin-bottom:.4rem}
+.recht .vorwort{font-size:1.05rem; color:var(--leise); margin-top:.6rem}
+.recht .anschrift{font-style:normal; line-height:1.8}
+.recht table{width:100%; border-collapse:collapse; font-size:.88rem; margin:.6rem 0 1.2rem}
+.recht th,.recht td{border:1px solid var(--linie); padding:.55rem .7rem; text-align:left; vertical-align:top}
+.recht th{background:var(--flaeche-2); font-size:.72rem; letter-spacing:.05em;
+  text-transform:uppercase; color:var(--leise); font-weight:600}
+.recht .zurueck{display:inline-flex; align-items:center; gap:.4rem; margin-top:2.5rem;
+  font-size:.88rem; text-decoration:none; color:var(--akzent-tinte)}
+.recht .zurueck:hover{text-decoration:underline}
+.platzhalter{background:var(--warn-flaeche); color:var(--warn-tinte);
+  border-bottom:1px dashed var(--warn-kern); padding:0 .15rem}
