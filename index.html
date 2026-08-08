@@ -57,7 +57,7 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
           <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
         </svg>
       </button>
-      <a class="knopf knopf-voll knopf-klein" href="#kaufen">Bestellen</a>
+      <a class="knopf knopf-voll knopf-klein" href="#kaufen">Kaufen</a>
     </div>
   </div>
 </header>
@@ -77,17 +77,19 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
       </span>
       <h1 class="gross">Schichtplanung, die am&nbsp;Brett verständlich ist.</h1>
       <p class="fliess" style="font-size:1.08rem">
-        Dienste verteilen, Arbeitszeitregeln automatisch prüfen, Stunden und Urlaub abrechnen.
-        Für Wohngruppen der Jugendhilfe gebaut — von jemandem, der selbst darin arbeitet.
+        Der Monatsplan füllt sich mit einem Klick, das Arbeitszeitgesetz läuft mit, Stunden
+        und Urlaub rechnen sich selbst. <strong>179 € einmalig statt Monat für Monat</strong> —
+        und kein einziges Datum verlässt euer Haus. Gebaut für Wohngruppen der Jugendhilfe,
+        von jemandem, der selbst darin arbeitet.
       </p>
       <div style="display:flex; flex-wrap:wrap; gap:.7rem">
-        <a class="knopf knopf-voll" href="#kaufen">Bestellen</a>
-        <a class="knopf" href="#koennen">Was sie kann</a>
+        <a class="knopf knopf-voll" href="#kaufen">Für 179 € kaufen</a>
+        <a class="knopf" href="#rundgang">Erst ansehen</a>
       </div>
       <div class="merkmale">
         <span><svg class="haken" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Keine Cloud, kein Konto</span>
         <span><svg class="haken" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> macOS &amp; Windows</span>
-        <span><svg class="haken" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Alle Updates inklusive</span>
+        <span><svg class="haken" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Kein Abo, alle Updates inklusive</span>
       </div>
     </div>
 
@@ -178,8 +180,8 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
       </a>
       <a class="schlagwort" href="#rundgang">
         <span class="schlagwort-nr mono">2</span>
-        <b>Sofort verstanden</b>
-        <span>Anmelden per Namenskachel. Jeder Schritt erklärt sich selbst.</span>
+        <b>Wer hat noch Stunden?</b>
+        <span>Auslastung je Person, farbig am Namen — fair verteilen statt raten.</span>
       </a>
       <a class="schlagwort" href="#datenschutz-kurz">
         <span class="schlagwort-nr mono">3</span>
@@ -241,6 +243,8 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
           <li><span><strong>Automatisch füllen</strong> — verteilt fair nach Stunden-Soll und markiert, wo es klemmt.</span></li>
           <li><span><strong>Zyklen und Routinen</strong> für wiederkehrende Dienste.</span></li>
           <li><span><strong>Wunschfrei</strong> je Person, beim Verteilen berücksichtigt.</span></li>
+          <li><span><strong>Auslastung je Person</strong> — wer noch Stunden offen hat, steht beim
+            Zuweisen oben und ist am Namen farbig markiert.</span></li>
         </ul>
       </div>
       <div class="karte spalte">
@@ -388,16 +392,26 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
     </div>
     <div class="paar gedreht" style="margin-top:3rem">
       <figure class="bild" style="margin:0">
-        <img src="bilder/hotphasen.jpg" alt="Hot-Phasen-Editor: orange Balken je Wochentag, mit der Maus verschiebbar und in der Länge ziehbar" width="1200" height="700" loading="lazy">
+        <img src="bilder/stunden.jpg" alt="Stundenübersicht: Soll und Ist je Person, Differenz und Zeitkonto farbig, Springer mit Gruppen-Anteil" width="1200" height="700" loading="lazy">
         <figcaption>Echte Aufnahme aus der App · Beispieldaten, alle Namen erfunden</figcaption>
       </figure>
       <div>
-        <p class="augenbraue">5 · Eure Tagesstruktur</p>
-        <h3 class="mittel" style="margin-top:.5rem; font-size:1.35rem">Eure Tagesstruktur, mit der Maus gezogen.</h3>
-        <p class="fliess" style="margin-top:.9rem">Hausaufgabenzeit, Abendroutine, Wochenendprogramm:
-        Wann es bei euch dicht zugeht, wisst nur ihr. Die Hot-Phasen zieht ihr als Balken über die
-        Woche — verschieben, länger oder kürzer ziehen, loslassen, gespeichert. Beim automatischen
-        Verteilen werden sie mitbesetzt.</p>
+        <p class="augenbraue">5 · Auslastung</p>
+        <h3 class="mittel" style="margin-top:.5rem; font-size:1.35rem">Sie sehen sofort, wer noch Stunden frei hat.</h3>
+        <p class="fliess" style="margin-top:.9rem">
+          Die schwierigste Frage beim Planen ist nicht „wer kann?", sondern <strong>„wer muss
+          noch?"</strong> — wer hinter seinem Soll liegt und wer schon darüber. Genau das rechnet
+          die Anwendung mit: Jede Person hat ihr Monats-Soll aus den Vertragsstunden, und der
+          farbige Punkt am Namen zeigt den Stand jederzeit — <span class="ampel-gruen">grün: noch
+          Luft</span>, <span class="ampel-blau">blau: im Soll</span>, <span class="ampel-rot">rot:
+          darüber</span>.
+        </p>
+        <p class="fliess" style="margin-top:.9rem">
+          Beim Zuweisen sortiert die Anwendung danach: <strong>★ steht bei denen, die noch Stunden
+          offen haben.</strong> Das automatische Füllen tut dasselbe — deshalb heißt es „fair
+          verteilen": nicht reihum, sondern nach Soll. Und wer in zwei Gruppen arbeitet, wird
+          einmal gezählt, nicht doppelt.
+        </p>
       </div>
     </div>
 
@@ -722,13 +736,15 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
         </ul>
 
         <div class="geldzurueck">
-          <strong>So läuft die Bezahlung.</strong> Ihr bestellt per E-Mail und bekommt die
-          Anwendung mit einer ordentlichen Rechnung — Zahlung per Überweisung mit
-          14 Tagen Ziel, keine Vorkasse, kein Konto bei einem Zahlungsdienst nötig.
-          Genau so, wie eure Buchhaltung es braucht.
+          <strong>So läuft der Kauf.</strong> Ein Klick auf den Knopf, bezahlen an der Kasse
+          — danach kommen Download, Lizenzschlüssel und Rechnung sofort per E-Mail, ohne
+          dass jemand von Hand etwas tun muss. Überweisung steht direkt an der Kasse zur
+          Wahl — dafür muss uns niemand mehr schreiben. Wer vorab ein Angebot oder eine
+          Rechnung mit 14 Tagen Ziel für die Buchhaltung braucht, meldet sich; das
+          mache ich von Hand.
         </div>
 
-        <a class="knopf knopf-voll" style="width:100%; margin-top:1.25rem" href="#kaufen">Bestellen</a>
+        <a class="knopf knopf-voll" style="width:100%; margin-top:1.25rem" href="#kaufen">Für 179 € kaufen</a>
         <p class="leise" style="font-size:.75rem; margin-top:.7rem">
           Kleinunternehmer nach § 19 UStG — es wird keine Umsatzsteuer ausgewiesen.
         </p>
@@ -761,37 +777,54 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
 <!-- ====================== Herunterladen ====================== -->
 <section class="abschnitt" id="kaufen">
   <div class="huelle">
-    <p class="augenbraue">Bestellen</p>
-    <h2 class="mittel" style="margin-top:.5rem">Eine E-Mail genügt. Den Rest mache ich.</h2>
+    <p class="augenbraue">Kaufen</p>
+    <h2 class="mittel" style="margin-top:.5rem">Ein Klick. 179 €. Fertig.</h2>
 
-    <p class="fliess" style="margin-top:1.25rem">
-      Es gibt keinen Warenkorb und kein Bezahlformular — bei einer Anwendung, die ein Haus
-      einmal anschafft, wäre beides nur im Weg. Ihr schreibt eine E-Mail, ich melde mich
-      am selben oder nächsten Tag zurück. Ausgeliefert wird, sobald die letzten Prüfungen
-      auf allen drei Systemen durch sind — das ist eine Frage von Tagen, und wer jetzt
-      bestellt, ist als Erstes dran.
+    <p class="fliess" style="margin-top:1.25rem; max-width:65ch">
+      Kein Warenkorb, kein Konto, kein Abo. An der Kasse wählt ihr, wie ihr zahlt —
+      Überweisung, SEPA-Lastschrift, Kreditkarte oder PayPal. Unmittelbar danach bekommt
+      ihr per E-Mail den Download für Mac und Windows, euren Lizenzschlüssel und die
+      Rechnung für die Buchhaltung.
     </p>
+
+    <div style="margin-top:1.5rem">
+      <!-- KAUFKNOPF: Hier gehört der Bestell-Link von Digistore24 hin. Er kommt nicht
+           von Hand hierher, sondern aus hochladen/verkauf.json ("bestellLink"); bauen.py
+           setzt ihn beim Bauen ein. Solange er fehlt, steht hier ein Platzhalter, den
+           pruefen.sh meldet – so kann die Seite nicht mit einem toten Kaufknopf online
+           gehen. -->
+      <a class="knopf knopf-voll" href="mailto:kontakt@dienstplan-jugendhilfe.de?subject=Dienstplan%20kaufen&amp;body=Guten%20Tag%2C%0A%0Awir%20m%C3%B6chten%20den%20Dienstplan%20kaufen%20(179%20%E2%82%AC).%0A%0AEinrichtung%20oder%20Betrieb%3A%20%0AAnschrift%20f%C3%BCr%20die%20Rechnung%3A%20%0AAnzahl%20Gruppen%2FAbteilungen%3A%20%0ARechner%3A%20Mac%20oder%20Windows%3F%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen%0A" rel="noopener">Für 179 € kaufen</a>
+      <p class="leise" style="font-size:.8rem; margin-top:.6rem">Ihr bekommt Anwendung, Lizenzschlüssel und Rechnung per E-Mail – zahlbar per Überweisung mit 14 Tagen Ziel.</p>
+    </div>
 
     <div class="systeme" style="margin-top:1.5rem">
       <div class="karte system">
-        <h3>1 · Schreiben</h3>
-        <p>Eine kurze Mail: Einrichtung oder Betrieb, wie viele Gruppen bzw. Abteilungen,
-        Mac oder Windows. Mehr braucht es nicht.</p>
+        <h3>1 · Bezahlen</h3>
+        <p>179 € einmalig, für die ganze Einrichtung. Überweisung, Lastschrift, Karte
+        oder PayPal — ihr braucht nirgends ein Konto anzulegen.</p>
       </div>
       <div class="karte system">
-        <h3>2 · Erhalten</h3>
-        <p>Ihr bekommt die Anwendung für Mac und Windows, die Klick-für-Klick-Anleitung
-        und die Rechnung — alles in einer Sendung.</p>
+        <h3>2 · Post bekommen</h3>
+        <p>Sofort nach der Zahlung, automatisch: Download-Link für Mac und Windows, euer
+        Lizenzschlüssel und die Rechnung für die Buchhaltung.</p>
       </div>
       <div class="karte system">
-        <h3>3 · Überweisen</h3>
-        <p>179 € mit 14 Tagen Ziel — nach Erhalt, keine Vorkasse, kein Zahlungsdienst,
-        kein Konto irgendwo. So, wie eure Buchhaltung es kennt.</p>
+        <h3>3 · Loslegen</h3>
+        <p>Installieren, Schlüssel einmal eintragen, Gruppe anlegen. Danach fragt die
+        Anwendung nie wieder nach — sie prüft den Schlüssel auf eurem Rechner.</p>
       </div>
     </div>
 
-    <div style="margin-top:1.5rem">
-      <a class="knopf knopf-voll" href="mailto:kontakt@dienstplan-jugendhilfe.de?subject=Dienstplan%20bestellen&amp;body=Guten%20Tag%2C%0A%0Awir%20m%C3%B6chten%20den%20Dienstplan%20bestellen.%0A%0AEinrichtung%20oder%20Betrieb%3A%20%0AAnzahl%20Gruppen%2FAbteilungen%3A%20%0AAnzahl%20Mitarbeitende%3A%20%0ARechner%3A%20Mac%20oder%20Windows%3F%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen%0A">Bestellen</a>
+    <div class="karte" style="margin-top:1.5rem; padding:1.3rem; max-width:65ch">
+      <h3 class="klein-h">Wer stellt die Rechnung?</h3>
+      <p class="leise" style="font-size:.88rem; margin-top:.4rem">
+        Den Verkauf wickelt Digistore24 als Wiederverkäufer ab. Die Rechnung kommt von
+        dort, ist ordentlich ausgewiesen und für eure Buchhaltung ganz normal verwendbar —
+        auch bei Zahlung per Überweisung. Braucht ihr etwas Besonderes, eine
+        Bestellnummer, ein Angebot vorab oder eine Sammelrechnung für mehrere Häuser:
+        <a href="mailto:kontakt@dienstplan-jugendhilfe.de?subject=Dienstplan%20Rechnung">kontakt@dienstplan-jugendhilfe.de</a>,
+        das mache ich von Hand.
+      </p>
     </div>
 
     <p class="augenbraue" style="margin-top:2.5rem">Die drei Fassungen</p>
@@ -844,7 +877,7 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
     <div class="fragen">
       <details>
         <summary>Ab wann kann man sie herunterladen?</summary>
-        <div class="antwort">In den nächsten Tagen. Die Anwendung ist fertig; was noch fehlt, ist ein Durchlauf auf jedem der drei Systeme durch jemanden, der sie nicht gebaut hat. Wer sich vormerken lässt, bekommt genau eine Nachricht, sobald es soweit ist — und kann sich vorher jederzeit melden, wenn er sie sich ansehen möchte.</div>
+        <div class="antwort">Sofort nach dem Kauf. Es gibt hier bewusst keinen offenen Download: Ihr bekommt den Link zu eurer Plattform — Mac mit Apple-Chip, Mac mit Intel, oder Windows — zusammen mit dem Lizenzschlüssel und der Rechnung unmittelbar nach der Zahlung per E-Mail. Bei Überweisung dauert es so lange, bis das Geld da ist; alles andere geht in Minuten. Die Datei ist je nach System 330 bis 460 MB groß, weil die gesamte Anwendung samt Datenbank darin steckt und danach nichts mehr nachgeladen werden muss.</div>
       </details>
       <details>
         <summary>Was kostet sie?</summary>
@@ -852,7 +885,11 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
       </details>
       <details>
         <summary>Wie läuft die Bezahlung?</summary>
-        <div class="antwort">Auf Rechnung, per Überweisung, mit 14 Tagen Zahlungsziel — so, wie Buchhaltungen es brauchen. Keine Vorkasse, keine Kreditkarte, kein Konto bei einem Zahlungsdienst. Bestellt wird formlos per E-Mail; die Rechnung kommt mit der Anwendung. Als Kleinunternehmer nach § 19 UStG weise ich keine Umsatzsteuer aus.</div>
+        <div class="antwort">Über den Kauf-Knopf. An der Kasse stehen Überweisung, SEPA-Lastschrift, Kreditkarte und PayPal zur Wahl — Träger, die kein PayPal dürfen, nehmen einfach Überweisung. Rechnung, Download-Link und Lizenzschlüssel kommen unmittelbar nach der Zahlung per E-Mail; da muss niemand auf mich warten. Abgewickelt wird der Verkauf über Digistore24 als Wiederverkäufer: Die Rechnung kommt von dort und ist für eure Buchhaltung ganz normal verwendbar.</div>
+      </details>
+      <details>
+        <summary>Was ist der Lizenzschlüssel?</summary>
+        <div class="antwort">Eine Zeile Text, die ihr nach dem Kauf per E-Mail bekommt und beim ersten Start einmal einfügt. Sie trägt den Namen eurer Einrichtung, gilt zeitlich unbegrenzt für alle Gruppen und Arbeitsplätze — und wird <strong>auf eurem Rechner geprüft</strong>: Die Anwendung fragt dafür nirgends nach und braucht kein Internet. Auch das ist Absicht, denn sonst stünde sie eines Tages still, weil ein Server abgeschaltet wurde. Schlüssel verlegt? Eine Mail genügt, wir schicken ihn erneut.</div>
       </details>
       <details>
         <summary>Können wir sie vorher sehen?</summary>

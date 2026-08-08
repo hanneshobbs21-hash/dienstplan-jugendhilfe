@@ -377,6 +377,12 @@ details .antwort{padding:0 2rem 1.2rem 0; font-size:.92rem; color:var(--tinte-2)
   font-size:.83rem; line-height:1.5; color:var(--leise)}
 .lese-hinweise strong{color:var(--tinte)}
 
+/* Auslastungs-Ampel im Fließtext */
+.ampel-gruen,.ampel-blau,.ampel-rot{white-space:nowrap; font-weight:550}
+.ampel-gruen{color:var(--gut)}
+.ampel-blau{color:var(--spaet)}
+.ampel-rot{color:#dc2626}
+
 /* ---- Impressum und Datenschutzerklärung ---------------------------------- */
 .recht{max-width:46rem; padding-top:3.5rem; padding-bottom:4rem}
 .recht h1{font-size:clamp(1.8rem,4vw,2.5rem); font-weight:600; margin:.4rem 0 0}
