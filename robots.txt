@@ -1,0 +1,9 @@
+# Alle Crawler sind willkommen – ausdrücklich auch die der KI-Anbieter
+# (GPTBot, ClaudeBot, PerplexityBot, Google-Extended). Wer zitiert werden
+# will, darf nicht aussperren. Sollte die Seite je hinter ein CDN wandern:
+# dort nachsehen, ob KI-Crawler stillschweigend geblockt werden.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://dienstplan-jugendhilfe.de/sitemap.xml
