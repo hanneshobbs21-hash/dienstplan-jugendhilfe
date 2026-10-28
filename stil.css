@@ -157,6 +157,12 @@ img{max-width:100%; height:auto; display:block}
 }
 /* Ganz schmal: lieber „Dienstplan“ ganz als „Dienstplan Jugen…“. */
 @media (max-width:420px){ .marke-zusatz{display:none} }
+/* „Beitragen“ steht neben „Herunterladen“ (Mikes Wunsch, 28.10.2026) – als zweiter,
+   umrandeter Knopf, damit der Download der Hauptweg bleibt. Am Telefon reicht der Platz
+   für beide nur, wenn die Marke auf ihr Zeichen schrumpft. */
+.kopf-beitrag{white-space:nowrap}
+@media (max-width:400px){ .marke-wort{display:none} }
+@media (max-width:340px){ .kopf-rechts{gap:.3rem} .kopf-rechts .knopf-klein{padding-left:.55rem; padding-right:.55rem} }
 /* Erster Tabulator-Halt: am Kopf vorbei direkt zum Inhalt. Sichtbar nur mit Fokus. */
 .sprung{position:absolute; left:1rem; top:-4rem; z-index:60; padding:.55rem .9rem; border-radius:.55rem;
   background:var(--knopf); color:#fff; font-size:.875rem; font-weight:500; text-decoration:none}
