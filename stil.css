@@ -215,8 +215,15 @@ img{max-width:100%; height:auto; display:block}
 .held-titel{font-size:clamp(2.1rem,6.4vw,4.5rem); font-weight:650; letter-spacing:-.045em; line-height:1.02; margin-top:1rem}
 .held-titel span{display:block}
 .held-titel .zweite{color:var(--leise)}
+/* Die Themenzeile steht IN der h1, damit Suchmaschinen „kostenloser Dienstplan“ und
+   „Schichtdienst“ als Thema der Seite lesen (28.10.2026) – aussehen soll sie wie zuvor
+   die Augenbraue darüber. */
+.held-titel .held-thema{font-size:.78rem; font-weight:600; letter-spacing:.08em; line-height:1.45;
+  margin:-1rem auto 1rem; max-width:46rem; text-wrap:balance}
 .held-text{max-width:41rem; margin:1.25rem auto 0; font-size:clamp(1.06rem,1.6vw,1.25rem); line-height:1.55; color:var(--tinte-2)}
 .held-knoepfe{display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; margin-top:1.75rem}
+/* „Beitragen“ steht unter den beiden Hauptknöpfen (Mikes Wunsch, 28.10.2026) */
+.held-beitrag{display:flex; justify-content:center; margin-top:.75rem}
 .vertrauen{display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem 1.5rem; list-style:none; margin:1.35rem 0 0; padding:0;
   font-size:.875rem; color:var(--leise)}
 .vertrauen li{display:inline-flex; align-items:center; gap:.4rem}
