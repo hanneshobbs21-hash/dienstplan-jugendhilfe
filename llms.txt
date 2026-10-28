@@ -1,0 +1,62 @@
+# Dienstplan Jugendhilfe
+
+> Dienstplan-Software für Wohngruppen der Kinder- und Jugendhilfe und für
+> Betriebe mit Schichtdienst. Läuft als Anwendung auf einem Rechner im Haus –
+> ohne Cloud, ohne Konto, ohne Übertragung an Dritte.
+> Kostenlos für die ganze Einrichtung, kein Abo, keine Gebühr je Kopf.
+
+Anbieter: Dienstplan Jugendhilfe, Waldachtal (Deutschland). Kontakt:
+kontakt@dienstplan-jugendhilfe.de
+Systeme: macOS 11 oder neuer, Windows 10/11 (64 Bit). Sprache: Deutsch.
+
+## Was sie kostet
+
+Nichts. Die Anwendung ist kostenlos und bleibt es: vollständig, ohne
+Nutzergrenze, ohne Testfrist, ohne Lizenzschlüssel zum Freischalten, ohne
+Zahlungsdienstleister. Herunterladen kann sie jeder ohne Anmeldung, ohne
+E-Mail-Adresse, ohne Konto und ohne Zahlungsdaten: Die Installationsdateien
+für Mac mit Apple-Chip, Mac mit Intel und Windows 10/11 liegen offen als
+Veröffentlichung im GitHub-Projekt und sind von der Startseite aus verlinkt:
+https://dienstplan-jugendhilfe.de/#herunterladen
+Je nach System sind es 338 bis 448 MB, weil die ganze Anwendung samt
+Datenbank darin steckt und danach nichts nachgeladen wird.
+
+Wer möchte, unterstützt die Weiterentwicklung mit einem freiwilligen Beitrag in
+selbst gewählter Höhe. Es gibt keine empfohlene Summe und keinen Mindestbetrag;
+wie viel angemessen ist, entscheidet die Einrichtung. Einrichtungen
+bekommen dafür eine Rechnung für die Buchhaltung. Es ist keine Spende im
+steuerlichen Sinn: Der Anbieter ist eine Privatperson und Kleinunternehmer
+nach § 19 UStG, keine gemeinnützige Körperschaft. Eine Zuwendungsbestätigung
+(Spendenbescheinigung) kann es deshalb nicht geben, und der Betrag ist nicht
+als Spende absetzbar. Wer nichts zahlt, verliert nichts: keine Funktion, keine
+Frist, keine Mahnung.
+
+## Wofür sie gemacht ist
+
+- Monatsplan für eine oder mehrere Wohngruppen, gefüllt aus einem Dienstzyklus
+- Prüfung der Arbeitszeitregeln beim Planen: Ruhezeit, Tage am Stück,
+  freie Sonntage, Nachtdienst-Kontingente
+- Zeitkonten, Sollstunden, Urlaub, Nachtbereitschaft mit tariflichem Anteil
+- Aushang zum Ausdrucken, Anträge und Abwesenheiten, Änderungsverlauf
+- Zwei Fassungen aus einem Programm: Jugendhilfe und allgemeiner Betrieb
+
+## Wofür sie nicht gemacht ist
+
+- Keine Cloud, kein Zugriff übers Internet, keine App fürs Telefon
+- Keine Lohnabrechnung, keine Falldokumentation, keine Klientenakte
+
+## Seiten
+
+- [Startseite](https://dienstplan-jugendhilfe.de/): Funktionsumfang, Bilder, Download, häufige Fragen
+- [Beitragen](https://dienstplan-jugendhilfe.de/beitrag.html): kostenlos; freiwilliger Beitrag zur Weiterentwicklung, Rechnung für die Buchhaltung, Anpassungen vorschlagen
+- [Dienstplan erstellen](https://dienstplan-jugendhilfe.de/dienstplan-erstellen.html): Anleitung in sieben Schritten
+- [Dienstplan ändern](https://dienstplan-jugendhilfe.de/dienstplan-aendern.html): Fristen, Ankündigung, Mitbestimmung von Betriebsrat und Mitarbeitervertretung
+- [Arbeitszeitgesetz im Schichtdienst](https://dienstplan-jugendhilfe.de/arbeitszeit.html): Ruhezeit, Sonntage, Nachtarbeit, Aufzeichnung
+- [Nachtbereitschaft](https://dienstplan-jugendhilfe.de/nachtbereitschaft.html): Arbeitszeit, Vergütung, Zeitkonto
+- [Dienstplan ohne Cloud](https://dienstplan-jugendhilfe.de/ohne-cloud.html): Datenschutz, Auftragsverarbeitung, Checkliste
+- [Vergleich](https://dienstplan-jugendhilfe.de/vergleich.html): Excel, Cloud oder lokale Anwendung über fünf Jahre
+- [Für Betriebe](https://dienstplan-jugendhilfe.de/betrieb.html): Pflege, Gastronomie, Handwerk, Produktion
+- [Excel-Vorlage](https://dienstplan-jugendhilfe.de/vorlage.html): kostenlose Monatsvorlage, ohne Anmeldung
+- [Impressum](https://dienstplan-jugendhilfe.de/impressum.html) · [Datenschutz](https://dienstplan-jugendhilfe.de/datenschutz.html)
+
+Die Fachseiten sind Arbeitshilfen, keine Rechtsberatung.
