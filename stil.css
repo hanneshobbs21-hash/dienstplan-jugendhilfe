@@ -10,182 +10,253 @@
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 /* ---------------------------------------------------------------------------
-   Farben und Maße sind aus der Anwendung übernommen, nicht neu erfunden:
-   zinc-50/zinc-900 als Grund, Weiß bzw. zinc-800 für Flächen, blue-600 als
-   einzige Akzentfarbe, 1px-Ringe statt Schatten. Wer die App kennt, soll die
-   Seite wiedererkennen – und umgekehrt.
+   Farben und Maße kommen aus der Anwendung (src/app/globals.css), nicht neu
+   erfunden: zinc-100 als Grund, weiße Flächen mit echter Kante, blue-600 als
+   einzige Akzentfarbe, Glas nur in der Kopfleiste, Karten mit 14 px Rundung.
+   Wer die App kennt, soll die Seite wiedererkennen – und umgekehrt.
+
+   Jede Text-/Flächen-Paarung ist gerechnet, nicht geschätzt, in beiden Modi:
+   --leise ist zinc-600 statt zinc-500, weil zinc-500 auf dem Grund (zinc-100)
+   nur 4,38:1 hielt; --gut ist emerald-700, weil emerald-600 auf Weiß als Schrift
+   (Saldo im Zeitkonto) nur 3,77:1 hielt. Im Dunkelmodus ist --flaeche-2 heller
+   als zinc-700 gewählt, damit --leise darauf über 4,5:1 bleibt.
    --------------------------------------------------------------------------- */
 :root{
+  color-scheme:light;
   /* Gefüllte Knöpfe: eigenes Blau statt --akzent. --akzent wird im Dunkelmodus heller
-     (#3b82f6) – gut für Linien und Flächen, aber weiße Schrift darauf hielt nur 3,68:1,
-     beim Darüberfahren (#93c5fd) noch weit weniger. Diese beiden Werte gelten deshalb
-     in beiden Modi: 5,17:1 und 6,70:1. */
+     (#3b82f6) – gut für Linien und Flächen, aber weiße Schrift darauf hielt nur 3,68:1.
+     Diese beiden Werte gelten deshalb in beiden Modi: 5,17:1 und 6,70:1. */
   --knopf:#2563eb; --knopf-drueber:#1d4ed8;
-  --grund:#fafafa;          /* zinc-50  */
+  --grund:#f4f4f5;          /* zinc-100, wie die Anwendung */
   --flaeche:#ffffff;
-  --flaeche-2:#f4f4f5;      /* zinc-100 */
+  --flaeche-2:#f4f4f5;
   --tinte:#18181b;          /* zinc-900 */
   --tinte-2:#3f3f46;        /* zinc-700 */
-  --leise:#71717a;          /* zinc-500 */
-  --linie:#e4e4e7;          /* zinc-200 */
+  --leise:#52525b;          /* zinc-600 */
+  --linie:#e4e4e7;          /* zinc-200: Trenner innerhalb einer Fläche */
+  --kante:#d4d4d8;          /* zinc-300: Rand einer Karte */
   --akzent:#2563eb;         /* blue-600 */
   --akzent-tinte:#1d4ed8;
   --akzent-flaeche:#eff6ff; /* blue-50  */
   --akzent-linie:#bfdbfe;   /* blue-200 */
-  --warn-flaeche:#fffbeb;   /* amber-50 */
+  --warn-flaeche:#fffbeb;
   --warn-linie:#fde68a;
   --warn-tinte:#78350f;
   --warn-kern:#f59e0b;
-  --gut:#059669;
+  --gut:#047857;
   --frueh:#f59e0b;
   --spaet:#3b82f6;
   --nacht:#6366f1;
-  --schatten:0 1px 2px rgba(24,24,27,.05);
-  --rund:.75rem;
+  /* Namensfelder wie in der App (lib/colors.ts): 45 % Farbe auf 55 % Schwarz, im
+     Dunkelmodus auf 55 % Weiß. */
+  --chip-mix:#000000;
+  --glas:rgb(255 255 255 / .92);
+  --schein:rgb(37 99 235 / .11);
+  --schatten:0 1px 2px rgb(0 0 0 / .04), 0 8px 24px -14px rgb(0 0 0 / .10);
+  --schatten-gross:0 1px 2px rgb(0 0 0 / .05), 0 18px 40px -22px rgb(24 24 27 / .28), 0 40px 80px -40px rgb(24 24 27 / .22);
+  --rund:.875rem;
+  --rund-gross:1.125rem;
 }
 @media (prefers-color-scheme: dark){
-  :root{
-    --grund:#18181b; --flaeche:#27272a; --flaeche-2:#3f3f46;
-    --tinte:#f4f4f5; --tinte-2:#d4d4d8; --leise:#a1a1aa; --linie:#3f3f46;
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --grund:#18181b; --flaeche:#232326; --flaeche-2:#2c2c30;
+    --tinte:#f4f4f5; --tinte-2:#d4d4d8; --leise:#a1a1aa; --linie:#3f3f46; --kante:#4b4b53;
     --akzent:#3b82f6; --akzent-tinte:#93c5fd; --akzent-flaeche:#172554; --akzent-linie:#1e3a8a;
     --warn-flaeche:#2a1e05; --warn-linie:#78350f; --warn-tinte:#fcd34d;
-    --gut:#34d399;
-    --schatten:0 1px 2px rgba(0,0,0,.3);
+    --gut:#34d399; --chip-mix:#ffffff;
+    --glas:rgb(35 35 38 / .92);
+    --schein:rgb(59 130 246 / .16);
+    --schatten:0 1px 2px rgb(0 0 0 / .3), 0 8px 24px -14px rgb(0 0 0 / .5);
+    --schatten-gross:0 1px 2px rgb(0 0 0 / .3), 0 18px 40px -22px rgb(0 0 0 / .7), 0 40px 80px -40px rgb(0 0 0 / .6);
   }
 }
 :root[data-theme="dark"]{
-  --grund:#18181b; --flaeche:#27272a; --flaeche-2:#3f3f46;
-  --tinte:#f4f4f5; --tinte-2:#d4d4d8; --leise:#a1a1aa; --linie:#3f3f46;
+  color-scheme:dark;
+  --grund:#18181b; --flaeche:#232326; --flaeche-2:#2c2c30;
+  --tinte:#f4f4f5; --tinte-2:#d4d4d8; --leise:#a1a1aa; --linie:#3f3f46; --kante:#4b4b53;
   --akzent:#3b82f6; --akzent-tinte:#93c5fd; --akzent-flaeche:#172554; --akzent-linie:#1e3a8a;
   --warn-flaeche:#2a1e05; --warn-linie:#78350f; --warn-tinte:#fcd34d;
-  --gut:#34d399;
-  --schatten:0 1px 2px rgba(0,0,0,.3);
-}
-:root[data-theme="light"]{
-  --grund:#fafafa; --flaeche:#ffffff; --flaeche-2:#f4f4f5;
-  --tinte:#18181b; --tinte-2:#3f3f46; --leise:#71717a; --linie:#e4e4e7;
-  --akzent:#2563eb; --akzent-tinte:#1d4ed8; --akzent-flaeche:#eff6ff; --akzent-linie:#bfdbfe;
-  --warn-flaeche:#fffbeb; --warn-linie:#fde68a; --warn-tinte:#78350f;
-  --gut:#059669;
-  --schatten:0 1px 2px rgba(24,24,27,.05);
+  --gut:#34d399; --chip-mix:#ffffff;
+  --glas:rgb(35 35 38 / .92);
+  --schein:rgb(59 130 246 / .16);
+  --schatten:0 1px 2px rgb(0 0 0 / .3), 0 8px 24px -14px rgb(0 0 0 / .5);
+  --schatten-gross:0 1px 2px rgb(0 0 0 / .3), 0 18px 40px -22px rgb(0 0 0 / .7), 0 40px 80px -40px rgb(0 0 0 / .6);
 }
 
+/* ---- Grundlagen ---------------------------------------------------------- */
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0; background:var(--grund); color:var(--tinte);
   font-family:Geist,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  overflow-x:hidden; overflow-x:clip;
+  transition:background-color .25s ease, color .25s ease;
 }
-h1,h2,h3{margin:0; line-height:1.15; text-wrap:balance; letter-spacing:-.022em}
+h1,h2,h3{margin:0; line-height:1.15; text-wrap:balance; letter-spacing:-.022em; font-weight:600}
 p{margin:0}
 a{color:var(--akzent-tinte); text-decoration-color:color-mix(in srgb,var(--akzent) 40%,transparent); text-underline-offset:2px}
 a:hover{text-decoration-color:currentColor}
 img{max-width:100%; height:auto; display:block}
 :focus-visible{outline:2px solid var(--akzent); outline-offset:2px; border-radius:4px}
+[id]{scroll-margin-top:5rem}
 .mono{font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace; font-variant-numeric:tabular-nums}
-
-.huelle{max-width:72rem; margin:0 auto; padding:0 1rem}
-.abschnitt{padding:4.5rem 0}
-.abschnitt + .abschnitt{border-top:1px solid var(--linie)}
-@media (max-width:640px){ .abschnitt{padding:3rem 0} }
-
-/* Kopfleiste – bewusst identisch zur Anwendung: gleiche Höhe, gleiche Ringe. */
-.kopf{
-  position:sticky; top:0; z-index:20;
-  background:color-mix(in srgb,var(--flaeche) 88%,transparent);
-  backdrop-filter:saturate(180%) blur(8px);
-  border-bottom:1px solid var(--linie);
-}
-.kopf-innen{max-width:72rem; margin:0 auto; padding:.7rem 1rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap}
-.marke{display:flex; align-items:center; gap:.5rem; font-size:.875rem; font-weight:600; color:var(--tinte); text-decoration:none}
-.marke svg{width:20px; height:20px; flex:none}
-.kopf nav{display:flex; gap:1rem; font-size:.875rem}
-.kopf nav a{color:var(--leise); text-decoration:none}
-.kopf nav a:hover{color:var(--akzent)}
-.kopf-rechts{margin-left:auto; display:flex; align-items:center; gap:.6rem; flex:none}
-@media (max-width:760px){ .kopf nav{display:none} }
-/* Auf dem Handy muss die Leiste einzeilig bleiben – umgebrochen sähe man den
-   Seiteninhalt zwischen den beiden Zeilen durchscheinen. */
-@media (max-width:520px){
-  .kopf-innen{flex-wrap:nowrap; gap:.75rem}
-  .marke{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
-  .nur-breit{display:none}
-}
-
-/* Knöpfe – exakt die Formensprache der App: rounded-md, 1px-Rand, kein Verlauf. */
-.knopf{
-  display:inline-flex; align-items:center; justify-content:center; gap:.45rem;
-  border-radius:.5rem; padding:.6rem 1rem; font-size:.875rem; font-weight:500;
-  border:1px solid var(--linie); background:var(--flaeche); color:var(--tinte-2);
-  text-decoration:none; cursor:pointer; font-family:inherit;
-  transition:background .15s ease, border-color .15s ease;
-}
-.knopf:hover{background:var(--flaeche-2)}
-.knopf-voll{background:var(--knopf); border-color:var(--knopf); color:#fff}
-.knopf-voll:hover{background:var(--knopf-drueber); border-color:var(--knopf-drueber)}
-:root[data-theme="dark"] .knopf-voll:hover, :root:not([data-theme="light"]) .knopf-voll:hover{filter:brightness(1.08)}
-.knopf-klein{padding:.35rem .75rem; font-size:.78rem}
-.knopf-schlicht{border-color:transparent; background:transparent}
-.knopf-schlicht:hover{background:var(--flaeche-2)}
-.mondknopf{width:2.3rem; height:2.3rem; padding:0; border-radius:.5rem}
-
-/* Karten und Marken */
-.karte{background:var(--flaeche); border:1px solid var(--linie); border-radius:var(--rund); box-shadow:var(--schatten)}
-.chip{
-  display:inline-flex; align-items:center; gap:.4rem; border-radius:999px;
-  padding:.28rem .7rem; font-size:.75rem; font-weight:500;
-  background:var(--akzent-flaeche); color:var(--akzent-tinte); border:1px solid var(--akzent-linie);
-  /* Im Raster würde die Marke sonst auf volle Breite gezogen. */
-  justify-self:start; width:fit-content;
-}
-.augenbraue{font-size:.75rem; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--leise)}
+.nur-leser{position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
 .leise{color:var(--leise)}
-.gross{font-size:clamp(2.1rem,5.2vw,3.5rem); font-weight:600}
-.mittel{font-size:clamp(1.5rem,3.1vw,2.1rem); font-weight:600}
-.klein-h{font-size:1.05rem; font-weight:600}
 .fliess{max-width:65ch; color:var(--tinte-2)}
 
-/* ---------------------------------------------------------------------------
-   Der Kopfbereich zeigt keinen Screenshot, sondern einen echten Monatsplan in
-   der Bildsprache der App. Er füllt sich beim Aufruf selbst – genau das, was
-   der Knopf „Plan automatisch füllen" in der Anwendung tut.
-   --------------------------------------------------------------------------- */
-.kopfbereich{padding:3.5rem 0 0}
-.kopf-raster{display:grid; gap:1.75rem}
-.merkmale{display:flex; flex-wrap:wrap; gap:.5rem 1.4rem; font-size:.85rem; color:var(--leise)}
-.merkmale span{display:inline-flex; align-items:center; gap:.4rem}
+/* Raster: ein Vielfaches von 8 px. Seitenrand am Telefon 16 px. */
+.huelle{max-width:72rem; margin:0 auto; padding:0 1rem}
+.huelle-breit{max-width:80rem}
+@media (min-width:720px){ .huelle{padding:0 1.5rem} }
+.abschnitt{padding:clamp(4rem,9vw,7rem) 0}
+.band{background:var(--flaeche); border-top:1px solid var(--linie); border-bottom:1px solid var(--linie)}
+
+/* ---- Kopfleiste: Glas wie in der Anwendung (Deckung 0,92, 14 px Weichzeichnung) */
+.kopf{
+  position:sticky; top:0; z-index:30;
+  background:var(--glas);
+  -webkit-backdrop-filter:blur(14px) saturate(115%); backdrop-filter:blur(14px) saturate(115%);
+  border-bottom:1px solid var(--linie);
+}
+@media (prefers-reduced-transparency: reduce){ .kopf{background:var(--flaeche); -webkit-backdrop-filter:none; backdrop-filter:none} }
+.kopf-innen{max-width:80rem; margin:0 auto; padding:.6rem 1rem; display:flex; align-items:center; gap:1.5rem}
+@media (min-width:720px){ .kopf-innen{padding:.6rem 1.5rem} }
+.marke{display:flex; align-items:center; gap:.55rem; font-size:.9rem; font-weight:600; letter-spacing:-.01em;
+  color:var(--tinte); text-decoration:none; white-space:nowrap; min-width:0}
+.marke svg{width:22px; height:22px; flex:none}
+.marke-wort{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.kopf nav.abschnitte{display:flex; gap:1.3rem; font-size:.875rem}
+.kopf nav.abschnitte a{position:relative; color:var(--leise); text-decoration:none; padding:.3rem 0; white-space:nowrap}
+.kopf nav.abschnitte a:hover, .kopf nav.abschnitte a.aktiv{color:var(--tinte)}
+.kopf nav.abschnitte a.aktiv::after{content:""; position:absolute; left:0; right:0; bottom:-.15rem; height:2px; border-radius:2px; background:var(--akzent)}
+.kopf-rechts{margin-left:auto; display:flex; align-items:center; gap:.6rem; flex:none}
+.knopf-kurz{display:none}
+/* Unter 1080 px passt die Leiste nicht mehr nebeneinander. Bis zum 28.10.2026 verschwand
+   sie dann ersatzlos – auf Tablet und Telefon gab es keinen Weg zu den Abschnitten.
+   Jetzt klappt ein Menüknopf dieselben Ziele auf. */
+/* Die Liste hängt an der Kopfleiste (sticky, also positioniert), nicht am Knopf: So
+   bleibt sie auch am Telefon im Bild, wo der Knopf weit links von rechts steht. */
+.menue{display:none}
+.menue > summary{list-style:none}
+.menue > summary::-webkit-details-marker{display:none}
+.menue-liste{position:absolute; right:1rem; top:calc(100% + .4rem); z-index:40; width:min(16rem, calc(100vw - 2rem)); display:grid; padding:.35rem;
+  background:var(--flaeche); border:1px solid var(--kante); border-radius:.8rem; box-shadow:var(--schatten-gross)}
+.menue-liste a{padding:.65rem .8rem; border-radius:.5rem; color:var(--tinte); text-decoration:none; font-size:.95rem}
+.menue-liste a:hover{background:var(--flaeche-2)}
+@media (max-width:1080px){ .kopf nav.abschnitte{display:none} .menue{display:block} }
+@media (min-width:720px){ .menue-liste{right:1.5rem} }
+/* Am Telefon bleibt die Leiste einzeilig: Marke kürzt sich, der Knopf wird knapper. */
+@media (max-width:520px){
+  .kopf-innen{gap:.6rem}
+  .kopf-rechts{gap:.45rem}
+  .marke{font-size:.86rem}
+  .knopf-lang{display:none}
+  .knopf-kurz{display:inline}
+}
+/* Ganz schmal: lieber „Dienstplan“ ganz als „Dienstplan Jugen…“. */
+@media (max-width:420px){ .marke-zusatz{display:none} }
+/* Erster Tabulator-Halt: am Kopf vorbei direkt zum Inhalt. Sichtbar nur mit Fokus. */
+.sprung{position:absolute; left:1rem; top:-4rem; z-index:60; padding:.55rem .9rem; border-radius:.55rem;
+  background:var(--knopf); color:#fff; font-size:.875rem; font-weight:500; text-decoration:none}
+.sprung:focus{top:.6rem}
+
+/* ---- Knöpfe: die Formensprache der App – 1 px Rand, kein Verlauf ------------ */
+.knopf{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  border-radius:.625rem; padding:.6rem 1.05rem; font-size:.9rem; font-weight:500; line-height:1.25;
+  border:1px solid var(--kante); background:var(--flaeche); color:var(--tinte-2);
+  text-decoration:none; cursor:pointer; font-family:inherit; box-shadow:0 1px 2px rgb(0 0 0 / .05);
+  transition:background-color .15s ease, border-color .15s ease, transform .15s ease;
+}
+.knopf:hover{background:var(--flaeche-2)}
+.knopf-voll{background:var(--knopf); border-color:var(--knopf); color:#fff;
+  box-shadow:0 1px 2px rgb(0 0 0 / .1), 0 8px 18px -10px rgb(37 99 235 / .7)}
+.knopf-voll:hover{background:var(--knopf-drueber); border-color:var(--knopf-drueber)}
+.knopf-klein{padding:.42rem .8rem; font-size:.8rem; border-radius:.55rem}
+.knopf-gross{padding:.8rem 1.35rem; font-size:1rem; border-radius:.75rem}
+.knopf-schlicht{border-color:transparent; background:transparent; box-shadow:none}
+.knopf-schlicht:hover{background:var(--flaeche-2)}
+.mondknopf{width:2.3rem; height:2.3rem; padding:0; border-radius:.6rem}
+
+/* ---- Marken, Überzeilen, Karten -------------------------------------------- */
+.augenbraue{font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--akzent-tinte)}
+.chip{
+  display:inline-flex; align-items:center; gap:.4rem; border-radius:999px;
+  padding:.28rem .75rem; font-size:.78rem; font-weight:500; line-height:1.3;
+  background:var(--akzent-flaeche); color:var(--akzent-tinte); border:1px solid var(--akzent-linie);
+  justify-self:start; width:fit-content;
+}
+.karte{background:var(--flaeche); border:1px solid var(--kante); border-radius:var(--rund); box-shadow:var(--schatten)}
 .haken{color:var(--gut); flex:none}
 
-.fenster{
-  margin-top:2.5rem; border:1px solid var(--linie); border-radius:1rem; overflow:hidden;
-  background:var(--flaeche); box-shadow:0 12px 32px -18px rgba(24,24,27,.35);
-}
-@media (prefers-color-scheme: dark){ .fenster{box-shadow:0 12px 32px -18px rgba(0,0,0,.7)} }
-.fenster-leiste{
-  display:flex; align-items:center; gap:.5rem; padding:.55rem .85rem;
-  background:var(--flaeche-2); border-bottom:1px solid var(--linie);
-}
-.ampel{display:flex; gap:.35rem}
-.ampel i{width:10px; height:10px; border-radius:50%; background:var(--linie)}
+/* Abschnittsköpfe */
+.kopfzeile{max-width:46rem}
+.kopfzeile.mittig{margin-inline:auto; text-align:center}
+.titel{font-size:clamp(1.9rem,3.8vw,2.85rem); font-weight:650; letter-spacing:-.032em; line-height:1.08; margin-top:.7rem}
+.einleitung{margin-top:1.1rem; font-size:clamp(1.02rem,1.4vw,1.15rem); line-height:1.6; color:var(--tinte-2); max-width:60ch}
+.kopfzeile.mittig .einleitung{margin-inline:auto}
+
+/* ---- Kopfbereich ---------------------------------------------------------- */
+/* Oben bewusst knapp: Beim Öffnen soll schon ein guter Teil des Anwendungsfensters zu
+   sehen sein. Bis zum 28.10.2026 begann es bei 1440×900 erst 165 px über dem Rand. */
+.held{position:relative; isolation:isolate; overflow:hidden; text-align:center;
+  padding:clamp(2rem,4vw,3.5rem) 0 clamp(3.5rem,8vw,6rem)}
+/* Ein einziger, ruhiger Schein hinter dem Fenster – kein Verlauf als Dekor. */
+.held::before{content:""; position:absolute; z-index:-1; left:50%; top:34%; width:min(1100px,140vw); height:70%;
+  transform:translateX(-50%); background:radial-gradient(closest-side, var(--schein), transparent); pointer-events:none}
+.held-titel{font-size:clamp(2.1rem,6.4vw,4.5rem); font-weight:650; letter-spacing:-.045em; line-height:1.02; margin-top:1rem}
+.held-titel span{display:block}
+.held-titel .zweite{color:var(--leise)}
+.held-text{max-width:41rem; margin:1.25rem auto 0; font-size:clamp(1.06rem,1.6vw,1.25rem); line-height:1.55; color:var(--tinte-2)}
+.held-knoepfe{display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; margin-top:1.75rem}
+.vertrauen{display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem 1.5rem; list-style:none; margin:1.35rem 0 0; padding:0;
+  font-size:.875rem; color:var(--leise)}
+.vertrauen li{display:inline-flex; align-items:center; gap:.4rem}
+.held-bild{max-width:76rem; margin:2rem auto 0; padding:0 1rem; perspective:2400px; text-align:left}
+@media (min-width:720px){ .held-bild{padding:0 1.5rem} }
+/* --kipp setzt das Skript beim Scrollen von 1 auf 0: Das Fenster richtet sich auf.
+   Ohne Skript und bei reduzierter Bewegung steht es gerade. */
+.held-bild .fenster{transform-origin:50% 100%;
+  transform:rotateX(calc(var(--kipp, 0) * 9deg)) scale(calc(1 - var(--kipp, 0) * .04))}
+
+/* ---- Anwendungsfenster ---------------------------------------------------- */
+.fenster{position:relative; border:1px solid var(--kante); border-radius:var(--rund-gross); overflow:hidden;
+  background:var(--flaeche); box-shadow:var(--schatten-gross)}
+.fenster-leiste{display:flex; align-items:center; gap:.5rem; padding:.55rem .85rem;
+  background:var(--flaeche-2); border-bottom:1px solid var(--linie)}
+.ampel{display:flex; gap:.38rem}
+.ampel i{width:10px; height:10px; border-radius:50%; background:var(--kante)}
 .fenster-titel{font-size:.75rem; color:var(--leise); margin-left:.4rem;
   min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 .fenster-inhalt{padding:1rem 1rem 1.25rem}
+.fenster img{width:100%}
+/* min-width:0: Als Rasterkind darf eine Aufnahme schmaler werden als ihr breitester
+   Inhalt – sonst schiebt die Fensterleiste mit Titel und Umschalter am Telefon die
+   ganze Reihe über den Rand. Der Titel kürzt sich dann mit „…“. */
+.aufnahme{margin:0; min-width:0}
+.aufnahme figcaption{margin-top:.95rem; font-size:.875rem; line-height:1.55; color:var(--leise); max-width:64ch}
 
+/* Vergrößern: das Skript legt um jede Aufnahme einen Knopf. */
+.bild-knopf{display:block; position:relative; width:100%; margin:0; padding:0; border:0; background:none;
+  cursor:zoom-in; font:inherit; color:inherit; text-align:left}
+.bild-knopf img{transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.bild-knopf:focus-visible{outline-offset:-3px; border-radius:0}
+.lupe{position:absolute; right:.75rem; bottom:.75rem; display:inline-flex; align-items:center; gap:.35rem;
+  padding:.35rem .65rem; border-radius:999px; font-size:.75rem; font-weight:500;
+  background:rgb(24 24 27 / .82); color:#fff; opacity:0; transform:translateY(4px);
+  transition:opacity .2s ease, transform .2s ease; pointer-events:none}
+.bild-knopf:hover .lupe, .bild-knopf:focus-visible .lupe{opacity:1; transform:none}
+@media (hover:hover){ .bild-knopf:hover img{transform:scale(1.012)} }
+/* Ohne Maus gibt es kein Darüberfahren: Dann steht die Lupe immer da, sonst erfährt am
+   Telefon niemand, dass sich ein Bild antippen lässt. */
+@media (hover:none){ .lupe{opacity:1; transform:none} }
+
+/* ---- Der Plan in der Bildsprache der App (für die Simulation) --------------- */
 .plan-leiste{display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-bottom:.85rem}
 .plan-monat{font-size:1.05rem; font-weight:600; margin:0 .3rem}
-.umschalter{display:inline-flex; gap:.15rem; margin-left:auto}
-.umschalter button{
-  border:0; background:transparent; font-family:inherit; font-size:.8rem; font-weight:500;
-  color:var(--leise); padding:.35rem .7rem; border-radius:.5rem; cursor:pointer;
-}
-.umschalter button[aria-pressed="true"]{background:var(--tinte); color:var(--grund)}
-
-.legende{display:flex; flex-wrap:wrap; gap:.35rem .9rem; font-size:.72rem; color:var(--leise); margin-bottom:.7rem}
-.legende span{display:inline-flex; align-items:center; gap:.35rem}
 .punkt{width:8px; height:8px; border-radius:50%; flex:none}
-
 .engpass{
   display:flex; gap:.55rem; align-items:flex-start;
   background:var(--warn-flaeche); border:1px solid var(--warn-linie); color:var(--warn-tinte);
@@ -193,205 +264,82 @@ img{max-width:100%; height:auto; display:block}
   opacity:0; transform:translateY(-4px); transition:opacity .5s ease, transform .5s ease;
 }
 .engpass.da{opacity:1; transform:none}
-
 .tabellen-rahmen{overflow-x:auto; border:1px solid var(--linie); border-radius:.6rem}
-table.plan{width:100%; border-collapse:collapse; font-size:.78rem; min-width:36rem}
+/* Die Uhrzeit steht im Spaltenkopf in einer eigenen Zeile. Bis zum 28.10.2026 stand sie
+   ungebrochen hinter dem Namen – „Nachtdienst (16:30–22:30 + 06:…“ war auf jeder Breite
+   abgeschnitten, und die Nachtspalte lag hinter dem rechten Rand. */
+table.plan{width:100%; border-collapse:collapse; font-size:.78rem; min-width:28rem}
 table.plan th{
   text-align:left; font-weight:600; font-size:.66rem; letter-spacing:.05em; text-transform:uppercase;
   color:var(--leise); padding:.55rem .6rem; border-bottom:1px solid var(--linie); vertical-align:bottom;
-  white-space:nowrap;
 }
-table.plan th .zeit{font-weight:400; text-transform:none; letter-spacing:0; color:var(--leise); opacity:.8}
+table.plan th .dienst-name{white-space:nowrap}
+table.plan th .zeit{display:block; margin-top:.1rem; font-weight:400; text-transform:none; letter-spacing:0; color:var(--leise)}
+.dienst-kurz{display:none}
 table.plan td{padding:.4rem .6rem; border-bottom:1px solid var(--linie); vertical-align:middle}
 table.plan tr:last-child td{border-bottom:0}
 table.plan tr.wochenende td{background:var(--flaeche-2)}
 table.plan td.tag{font-weight:500; color:var(--tinte); white-space:nowrap; width:4.5rem}
-
 .person{
   display:inline-flex; align-items:center; gap:.35rem; border-radius:999px;
   padding:.2rem .55rem; font-size:.74rem; font-weight:500; white-space:nowrap;
   background:color-mix(in srgb,var(--c) 15%,transparent);
-  color:color-mix(in srgb,var(--c) 78%,#000);
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 38%,transparent);
+  color:color-mix(in srgb,var(--c) 45%,var(--chip-mix));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 35%,transparent);
 }
-@media (prefers-color-scheme: dark){
-  .person{background:color-mix(in srgb,var(--c) 22%,transparent); color:color-mix(in srgb,var(--c) 62%,#fff)}
-}
-:root[data-theme="dark"] .person{background:color-mix(in srgb,var(--c) 22%,transparent); color:color-mix(in srgb,var(--c) 62%,#fff)}
-:root[data-theme="light"] .person{background:color-mix(in srgb,var(--c) 15%,transparent); color:color-mix(in srgb,var(--c) 78%,#000)}
 .person .kennung{width:6px; height:6px; border-radius:50%; background:var(--c); flex:none}
 .person.konflikt{box-shadow:inset 0 0 0 1.5px var(--warn-kern)}
 .person.konflikt::after{content:"⚠"; font-size:.7rem; color:var(--warn-kern)}
-
 .zelle{min-height:1.75rem; display:flex; align-items:center}
 .leerfeld{
   display:inline-flex; align-items:center; gap:.3rem;
-  font-size:.72rem; color:var(--leise); border:1px dashed var(--linie);
+  font-size:.72rem; color:var(--leise); border:1px dashed var(--kante);
   border-radius:.4rem; padding:.18rem .5rem; background:transparent;
 }
-/* Beim Füllen tauscht der Platzhalter gegen den Namen – kurz, nicht albern. */
 .person, .leerfeld{transition:opacity .28s ease, transform .28s ease}
 .faellt-ein{opacity:0; transform:translateY(-3px)}
-@media (prefers-reduced-motion: reduce){
-  .person,.leerfeld,.engpass,.bild img{transition:none}
-  .einblenden{opacity:1; transform:none; transition:none}
+@media (prefers-reduced-motion: reduce){ .person,.leerfeld,.engpass{transition:none} }
+/* Am Telefon passt der ganze Plan in den Rahmen: Vornamen statt voller Namen, kurze
+   Dienstnamen im Kopf, schmalere Tagesspalte. Vorher war die Tabelle bei 390 px doppelt
+   so breit wie ihr Rahmen, und der markierte Konflikt lag außerhalb. */
+@media (max-width:600px){
+  .tour-fenster .fenster-inhalt{padding:.75rem .6rem 1rem}
+  table.plan{min-width:0}
+  table.plan th, table.plan td{padding-left:.4rem; padding-right:.4rem}
+  table.plan td.tag{width:auto}
+  .tour-fenster .nachname{display:none}
+  .tour-fenster .dienst-lang{display:none}
+  .tour-fenster .dienst-kurz{display:inline}
+  .tour-fenster .person{padding:.2rem .45rem; gap:.3rem}
 }
 
-.zaehler{display:grid; grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); gap:1px; background:var(--linie);
-  border:1px solid var(--linie); border-radius:var(--rund); overflow:hidden; margin-top:2.5rem}
-.zaehler div{background:var(--flaeche); padding:1.1rem 1rem}
-.zaehler b{display:block; font-size:1.65rem; font-weight:600; letter-spacing:-.02em}
-.zaehler span{font-size:.78rem; color:var(--leise)}
-
-/* Inhaltsraster */
-.drei{display:grid; grid-template-columns:repeat(auto-fit,minmax(17rem,1fr)); gap:1.25rem; margin-top:2.25rem}
-.spalte{padding:1.4rem}
-.spalte h3{display:flex; align-items:center; gap:.5rem; margin-bottom:.9rem}
-.spalte ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.7rem; font-size:.9rem; color:var(--tinte-2)}
-.spalte li{display:flex; gap:.55rem; align-items:flex-start}
-.spalte li strong{color:var(--tinte); font-weight:600}
-.spalte li::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--akzent); margin-top:.55rem; flex:none}
-
-.paar{display:grid; grid-template-columns:1fr; gap:2rem; align-items:center; margin-top:2.25rem}
-@media (min-width:900px){
-  .paar{grid-template-columns:1.15fr 1fr; gap:3rem}
-  .paar.gedreht > .bild{order:2}
+/* ---- In neun Worten -------------------------------------------------------- */
+.neun{padding:0 0 clamp(4rem,8vw,6rem)}
+.schlagworte{display:grid; gap:.75rem; margin-top:2rem; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+@media (min-width:900px){ .schlagworte{grid-template-columns:repeat(3,1fr)} }
+/* Am Telefon zwei Spalten – neun Worte sollen kompakt bleiben, nicht eine lange Liste. */
+@media (max-width:600px){
+  .schlagworte{grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem}
+  .schlagworte .schlagwort{display:block; padding:.8rem .85rem}
+  .schlagworte .schlagwort-nr{display:block; margin-bottom:.15rem}
+  .schlagworte .schlagwort b{display:block; font-size:.95rem}
+  .schlagworte .schlagwort > span:last-child{display:block; margin-top:.2rem; font-size:.82rem}
 }
-.bild{border:1px solid var(--linie); border-radius:var(--rund); overflow:hidden; background:var(--flaeche); box-shadow:var(--schatten)}
-.bild figcaption{font-size:.72rem; color:var(--leise); padding:.5rem .75rem; border-top:1px solid var(--linie); background:var(--flaeche-2)}
-
-/* Tages-Abdeckung: das Bild, das kein anderer Dienstplaner hat. */
-.abdeckung{display:grid; grid-template-columns:repeat(24,1fr); gap:2px; margin-top:1rem}
-.abdeckung i{height:26px; border-radius:2px; background:var(--linie)}
-.abdeckung .s1{background:color-mix(in srgb,var(--gut) 22%,var(--linie))}
-.abdeckung .s2{background:color-mix(in srgb,var(--gut) 48%,var(--linie))}
-.abdeckung .s3{background:color-mix(in srgb,var(--gut) 74%,var(--linie))}
-.stundenachse{display:flex; justify-content:space-between; font-size:.68rem; color:var(--leise); margin-top:.35rem}
-
-/* Hausnetz-Skizze */
-.netz{display:grid; grid-template-columns:1fr; gap:.75rem; margin-top:1.5rem}
-@media (min-width:720px){ .netz{grid-template-columns:repeat(3,1fr)} }
-.netz-kasten{padding:1rem 1.1rem; font-size:.85rem; color:var(--tinte-2)}
-.netz-kasten b{display:block; color:var(--tinte); font-size:.9rem; margin-bottom:.2rem}
-.netz-linie{display:flex; align-items:center; gap:.5rem; font-size:.75rem; color:var(--leise); margin-top:.8rem}
-
-/* Vergleich */
-.vergleich-rahmen{overflow-x:auto; margin-top:2rem; border:1px solid var(--linie); border-radius:var(--rund)}
-table.vergleich{width:100%; border-collapse:collapse; font-size:.86rem; min-width:44rem; background:var(--flaeche)}
-table.vergleich th, table.vergleich td{padding:.8rem .9rem; text-align:left; border-bottom:1px solid var(--linie); vertical-align:top}
-table.vergleich thead th{font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--leise); background:var(--flaeche-2)}
-table.vergleich tbody tr:last-child td{border-bottom:0}
-table.vergleich td:first-child{font-weight:500; color:var(--tinte); white-space:nowrap}
-table.vergleich .unsere{background:var(--akzent-flaeche); color:var(--tinte); font-weight:500}
-table.vergleich thead .unsere{color:var(--akzent-tinte)}
-
-/* Preis */
-.preis-paar{display:grid; grid-template-columns:1fr; gap:2rem; margin-top:2.25rem}
-@media (min-width:900px){ .preis-paar{grid-template-columns:1.1fr .9fr; gap:3rem} }
-.preis-karte{padding:1.75rem}
-.preis-zahl{display:flex; align-items:baseline; gap:.5rem}
-.preis-zahl b{font-size:3rem; font-weight:600; letter-spacing:-.03em}
-.preis-liste{list-style:none; margin:1.25rem 0 0; padding:0; display:flex; flex-direction:column; gap:.6rem; font-size:.88rem; color:var(--tinte-2)}
-.preis-liste li{display:flex; gap:.55rem; align-items:flex-start}
-.geldzurueck{margin-top:1.25rem; border:1px solid var(--linie); border-radius:.6rem; padding:.8rem .9rem; font-size:.82rem; color:var(--tinte-2); background:var(--flaeche-2)}
-
-/* Herunterladen */
-.systeme{display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:1rem; margin-top:2rem}
-.system{padding:1.2rem 1.3rem; display:flex; flex-direction:column; align-items:flex-start;
-  text-decoration:none; color:inherit; transition:border-color .15s ease, transform .15s ease}
-a.system:hover{border-color:var(--akzent); transform:translateY(-2px)}
-a.system:hover .knopf-voll{background:var(--knopf-drueber); border-color:var(--knopf-drueber)}
-.system h3{font-size:.95rem; margin-bottom:.25rem}
-.system p{font-size:.82rem; color:var(--leise)}
-.system .groesse{margin-top:.6rem; font-size:.75rem}
-
-/* Fragen */
-details{border-bottom:1px solid var(--linie)}
-details summary{
-  cursor:pointer; list-style:none; padding:1.05rem 2rem 1.05rem 0; position:relative;
-  font-weight:500; color:var(--tinte); font-size:.98rem;
-}
-details summary::-webkit-details-marker{display:none}
-details summary::after{
-  content:"+"; position:absolute; right:.25rem; top:50%; transform:translateY(-50%);
-  font-size:1.25rem; font-weight:400; color:var(--leise); line-height:1;
-}
-details[open] summary::after{content:"–"}
-details .antwort{padding:0 2rem 1.2rem 0; font-size:.92rem; color:var(--tinte-2); max-width:70ch}
-.fragen{margin-top:2rem; border-top:1px solid var(--linie)}
-
-/* Fuß */
-.fuss{border-top:1px solid var(--linie); padding:2.5rem 0; font-size:.83rem; color:var(--leise)}
-.fuss-innen{display:flex; flex-wrap:wrap; gap:1rem 2rem; align-items:center}
-.fuss a{color:var(--leise)}
-.fuss .rechts{margin-left:auto; display:flex; gap:1.25rem; flex-wrap:wrap}
-
-.auszufuellen{background:var(--warn-flaeche); color:var(--warn-tinte); border-bottom:1px dashed var(--warn-kern); padding:0 .15rem}
-
-/* ---- Immersion: sanftes Erscheinen, Leseband, Leuchtkasten ---- */
-@media (prefers-reduced-motion: no-preference){
-  html{scroll-behavior:smooth}
-}
-.einblenden{opacity:0; transform:translateY(22px);
-  transition:opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1);
-  transition-delay:var(--verzug,0s)}
-.einblenden.sichtbar{opacity:1; transform:none}
-
-.leseband{position:fixed; top:0; left:0; width:100%; height:3px; z-index:60;
-  transform-origin:0 50%; transform:scaleX(0); pointer-events:none;
-  background:linear-gradient(90deg, var(--frueh), var(--spaet), var(--nacht))}
-
-.kopf nav a.aktiv{color:var(--akzent-tinte)}
-
-.bild img{display:block; transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.schlagwort{display:grid; grid-template-columns:auto 1fr; column-gap:.9rem; row-gap:.15rem; align-items:baseline;
+  padding:1rem 1.15rem; border:1px solid var(--kante); border-radius:var(--rund); background:var(--flaeche);
+  text-decoration:none; color:inherit; box-shadow:var(--schatten);
+  transition:transform .35s cubic-bezier(.16,1,.3,1), border-color .25s ease}
+.schlagwort-nr{grid-row:1 / span 2; font-size:.78rem; color:var(--leise)}
+.schlagwort b{grid-column:2; font-size:1rem; font-weight:600; letter-spacing:-.01em; color:var(--tinte)}
+.schlagwort > span:last-child{grid-column:2; font-size:.875rem; line-height:1.45; color:var(--leise)}
 @media (hover:hover){
-  .bild:hover img{transform:scale(1.015)}
-}
-
-.leuchtkasten{border:0; padding:0; background:transparent; max-width:min(1200px,94vw); cursor:zoom-out}
-.leuchtkasten::backdrop{background:rgba(9,9,11,.82); backdrop-filter:blur(6px)}
-.leuchtkasten img{display:block; width:100%; height:auto; border-radius:12px;
-  box-shadow:0 24px 80px rgba(0,0,0,.5)}
-.leuchtkasten figcaption{color:#d4d4d8; text-align:center; font-size:.85rem; margin-top:.6rem}
-@media (prefers-reduced-motion: no-preference){
-  .leuchtkasten[open]{animation:kasten-auf .3s cubic-bezier(.16,1,.3,1)}
-  @keyframes kasten-auf{from{opacity:0; transform:scale(.965)}}
-}
-
-/* ---- Neun Schlagwörter ---- */
-.schlagworte{display:grid; gap:.9rem; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
-/* Neun Worte gehoeren in ein Quadrat: ab Schreibtischbreite immer 3x3. */
-@media (min-width: 900px){ .schlagworte{grid-template-columns:repeat(3,1fr)} }
-.schlagwort{position:relative; display:block; padding:1.1rem 1.2rem 1.15rem; border:1px solid var(--linie);
-  border-radius:var(--rund); background:var(--flaeche); text-decoration:none; color:inherit;
-  box-shadow:var(--schatten); transition:transform .35s cubic-bezier(.16,1,.3,1),
-  border-color .35s ease, box-shadow .35s ease}
-.schlagwort b{display:block; font-size:1.06rem; letter-spacing:-.01em; color:var(--tinte)}
-.schlagwort > span:last-child{display:block; margin-top:.35rem; font-size:.85rem; line-height:1.45; color:var(--leise)}
-.schlagwort-nr{position:absolute; top:.9rem; right:1rem; font-size:.72rem; color:var(--leise); opacity:.55}
-@media (hover:hover){
-  .schlagwort:hover{transform:translateY(-3px); border-color:var(--akzent-linie);
-    box-shadow:0 10px 30px rgba(37,99,235,.10)}
+  .schlagwort:hover{transform:translateY(-2px); border-color:var(--akzent-linie)}
   .schlagwort:hover b{color:var(--akzent-tinte)}
 }
-.schlagwort:focus-visible{outline:2px solid var(--akzent); outline-offset:2px}
-
-/* Lese-Hinweise unter dem nachgebauten Plan */
-.lese-hinweise{display:grid; gap:.9rem 1.4rem; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));
-  list-style:none; margin:1rem 0 0; padding:.9rem 0 0; border-top:1px solid var(--linie);
-  font-size:.83rem; line-height:1.5; color:var(--leise)}
-.lese-hinweise strong{color:var(--tinte)}
-
-/* Auslastungs-Ampel im Fließtext */
-.ampel-gruen,.ampel-blau,.ampel-rot{white-space:nowrap; font-weight:550}
-.ampel-gruen{color:var(--gut)}
-.ampel-blau{color:var(--spaet)}
-.ampel-rot{color:#dc2626}
 
 /* ── In einer Minute: geführte Simulation ────────────────────────────────────
-   Dieselben Bausteine wie das Planfenster oben (.fenster, .plan, .person,
-   .engpass) – damit die Simulation aussieht wie die Anwendung, nicht wie eine
-   Werbegrafik. Alles hier ist auf #in-einer-minute beschränkt. */
+   Die Regeln ab hier bis „Mitmachen“ benutzen die Bausteine von oben (.fenster,
+   .plan, .person, .engpass). Alles hier ist auf #in-einer-minute beschränkt. */
 #in-einer-minute [hidden]{display:none !important}
 .tour-buehne{display:grid; gap:1.5rem; margin-top:1.75rem; align-items:start;
   grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
@@ -403,22 +351,45 @@ details .antwort{padding:0 2rem 1.2rem 0; font-size:.92rem; color:var(--tinte-2)
 .tour-erklaerung{position:sticky; top:5.5rem; background:var(--flaeche);
   border:1px solid var(--linie); border-radius:var(--rund); padding:1.4rem;
   box-shadow:var(--schatten)}
-@media (max-width:900px){ .tour-erklaerung{position:static} }
 .tour-zaehler{font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
   color:var(--leise); font-weight:600; font-variant-numeric:tabular-nums}
+/* Feste Mindesthöhen für Titel und Text: Sonst wandert „Weiter“ von Schritt zu Schritt
+   um bis zu 35 px, und man klickt beim schnellen Durchgehen daneben. */
 .tour-schritt-titel{font-size:1.3rem; font-weight:600; letter-spacing:-.015em;
-  margin-top:.35rem; line-height:1.25; text-wrap:balance}
-.tour-text{margin-top:.65rem; color:var(--leise); line-height:1.6; font-size:.95rem; min-height:8.5em}
-@media (max-width:900px){ .tour-text{min-height:0} }
+  margin-top:.35rem; line-height:1.25; text-wrap:balance; min-height:2.5em}
+.tour-text{margin-top:.65rem; color:var(--leise); line-height:1.6; font-size:.95rem; min-height:11.2em}
 
 .tour-punkte{display:flex; gap:.4rem; margin-top:1.15rem; align-items:center}
-.tour-punkt{height:.55rem; width:.55rem; border-radius:999px; border:0; padding:0;
+/* Sichtbar bleibt der kleine Punkt; die Trefferfläche ist 24 × 24 px groß. */
+.tour-punkt{position:relative; height:.55rem; width:.55rem; border-radius:999px; border:0; padding:0;
   background:var(--linie); cursor:pointer; transition:width .25s ease, background .25s ease}
+.tour-punkt::before{content:""; position:absolute; left:50%; top:50%; width:max(100%,24px); height:24px;
+  transform:translate(-50%,-50%)}
 .tour-punkt:hover{background:var(--leise)}
 .tour-punkt[aria-current="step"]{background:var(--akzent); width:1.6rem}
 .tour-punkt:focus-visible{outline:2px solid var(--akzent); outline-offset:3px}
 
 .tour-steuerung{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.15rem}
+
+/* Am Telefon steht alles untereinander. Bis zum 28.10.2026 lagen Fenster und „Weiter“
+   900 bis 1255 px auseinander – nie beides zugleich im Bild. Jetzt kommt die Bedienung
+   direkt unter das Fenster und bleibt am unteren Rand stehen, solange man in der
+   Simulation ist; die Erklärung folgt darunter. */
+@media (max-width:900px){
+  .tour-erklaerung{display:contents}
+  .tour-fenster{order:1}
+  .tour-bedienung{order:2; position:sticky; bottom:0; z-index:5;
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.55rem .75rem;
+    margin:-.75rem -1rem 0; padding:.65rem 1rem calc(.65rem + env(safe-area-inset-bottom, 0px));
+    background:var(--glas); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+    border-top:1px solid var(--linie)}
+  .tour-bedienung .tour-punkte, .tour-bedienung .tour-steuerung{margin-top:0}
+  .tour-beschreibung{order:3; background:var(--flaeche); border:1px solid var(--linie);
+    border-radius:var(--rund); padding:1.2rem 1.25rem; box-shadow:var(--schatten)}
+  .tour-schritt-titel, .tour-text{min-height:0}
+}
+@media (max-width:720px){ .tour-bedienung{margin-left:-1rem; margin-right:-1rem} }
+@media (min-width:721px) and (max-width:900px){ .tour-bedienung{margin-left:-1.5rem; margin-right:-1.5rem; padding-left:1.5rem; padding-right:1.5rem} }
 .tour-steuerung .knopf[disabled]{opacity:.4; cursor:default; pointer-events:none}
 .tour-abspielen[aria-pressed="true"]{background:var(--akzent-flaeche);
   border-color:var(--akzent-linie); color:var(--akzent-tinte)}
@@ -434,7 +405,7 @@ details .antwort{padding:0 2rem 1.2rem 0; font-size:.92rem; color:var(--tinte-2)
 .tour-dimmen .person{transition:opacity .3s ease}
 
 /* Das Zeitkonto */
-.tour-konto{margin-top:1rem; border:1px solid var(--linie); border-radius:.6rem; overflow:hidden}
+.tour-konto{margin-top:1rem; border:1px solid var(--linie); border-radius:.6rem; overflow-x:auto}
 .tour-konto table{width:100%; border-collapse:collapse; font-size:.8rem; font-variant-numeric:tabular-nums}
 .tour-konto th, .tour-konto td{padding:.45rem .75rem; text-align:right; border-bottom:1px solid var(--linie)}
 .tour-konto th:first-child, .tour-konto td:first-child{text-align:left}
@@ -446,13 +417,24 @@ details .antwort{padding:0 2rem 1.2rem 0; font-size:.92rem; color:var(--tinte-2)
 .tour-null{color:var(--leise); font-weight:600}
 .tour-konto-fuss{font-size:.7rem; color:var(--leise); padding:.45rem .75rem;
   background:var(--flaeche-2); border-top:1px solid var(--linie)}
+/* Am Telefon enger, damit auch die Saldo-Spalte im Rahmen bleibt. */
+@media (max-width:600px){
+  .tour-konto table{font-size:.74rem}
+  .tour-konto th, .tour-konto td{padding:.4rem .35rem}
+  .tour-konto th{font-size:.58rem; letter-spacing:.03em}
+  .tour-konto .tour-name{gap:.3rem}
+}
 
 /* Der Aushang: Papier, auch im Dunkelmodus. Die Farbwerte werden innerhalb des
    Fensters überschrieben – alles darin liest sie über die üblichen Token. */
 .tour-papier{--flaeche:#ffffff; --flaeche-2:#f4f4f5; --grund:#fafafa; --tinte:#18181b;
   --leise:#52525b; --linie:#d4d4d8; color-scheme:light; color:#18181b}
 .tour-papier .fenster-inhalt{background:#ffffff}
-.plan.tour-aushang{min-width:34rem}
+.plan.tour-aushang{min-width:30rem}
+@media (max-width:600px){ .plan.tour-aushang{min-width:0} }
+/* Schritt 5: Vom Plan bleiben drei Tage stehen, damit das Zeitkonto nicht unter den
+   Bildrand rutscht. */
+.plan.tour-kurz tbody tr:nth-child(n+4){display:none}
 .plan.tour-aushang th{text-align:center; text-transform:none; letter-spacing:0;
   font-size:.74rem; font-weight:700; color:#18181b; padding:.5rem .3rem .45rem;
   border-bottom:1.5px solid #52525b}
@@ -463,38 +445,318 @@ details .antwort{padding:0 2rem 1.2rem 0; font-size:.92rem; color:var(--tinte-2)
 .plan.tour-aushang td.tag{text-align:left}
 .tour-frei{display:inline-block; background:#f4f4f5; color:#3f3f46; border-radius:.35rem;
   padding:.05rem .45rem; font-weight:600; font-size:.7rem}
+/* Nachtdienst: ein Feld über den Abend und den Morgen danach, in zwei Hälften wie im
+   echten Aushang (druck/page.tsx). Die obere Hälfte steht in der Zeile ihres Tages –
+   Dienst und Beginn –, die untere in der Zeile des nächsten Morgens, bis wann. Die
+   gestrichelte Linie dazwischen liegt genau auf der Grenze der beiden Tage.
+   Bis zum 28.10.2026 war das Feld EINE Zelle über zwei Zeilen, senkrecht mittig: „Nacht ↓
+   bis 09:30“ saß auf der Linie zwischen zwei Tagen, und der Beginn fehlte ganz. Jetzt
+   sind es zwei Zellen, die aneinanderstoßen – so bleibt jede Hälfte sicher in ihrer
+   Zeile, auch wenn die Zeilen verschieden hoch sind. */
+.tour-nacht{display:flex; flex-direction:column; align-items:center; gap:.05rem;
+  background:#e0e7ff; color:#3730a3; border-radius:.35rem; padding:.15rem .45rem; line-height:1.2}
+.tour-nacht small{font-size:.66rem; font-weight:500; color:#4338ca; white-space:nowrap}
+.tour-morgen-feld{display:block; margin:0 auto .15rem; width:max-content; background:#e0e7ff; color:#4338ca;
+  border-radius:.3rem; padding:0 .35rem; font-size:.62rem; font-weight:500; white-space:nowrap}
+.tour-nacht .tour-morgen{align-self:stretch; margin-top:.1rem; padding-top:.1rem; border-top:1px dashed #818cf8}
+.plan.tour-aushang td.tour-oben{vertical-align:bottom; padding-bottom:0; border-bottom:0}
+.plan.tour-aushang td.tour-unten{vertical-align:top; padding-top:0}
+.tour-oben .tour-nacht{border-radius:.35rem .35rem 0 0; padding-bottom:.3rem}
+.tour-unten .tour-nacht{border-radius:0 0 .35rem .35rem; padding-top:.3rem; border-top:1px dashed #818cf8}
+/* Am Telefon: kleinere Schrift und knappe Ränder, damit alle sechs Spalten in den
+   Rahmen passen statt hinter dem rechten Rand zu verschwinden. */
+@media (max-width:600px){
+  .plan.tour-aushang th{font-size:.66rem; padding:.45rem .15rem .4rem}
+  .plan.tour-aushang th:first-child{font-size:.56rem; letter-spacing:.03em}
+  .plan.tour-aushang td{font-size:.66rem; padding:.3rem .12rem}
+  .plan.tour-aushang td.tag{padding-left:.3rem}
+  .tour-nacht{padding:.12rem .2rem}
+  .tour-nacht b{font-size:.62rem; white-space:nowrap}
+  /* Nur wo der Platz nicht reicht (360 px), bricht „ab 22:00“ in zwei Zeilen um. */
+  .tour-nacht small{font-size:.6rem; white-space:normal}
+  .tour-frei{padding:.05rem .3rem; font-size:.62rem}
+}
+@media (max-width:380px){ .tour-nacht b{font-size:.58rem} .tour-nacht{padding:.12rem .16rem} }
 
 @media (prefers-reduced-motion: reduce){
   .tour-fokus{animation:none}
   .tour-punkt, .tour-dimmen .person, .tour-fenster .fenster-titel{transition:none}
 }
 
-/* ── Mitmachen: der Beitrag, weit oben und deutlich ───────────────────────────
-   Die einzige farbige Fläche über die ganze Breite – sie soll auffallen, ohne zu
-   schreien. Im Dunkelmodus kommt das tiefe Blau aus denselben Token. */
-.mitmachen{background:var(--akzent-flaeche); border-top:1px solid var(--akzent-linie);
-  border-bottom:1px solid var(--akzent-linie)}
-.mitmachen .fliess{color:var(--tinte)}
-/* Das gedämpfte Grau ist für Weiß gerechnet; auf dem Blau fiel es auf 4,44:1. Hier
-   deshalb die Akzentfarbe für die Überzeile und das dunklere Grau für Kleingedrucktes
-   – nur links auf der Fläche, die Karte rechts ist weiß und bleibt, wie sie ist. */
-.mitmachen .augenbraue{color:var(--akzent-tinte)}
-.mitmachen-raster > :first-child .leise{color:var(--tinte-2)}
-.mitmachen-raster{display:grid; gap:2rem; align-items:start;
-  grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
-@media (max-width:860px){ .mitmachen-raster{grid-template-columns:1fr} }
-.mitmachen-karte{padding:1.4rem}
-.mitmachen-karte .leise{margin-top:.55rem; font-size:.9rem; line-height:1.6}
-.mitmachen-liste{margin:.6rem 0 0; padding-left:1.1rem; display:grid; gap:.3rem;
-  font-size:.9rem; line-height:1.5; color:var(--tinte)}
-.kopf-beitrag{margin-top:1.1rem; font-size:.9rem; color:var(--leise); max-width:52ch}
-.kopf-beitrag a{font-weight:600; color:var(--akzent-tinte); text-decoration:none; white-space:nowrap}
-.kopf-beitrag a:hover{text-decoration:underline}
+/* ---- Mitmachen: der eine Ort für „warum unterstützen“ ---------------------- */
+.mitmachen{background:var(--akzent-flaeche); border-top:1px solid var(--akzent-linie); border-bottom:1px solid var(--akzent-linie)}
+.mitmachen-raster{display:grid; gap:clamp(2rem,5vw,4rem); align-items:start;
+  grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+@media (max-width:900px){ .mitmachen-raster{grid-template-columns:1fr} }
+.gruende{display:grid; gap:0; margin-top:2.25rem; max-width:40rem; border-top:1px solid var(--akzent-linie)}
+.gruende > div{display:grid; gap:.3rem 2rem; padding:1rem 0; border-bottom:1px solid var(--akzent-linie)}
+@media (min-width:640px){ .gruende > div{grid-template-columns:12rem minmax(0,1fr)} }
+.gruende h3{font-size:1rem; font-weight:600; letter-spacing:-.01em}
+.gruende p{font-size:.94rem; line-height:1.55; color:var(--tinte-2)}
+.mitmachen-knoepfe{margin-top:2.25rem}
+.mitmachen-notiz{margin-top:.85rem; font-size:.875rem; color:var(--tinte-2)}
+.mitmachen-karte{padding:clamp(1.4rem,3vw,1.9rem)}
+.mitmachen-karte h3{font-size:1.2rem; font-weight:650; letter-spacing:-.02em}
+.mitmachen-karte p{margin-top:.6rem; font-size:.94rem; line-height:1.6; color:var(--tinte-2)}
+.mitmachen-liste{margin:.75rem 0 0; padding-left:1.15rem; display:grid; gap:.35rem; font-size:.94rem; line-height:1.5; color:var(--tinte)}
+.mitmachen-karte .knopf-platz{margin-top:1.25rem}
+
+/* ---- Rundgang: abwechselnde Reihen, große Aufnahmen ------------------------- */
+.reihen{display:grid; gap:clamp(4.5rem,10vw,8rem); margin-top:clamp(3rem,6vw,5rem)}
+.reihe{display:grid; gap:2rem; align-items:center}
+@media (min-width:960px){
+  .reihe{grid-template-columns:minmax(0,5fr) minmax(0,8fr); gap:clamp(2.5rem,5vw,4.5rem)}
+  .reihe.gedreht{grid-template-columns:minmax(0,8fr) minmax(0,5fr)}
+  .reihe.gedreht > .reihe-text{order:2}
+}
+.nummer{display:flex; align-items:center; gap:.65rem; font-size:.78rem; font-weight:600; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--akzent-tinte)}
+.nummer .mono{font-weight:500; letter-spacing:0; color:var(--leise)}
+.reihe-text h3, .reihe-kopf h3, .ruhig h3{font-size:clamp(1.55rem,2.7vw,2.15rem); font-weight:650; letter-spacing:-.03em; line-height:1.12; margin-top:.8rem}
+.lead{margin-top:1rem; font-size:1.06rem; line-height:1.6; color:var(--tinte-2)}
+.punkte{list-style:none; margin:1.25rem 0 0; padding:0; display:grid; gap:.8rem}
+.punkte li{position:relative; padding-left:1.35rem; font-size:.97rem; line-height:1.55; color:var(--tinte-2)}
+.punkte li::before{content:""; position:absolute; left:.2rem; top:.62em; width:6px; height:6px; border-radius:50%; background:var(--akzent)}
+.punkte strong{color:var(--tinte); font-weight:600}
+.messwert{display:inline-flex; align-items:baseline; gap:.5rem; margin-top:1.5rem; padding:.45rem .9rem;
+  border-radius:999px; background:var(--flaeche); border:1px solid var(--kante); font-size:.875rem; color:var(--tinte-2)}
+.messwert b{font-family:"Geist Mono",ui-monospace,Menlo,monospace; font-weight:600; color:var(--tinte)}
+
+/* Vorher – nachher: zwei gleich große Aufnahmen übereinander, umgeschaltet mit zwei
+   Knöpfen in der Fensterleiste und weich überblendet.
+   Bis zum 28.10.2026 stand hier ein Zieh-Regler, der beide Aufnahmen an einer
+   senkrechten Linie zusammensetzte. Das ging nur, solange beide Bilder Zeile für Zeile
+   deckungsgleich waren. Im gefüllten Monat sind die Zeilen aber höher (zwei Namen
+   brauchen mehr Platz als „0 von 2“) und die Spalten etwas anders breit: An der Linie
+   standen links fünf Tage neben vier, und die Spätdienst-Spalte sprang. Ein Umschalter
+   zeigt jedes Bild ganz – das Wachsen der Zeilen ist dann genau das, was der Klick tut.
+   Ohne Skript bleibt der gefüllte Monat stehen und der Umschalter verborgen. */
+.vorher-nachher{position:relative; overflow:hidden}
+.vorher-nachher img{width:100%; display:block}
+.vorher-nachher .nachher{position:absolute; inset:0; height:100%; object-fit:cover;
+  opacity:1; transition:opacity .45s ease}
+.vorher-nachher.ist-vorher .nachher{opacity:0}
+/* Unten links: oben links verdeckte das Schildchen das Logo in der Aufnahme. */
+.vn-marke{position:absolute; bottom:.75rem; left:.75rem; z-index:1; padding:.22rem .65rem; border-radius:999px; font-size:.75rem; font-weight:600;
+  background:rgb(24 24 27 / .8); color:#fff; pointer-events:none}
+/* Auch dieses Bild lässt sich vergrößern – gezeigt wird das, was gerade zu sehen ist. */
+.bild-knopf.vn-zoom{position:absolute; inset:0; height:100%}
+.vn-schalter{margin-left:auto; flex:none; display:inline-flex; gap:2px; padding:2px; border-radius:.55rem;
+  background:var(--flaeche); border:1px solid var(--kante)}
+.vn-schalter[hidden]{display:none}
+.vn-knopf{font:inherit; font-size:.75rem; font-weight:500; line-height:1.2; padding:.32rem .75rem; min-height:1.6rem;
+  border:0; border-radius:.4rem; background:transparent; color:var(--leise); cursor:pointer;
+  transition:background-color .2s ease, color .2s ease}
+.vn-knopf:hover{color:var(--tinte)}
+.vn-knopf[aria-pressed="true"]{background:var(--knopf); color:#fff}
+.vn-knopf:focus-visible{outline:2px solid var(--akzent); outline-offset:1px}
+.vn-beschriftung{display:block; font-weight:600; color:var(--tinte); margin-bottom:.15rem}
+@media (max-width:600px){ .vn-marke{bottom:.5rem; left:.5rem; font-size:.68rem; padding:.15rem .5rem} }
+@media (prefers-reduced-motion: reduce){ .vorher-nachher .nachher, .vn-knopf{transition:none} }
+
+/* Zwei Aufnahmen einer Reihe: die zweite schiebt sich versetzt über die erste. */
+.duo{display:grid; gap:1rem}
+@media (min-width:960px){
+  .duo .fenster + .fenster{width:76%; margin:-16% 0 0 auto; position:relative; z-index:1}
+}
+/* Dreiergruppe fürs Team. Gleiches Seitenverhältnis, damit die Reihe ruhig steht –
+   die volle Aufnahme zeigt der Klick. */
+.reihe-kopf{display:grid; gap:1.25rem 3.5rem}
+@media (min-width:960px){ .reihe-kopf{grid-template-columns:minmax(0,5fr) minmax(0,7fr); align-items:end} }
+.reihe-kopf .punkte{margin-top:0}
+.dreier{display:grid; gap:1.75rem 1.5rem; margin-top:2.75rem; grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+@media (min-width:960px){ .dreier{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.dreier .fenster img{aspect-ratio:16 / 10; object-fit:cover; object-position:top center}
+
+/* Hausnetz und Fassungen: ohne Aufnahme, ruhig nebeneinander */
+.paar-ruhig{display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))}
+.ruhig{padding:clamp(1.5rem,3.5vw,2.4rem)}
+.ruhig h3{font-size:clamp(1.35rem,2.2vw,1.7rem)}
+.ruhig p{margin-top:.85rem; font-size:.97rem; line-height:1.6; color:var(--tinte-2)}
+.ruhig .klein{font-size:.9rem; color:var(--leise)}
+.netz{display:grid; grid-template-columns:minmax(0,1fr) 1.25rem minmax(0,1fr) 1.25rem minmax(0,1fr); align-items:center; margin-top:1.5rem}
+.netz-knoten{display:grid; place-items:center; min-height:3.4rem; padding:.45rem .5rem; border-radius:.6rem; text-align:center;
+  border:1px solid var(--kante); background:var(--flaeche-2); font-size:.8rem; line-height:1.3; font-weight:500; color:var(--tinte)}
+.netz-knoten.mitte{background:var(--akzent-flaeche); border-color:var(--akzent-linie); color:var(--akzent-tinte)}
+.netz-strich{height:0; border-top:2px dashed var(--kante)}
+/* Schmal: die drei Kästchen untereinander. Nebeneinander sprengten „verschlüsselt“ und
+   „Diensthandys“ bei 360 px ihren Rahmen. */
+@media (max-width:480px){
+  .netz{grid-template-columns:minmax(0,1fr)}
+  .netz-knoten{min-height:2.6rem}
+  .netz-strich{justify-self:center; width:0; height:1rem; border-top:0; border-left:2px dashed var(--kante)}
+}
+
+/* ---- Gestaltung ----------------------------------------------------------- */
+.merkmale{display:grid; gap:2rem 2.5rem; margin-top:2.75rem; grid-template-columns:repeat(auto-fit,minmax(14.5rem,1fr))}
+@media (min-width:1000px){ .merkmale{grid-template-columns:repeat(4,minmax(0,1fr))} }
+.symbol{width:2.3rem; height:2.3rem; border-radius:.65rem; display:grid; place-items:center;
+  background:var(--akzent-flaeche); color:var(--akzent-tinte); border:1px solid var(--akzent-linie)}
+.merkmal h3{font-size:1rem; font-weight:600; margin-top:1rem; letter-spacing:-.01em}
+.merkmal p{margin-top:.45rem; font-size:.94rem; line-height:1.55; color:var(--tinte-2)}
+
+/* ---- Datenschutz ---------------------------------------------------------- */
+.schaubild{margin:2.75rem 0 0}
+.schaubild-tafeln{display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))}
+.schaubild svg{width:100%; height:auto; display:block}
+.schaubild figcaption{margin-top:.8rem; font-size:.875rem; color:var(--leise)}
+.folgen{display:grid; gap:1rem; margin-top:1.5rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
+.folge{padding:1.3rem 1.4rem}
+.folge h3, .bleibt h3{font-size:1rem; font-weight:600; letter-spacing:-.01em}
+.folge p, .bleibt p{margin-top:.45rem; font-size:.92rem; line-height:1.55; color:var(--tinte-2)}
+.bleibt{margin-top:1rem; padding:1.3rem 1.4rem; border:1px dashed var(--kante); border-radius:var(--rund)}
+.aktionen{display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; margin-top:1.75rem; align-items:center}
+.aktionen a:not(.knopf){font-size:.94rem}
+
+/* ---- Vergleich ------------------------------------------------------------ */
+.vergleich-rahmen{margin-top:2.75rem; border:1px solid var(--kante); border-radius:var(--rund-gross); overflow:hidden;
+  background:var(--flaeche); box-shadow:var(--schatten)}
+table.vergleich{width:100%; border-collapse:collapse; font-size:.92rem}
+table.vergleich th, table.vergleich td{padding:.9rem 1.1rem; text-align:left; border-bottom:1px solid var(--linie); vertical-align:top}
+table.vergleich thead th{font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; font-weight:600; color:var(--leise); background:var(--flaeche-2)}
+table.vergleich tbody th{font-weight:500; color:var(--tinte); white-space:nowrap}
+table.vergleich td{color:var(--tinte-2)}
+table.vergleich tbody tr:last-child > *{border-bottom:0}
+table.vergleich .unsere{background:var(--akzent-flaeche); color:var(--tinte); font-weight:500}
+table.vergleich thead .unsere{color:var(--akzent-tinte)}
+.unter-tabelle{margin-top:1rem; font-size:.875rem; color:var(--leise); max-width:70ch}
+/* Am Telefon wird jede Zeile zur Karte: kein seitliches Scrollen. */
+@media (max-width:720px){
+  table.vergleich, table.vergleich tbody, table.vergleich tr, table.vergleich th, table.vergleich td{display:block}
+  table.vergleich thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+  table.vergleich tbody tr{padding:1rem 1.1rem; border-bottom:1px solid var(--linie)}
+  table.vergleich tbody tr:last-child{border-bottom:0}
+  table.vergleich tbody th{padding:0 0 .5rem; border:0; white-space:normal; font-weight:600}
+  table.vergleich td{display:grid; grid-template-columns:7.5rem minmax(0,1fr); gap:.75rem; padding:.3rem 0; border:0}
+  table.vergleich td::before{content:attr(data-spalte); font-size:.8rem; color:var(--leise); font-weight:500}
+  table.vergleich td.unsere{padding:.45rem .6rem; margin:.25rem -.6rem 0; border-radius:.5rem}
+}
+
+/* ---- Herunterladen -------------------------------------------------------- */
+.systeme{display:grid; gap:1rem; margin-top:2.75rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
+.system{display:flex; flex-direction:column; align-items:flex-start; padding:1.4rem 1.5rem;
+  text-decoration:none; color:inherit; transition:border-color .2s ease, transform .2s ease}
+a.system:hover{border-color:var(--akzent); transform:translateY(-2px)}
+a.system:hover .knopf-voll{background:var(--knopf-drueber); border-color:var(--knopf-drueber)}
+.system h3{font-size:1.05rem; font-weight:600}
+.system p{font-size:.875rem; color:var(--leise); margin-top:.25rem}
+/* margin-bottom:auto: Die Knöpfe stehen auf einer Linie, auch wenn eine Karte eine
+   Zeile mehr Systemangabe hat. */
+.system .groesse{margin-top:.7rem; margin-bottom:auto; font-size:.8rem}
+.system .knopf{margin-top:1.15rem; width:100%}
+.unter-systemen{margin-top:1.1rem; font-size:.875rem; line-height:1.6; color:var(--leise); max-width:72ch}
+.unter-systemen strong{color:var(--tinte-2)}
+.zwei-karten{display:grid; gap:1.25rem; margin-top:2.5rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr)); align-items:start}
+.erster-start, .unterstuetzen{padding:clamp(1.4rem,3vw,1.9rem)}
+.erster-start h3, .unterstuetzen h3{font-size:1.15rem; font-weight:650; letter-spacing:-.02em}
+.erster-start > p, .unterstuetzen > p{margin-top:.55rem; font-size:.92rem; line-height:1.6; color:var(--tinte-2)}
+.schritte-zwei{display:grid; gap:1.25rem; margin-top:1.1rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr))}
+.schritte-zwei h4{margin:0; font-size:.8rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--leise)}
+.schritte-zwei ol{margin:.5rem 0 0; padding-left:1.15rem; display:grid; gap:.3rem; font-size:.9rem; line-height:1.5; color:var(--tinte-2)}
+.schritte-zwei .klein{margin-top:.5rem; font-size:.84rem; color:var(--leise)}
+.unterstuetzen .knopf-platz{margin-top:1.15rem}
+.unterstuetzen .knopf-platz p{color:var(--leise); line-height:1.55}
+/* Unter den Knöpfen steht Kleingedrucktes – der erklärende Satz von bauen.py und der
+   Satz zur Rechnung sollen sich lesen wie ein Block. */
+.unterstuetzen > p.kleingedruckt{margin-top:.75rem; font-size:.8rem; line-height:1.55; color:var(--leise)}
+
+/* ---- Fragen --------------------------------------------------------------- */
+.fragen-raster{display:grid; gap:2rem 4rem}
+@media (min-width:960px){
+  .fragen-raster{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}
+  .fragen-raster .kopfzeile{position:sticky; top:6rem; align-self:start}
+}
+.fragen{border-top:1px solid var(--linie)}
+/* Auf .fragen beschränkt: Das Menü in der Kopfleiste ist auch ein <details>. */
+.fragen details{border-bottom:1px solid var(--linie)}
+.fragen details summary{cursor:pointer; list-style:none; position:relative; padding:1.15rem 2.5rem 1.15rem 0;
+  font-weight:500; font-size:1.02rem; color:var(--tinte)}
+.fragen details summary::-webkit-details-marker{display:none}
+.fragen details summary::after{content:""; position:absolute; right:.45rem; top:50%; width:.55rem; height:.55rem;
+  border-right:2px solid var(--leise); border-bottom:2px solid var(--leise);
+  transform:translateY(-70%) rotate(45deg); transition:transform .2s ease}
+.fragen details[open] summary::after{transform:translateY(-25%) rotate(-135deg)}
+.fragen details summary:hover{color:var(--akzent-tinte)}
+.fragen details .antwort{padding:0 2.5rem 1.35rem 0; font-size:.95rem; line-height:1.65; color:var(--tinte-2); max-width:68ch}
+
+/* Zum Schluss noch einmal der Weg zum Herunterladen – nach den Fragen endete die Seite
+   bis zum 28.10.2026 ohne Aufruf. */
+.schluss{padding:clamp(3rem,7vw,4.5rem) 0; text-align:center}
+.schluss h2{font-size:clamp(1.5rem,3vw,2rem); font-weight:650; letter-spacing:-.03em}
+.schluss p{margin:.7rem auto 0; max-width:46ch; color:var(--tinte-2)}
+.schluss .knopf{margin-top:1.4rem}
+
+/* ---- Fuß ------------------------------------------------------------------ */
+.fuss{border-top:1px solid var(--linie); padding:2.75rem 0 3rem; font-size:.85rem; color:var(--leise)}
+.fuss-innen{display:flex; flex-direction:column; gap:1rem}
+.fuss a{color:var(--leise); text-decoration:none}
+.fuss a:hover{color:var(--tinte); text-decoration:underline}
+.fuss .rechts{display:flex; gap:.45rem 1.1rem; flex-wrap:wrap}
+.fuss-text{color:var(--leise)}
+/* Der Fuß in drei Gruppen statt zwölf Verweisen in einer Reihe. */
+.fuss-gruppen{display:grid; gap:1.5rem 2.5rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr))}
+.fuss-gruppen h2{margin:0 0 .55rem; font-size:.72rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--leise)}
+.fuss-gruppen ul{list-style:none; margin:0; padding:0; display:grid; gap:.35rem}
+.fuss-gruppe-breit ul{grid-template-columns:repeat(2,minmax(0,max-content)); column-gap:1.5rem}
+@media (min-width:900px){ .fuss-gruppen{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr)} }
+
+/* ---- Bausteine der Unterseiten (Rechts- und Fachseiten) ------------------- */
+.logo{display:inline-flex; align-items:center; gap:.5rem; color:var(--tinte); text-decoration:none; font-weight:600}
+.logo-wort{font-weight:600; letter-spacing:-.01em}
+.logo-zusatz{display:block; font-size:.72rem; font-weight:500; color:var(--leise)}
+.anschrift{font-style:normal}
+.recht ol{margin:0 0 1rem; padding-left:1.25rem; color:var(--tinte-2); max-width:65ch}
+.recht ol li{margin-bottom:.4rem}
+.recht .merke{margin:.4rem 0 1.25rem; padding:1rem 1.15rem; border-radius:var(--rund);
+  background:var(--akzent-flaeche); border:1px solid var(--akzent-linie); color:var(--tinte-2); max-width:65ch}
+.recht .merke b{display:block; color:var(--tinte); margin-bottom:.3rem}
+.recht .knopf{margin-top:.25rem}
+.platzhalter{background:var(--warn-flaeche); color:var(--warn-tinte); border-bottom:1px dashed var(--warn-kern); padding:0 .15rem}
+
+/* ---- Leuchtkasten --------------------------------------------------------- */
+.leuchtkasten{border:0; padding:0; background:transparent; width:min(1400px,94vw); max-width:94vw; max-height:96vh; overflow:visible}
+.leuchtkasten::backdrop{background:rgb(9 9 11 / .86); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px)}
+.leuchtkasten figure{margin:0}
+/* Schatten und Rundung sitzen auf dem Bild selbst, nicht auf einem breiteren Rahmen um
+   ein eingepasstes Bild – sonst stand links und rechts ein grauer Rand im Schatten. */
+.kasten-bild{display:flex; justify-content:center}
+.leuchtkasten img{display:block; width:auto; max-width:100%; height:auto; max-height:84vh; border-radius:12px; box-shadow:0 24px 80px rgb(0 0 0 / .5)}
+.kasten-wischen{display:none}
+/* Am Telefon brachte das Vergrößern fast nichts (3 % größer). Dort zeigt der Kasten das
+   Bild in lesbarer Größe zum seitlichen Wischen. */
+@media (max-width:700px){
+  .leuchtkasten{width:100vw; max-width:100vw}
+  .kasten-bild{display:block; overflow:auto; max-height:78vh; -webkit-overflow-scrolling:touch; overscroll-behavior:contain}
+  .leuchtkasten img{width:1100px; max-width:none; max-height:none; border-radius:0}
+  .kasten-wischen{display:block; color:#d4d4d8; text-align:center; font-size:.8rem; margin:.6rem 1rem 0}
+}
+.leuchtkasten figcaption{color:#d4d4d8; text-align:center; font-size:.875rem; line-height:1.5; margin:.85rem auto 0; max-width:72ch; padding:0 1rem}
+.kasten-zu{position:fixed; top:1rem; right:1rem; width:2.75rem; height:2.75rem; border-radius:50%; display:grid; place-items:center;
+  border:1px solid rgb(255 255 255 / .25); background:rgb(24 24 27 / .75); color:#fff; cursor:pointer}
+.kasten-zu:hover{background:rgb(63 63 70 / .9)}
+.kasten-zu:focus-visible{outline:2px solid #93c5fd; outline-offset:2px}
+
+/* ---- Bewegung: ruhig, und nur für die, die sie wollen ---------------------- */
+.einblenden{opacity:0; transform:translateY(24px);
+  transition:opacity .8s ease, transform .9s cubic-bezier(.16,1,.3,1); transition-delay:var(--verzug,0s)}
+.einblenden.sichtbar{opacity:1; transform:none}
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  .leuchtkasten[open]{animation:kasten-auf .3s cubic-bezier(.16,1,.3,1)}
+  @keyframes kasten-auf{from{opacity:0; transform:scale(.97)}}
+}
+@media (prefers-reduced-motion: reduce){
+  .einblenden{opacity:1; transform:none; transition:none}
+  .held-bild .fenster{transform:none}
+  .bild-knopf img, .lupe, .schlagwort, .knopf, body{transition:none}
+}
 
 /* ---- Impressum und Datenschutzerklärung ---------------------------------- */
 .recht{max-width:46rem; padding-top:3.5rem; padding-bottom:4rem}
 .recht h1{font-size:clamp(1.8rem,4vw,2.5rem); font-weight:600; margin:.4rem 0 0}
-.recht h2{font-size:1.1rem; font-weight:600; margin:2.2rem 0 .5rem}
+/* Zwischenüberschriften deutlich größer als der Fließtext – bis zum 28.10.2026 waren es
+   17,6 px gegen 16 px, und lange Seiten lasen sich wie eine Textwand. */
+.recht h2{font-size:clamp(1.3rem,2.4vw,1.5rem); font-weight:650; letter-spacing:-.02em; margin:2.6rem 0 .6rem}
 .recht h3{font-size:.98rem; font-weight:600; margin:1.5rem 0 .4rem}
 .recht p{margin:0 0 .9rem; color:var(--tinte-2); max-width:65ch}
 .recht ul{margin:0 0 1rem; padding-left:1.15rem; color:var(--tinte-2); max-width:65ch}
@@ -504,7 +766,13 @@ details .antwort{padding:0 2rem 1.2rem 0; font-size:.92rem; color:var(--tinte-2)
 .recht table{width:100%; border-collapse:collapse; font-size:.88rem; margin:.6rem 0 1.2rem}
 .recht th,.recht td{border:1px solid var(--linie); padding:.55rem .7rem; text-align:left; vertical-align:top}
 .recht th{background:var(--flaeche-2); font-size:.72rem; letter-spacing:.05em;
-  text-transform:uppercase; color:var(--leise); font-weight:600}
+  text-transform:uppercase; color:var(--leise); font-weight:600; white-space:nowrap}
+.recht td.zahl, .recht th.zahl{text-align:right; white-space:nowrap;
+  font-family:"Geist Mono",ui-monospace,Menlo,monospace; font-variant-numeric:tabular-nums}
+.recht th.zahl{font-family:inherit}
+.recht .anmerkungen{margin:-.6rem 0 1.2rem; padding-left:1.1rem; font-size:.84rem; color:var(--leise)}
+.recht .anmerkungen li{margin-bottom:.15rem}
+.recht .anmerkungen li::marker{content:counter(list-item) " "; font-size:.75rem}
 .recht .zurueck{display:inline-flex; align-items:center; gap:.4rem; margin-top:2.5rem;
   font-size:.88rem; text-decoration:none; color:var(--akzent-tinte)}
 .recht .zurueck:hover{text-decoration:underline}

@@ -7,24 +7,24 @@
 
 Anbieter: Dienstplan Jugendhilfe, Waldachtal (Deutschland). Kontakt:
 kontakt@dienstplan-jugendhilfe.de
-Systeme: macOS 11 oder neuer, Windows 10/11 (64 Bit). Sprache: Deutsch.
+Systeme: macOS 12 (Monterey) oder neuer, Windows 10/11 (64 Bit). Sprache: Deutsch.
 
 ## Was sie kostet
 
 Nichts. Die Anwendung ist kostenlos und bleibt es: vollständig, ohne
-Nutzergrenze, ohne Testfrist, ohne Lizenzschlüssel zum Freischalten, ohne
-Zahlungsdienstleister. Herunterladen kann sie jeder ohne Anmeldung, ohne
+Nutzergrenze, ohne Testfrist, ohne Lizenzschlüssel zum Freischalten.
+Herunterladen kann sie jeder ohne Anmeldung, ohne
 E-Mail-Adresse, ohne Konto und ohne Zahlungsdaten: Die Installationsdateien
 für Mac mit Apple-Chip, Mac mit Intel und Windows 10/11 liegen offen als
 Veröffentlichung im GitHub-Projekt und sind von der Startseite aus verlinkt:
 https://dienstplan-jugendhilfe.de/#herunterladen
-Je nach System sind es 338 bis 448 MB, weil die ganze Anwendung samt
+Je nach System sind es 329 bis 439 MB, weil die ganze Anwendung samt
 Datenbank darin steckt und danach nichts nachgeladen wird.
 
 Wer möchte, unterstützt die Weiterentwicklung mit einem freiwilligen Beitrag in
 selbst gewählter Höhe. Es gibt keine empfohlene Summe und keinen Mindestbetrag;
 wie viel angemessen ist, entscheidet die Einrichtung. Einrichtungen
-bekommen dafür eine Rechnung für die Buchhaltung. Es ist keine Spende im
+bekommen dafür eine Rechnung für die Buchhaltung; Privatleute können per PayPal unterstützen. Es ist keine Spende im
 steuerlichen Sinn: Der Anbieter ist eine Privatperson und Kleinunternehmer
 nach § 19 UStG, keine gemeinnützige Körperschaft. Eine Zuwendungsbestätigung
 (Spendenbescheinigung) kann es deshalb nicht geben, und der Betrag ist nicht
@@ -33,11 +33,15 @@ Frist, keine Mahnung.
 
 ## Wofür sie gemacht ist
 
-- Monatsplan für eine oder mehrere Wohngruppen, gefüllt aus einem Dienstzyklus
-- Prüfung der Arbeitszeitregeln beim Planen: Ruhezeit, Tage am Stück,
-  freie Sonntage, Nachtdienst-Kontingente
+- Monatsplan für eine oder mehrere Wohngruppen, auf Knopfdruck gefüllt –
+  fair nach Stunden-Soll oder nach Zyklen und Vorgaben der Verwaltung
+- Prüfung beim Planen: Ruhezeit nach § 5 ArbZG, dazu einstellbare
+  Hausregeln für Tage am Stück und Nachtdienste je Person
 - Zeitkonten, Sollstunden, Urlaub, Nachtbereitschaft mit tariflichem Anteil
-- Aushang zum Ausdrucken, Anträge und Abwesenheiten, Änderungsverlauf
+- Aushang zum Ausdrucken, Anträge und Abwesenheiten, Rückgängig für
+  Eintragungen im Monatsplan
+- Keine automatischen Updates: Eine neue Fassung wird von der Seite geladen
+  und installiert, die Daten bleiben erhalten
 - Zwei Fassungen aus einem Programm: Jugendhilfe und allgemeiner Betrieb
 
 ## Wofür sie nicht gemacht ist

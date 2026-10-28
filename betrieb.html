@@ -69,6 +69,7 @@
 <script>
 try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setAttribute("data-theme",t)}}catch(e){}
 </script>
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
 <header class="kopf">
   <div class="kopf-innen">
     <a class="marke" href="index.html">
@@ -80,26 +81,48 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
         <rect x="13" y="12" width="5" height="2.2" rx="1.1" fill="#3b82f6"/>
         <rect x="6" y="16" width="12" height="2.2" rx="1.1" fill="#6366f1"/>
       </svg>
-      Dienstplan Jugendhilfe
+      <span class="marke-wort">Dienstplan<span class="marke-zusatz"> Jugendhilfe</span></span>
     </a>
+    <nav class="abschnitte" aria-label="Abschnitte der Startseite">
+      <a href="index.html#in-einer-minute">In einer Minute</a>
+      <a href="index.html#mitmachen">Mitmachen</a>
+      <a href="index.html#koennen">Was sie kann</a>
+      <a href="index.html#datenschutz-kurz">Datenschutz</a>
+      <a href="index.html#vergleich">Vergleich</a>
+      <a href="index.html#fragen">Fragen</a>
+    </nav>
     <div class="kopf-rechts">
+      <details class="menue">
+        <summary class="knopf mondknopf" aria-label="Menü" title="Menü">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="menue-liste">
+          <a href="index.html#in-einer-minute">In einer Minute</a>
+          <a href="index.html#mitmachen">Mitmachen</a>
+          <a href="index.html#koennen">Was sie kann</a>
+          <a href="index.html#datenschutz-kurz">Datenschutz</a>
+          <a href="index.html#vergleich">Vergleich</a>
+          <a href="index.html#herunterladen">Herunterladen</a>
+          <a href="index.html#fragen">Fragen</a>
+        </div>
+      </details>
       <button class="knopf mondknopf" id="modus" type="button" aria-label="Heller oder dunkler Modus" title="Hell / dunkel">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
         </svg>
       </button>
-      <a class="knopf knopf-voll knopf-klein" href="index.html#herunterladen">Kostenlos herunterladen</a>
+      <a class="knopf knopf-voll knopf-klein" href="index.html#herunterladen"><span class="knopf-lang">Kostenlos herunterladen</span><span class="knopf-kurz">Herunterladen</span></a>
     </div>
   </div>
 </header>
-<main>
+<main id="inhalt">
 
   <div class="huelle recht">
     <p class="augenbraue">Nicht nur Jugendhilfe</p>
     <h1>Dienstplan für den Betrieb: Pflege, Gastronomie, Handwerk, Produktion.</h1>
     <p class="vorwort">Schichtdienst gibt es überall, wo der Tag länger ist als
        acht Stunden. Die Anwendung Dienstplan Jugendhilfe gibt es deshalb auch als
-       Betriebs-Fassung — dieselbe Anwendung, ebenfalls kostenlos, ohne die
+       Betriebs-Fassung – dieselbe Anwendung, ebenfalls kostenlos, ohne die
        Kinder-Funktionen. Für alle, die einen Dienstplaner suchen, der auf einem
        Rechner im Haus läuft statt in einer Cloud.</p>
 
@@ -107,17 +130,17 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
     <p>Solange eine Handvoll Leute im selben Rhythmus arbeitet: nein, da reicht
        <a href="vorlage.html">eine gute Excel-Vorlage</a>. Die Grenze kommt mit
        drei Dingen, meist gleichzeitig: <strong>wechselnde Schichten</strong>, bei
-       denen die faire Verteilung zum Streitthema wird —
+       denen die faire Verteilung zum Streitthema wird –
        <strong>Arbeitszeitregeln</strong>, die niemand mehr im Kopf prüfen kann
        (<a href="arbeitszeit.html">Ruhezeiten, freie Sonntage,
-       Nachtgrenzen</a>) — und <strong>Stundenkonten</strong>, deren Pflege von
+       Nachtgrenzen</a>) – und <strong>Stundenkonten</strong>, deren Pflege von
        Hand jeden Monat Abende kostet. Ab da rechnet sich Software; die Frage ist
        nur, welche Sorte.</p>
 
     <h2>Cloud-Abo oder Anwendung im Haus?</h2>
-    <p>Die meisten Dienstplaner sind Cloud-Abos: bezahlt je Mitarbeitendem und
+    <p>Viele Dienstplaner sind Cloud-Abos: oft bezahlt je Mitarbeitendem und
        Monat, die Daten liegen beim Anbieter. Das ist bequem und für verteilte
-       Standorte oft richtig — es bedeutet aber laufende Kosten, einen
+       Standorte oft richtig – es bedeutet aber laufende Kosten, einen
        Auftragsverarbeitungsvertrag und die Abhängigkeit davon, dass der Anbieter
        es morgen noch gibt. Die Abwägung im Einzelnen steht im
        <a href="vergleich.html">Vergleich: Cloud, Excel oder lokal</a> und auf der
@@ -125,34 +148,35 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
        Wer einen Standort hat und die Personaldaten im Haus behalten will, fährt
        mit einer lokalen Anwendung günstiger und ruhiger.</p>
 
-    <h2>Was die Betriebs-Fassung ist — und was nicht</h2>
+    <h2>Was die Betriebs-Fassung ist – und was nicht</h2>
     <p>Beim ersten Start der Anwendung wählt ihr: <strong>Jugendhilfe</strong> oder
        <strong>Betrieb</strong>. In der Betriebs-Fassung heißen die Gruppen
-       Abteilungen, und alles, was nur in einer Wohngruppe Sinn ergibt — Kinder,
-       Zuteilungen, der Aushang für die Gruppe — ist ausgeblendet. Alles andere
-       ist identisch:</p>
+       Abteilungen, und alles, was nur in einer Wohngruppe Sinn ergibt – die Kinder
+       und die Zuteilung von Mitarbeitenden an einzelne Kinder – ist ausgeblendet.
+       Alles andere ist identisch, auch der Aushang fürs Brett:</p>
     <ul>
-      <li>Beliebig viele Abteilungen mit eigenen Diensten, minutengenau — auch
+      <li>Beliebig viele Abteilungen mit eigenen Diensten, minutengenau – auch
           Splitdienste über Mitternacht mit einstellbarem
-          <a href="nachtbereitschaft.html">Bereitschaftsanteil</a>, wie sie in
-          der Pflege die Regel sind.</li>
+          <a href="nachtbereitschaft.html">Bereitschaftsanteil</a>.</li>
       <li>Automatisches Füllen nach Stunden-Soll, Zyklen und Routinen für
           wiederkehrende Dienste.</li>
-      <li>Arbeitszeitprüfung beim Planen: Ruhezeiten, Tage am Stück,
-          Nachtdienst-Kontingente — mit Begründung statt stummem Verbot.</li>
+      <li>Prüfung beim Planen: Ruhezeit nach dem Arbeitszeitgesetz, dazu eure
+          eigenen Grenzen für Tage am Stück und Nachtdienste je Person – mit
+          Begründung statt stummem Verbot.</li>
       <li>Zeitkonten mit Übertrag, Urlaubskonto, Anträge und Diensttausch des
           Teams, Feiertage aller 16 Bundesländer.</li>
-      <li>Druck, PDF und Excel-Ausgabe; auf Wunsch der Zugriff aller
-          Arbeitsplätze übers eigene Hausnetz (zurzeit Beta).</li>
+      <li>Aushang als Druck und PDF, dazu eine Excel-Tabelle für die Verwaltung;
+          auf Wunsch der Zugriff aller Arbeitsplätze übers eigene Hausnetz (zurzeit
+          Beta).</li>
     </ul>
     <p>Es ist <strong>ein Produkt, kostenlos</strong>: dieselbe Anwendung für
        Einrichtung oder Betrieb, ohne Abo, ohne Gebühr je Kopf, ohne
-       Lizenzschlüssel und ohne Testzeit, alle Updates inklusive — macOS und
+       Schlüssel zum Freischalten und ohne Testzeit, alle Updates inklusive – macOS und
        Windows. Und dieselben offenen Grenzen wie überall: Die Anwendung läuft
        im Haus, nicht auf dem Handy von unterwegs, und das Hausnetz für mehrere
        Arbeitsplätze trägt noch das Wort Beta.</p>
 
-    <p>Alles Weitere — echte Aufnahmen, der Rundgang, die häufigen Fragen — steht
+    <p>Alles Weitere – echte Aufnahmen, der Rundgang, die häufigen Fragen – steht
        auf der <a href="index.html">Startseite</a>.</p>
 
     <a class="zurueck" href="index.html">← Alles über die Anwendung</a>
@@ -161,21 +185,37 @@ try{var t=localStorage.getItem("farbmodus"); if(t){document.documentElement.setA
 </main>
 <footer class="fuss">
   <div class="huelle fuss-innen">
+    <div class="fuss-gruppen">
+      <nav class="fuss-gruppe-breit" aria-labelledby="fuss-ratgeber">
+        <h2 id="fuss-ratgeber">Ratgeber</h2>
+        <ul>
+          <li><a href="dienstplan-erstellen.html">Plan erstellen</a></li>
+          <li><a href="dienstplan-aendern.html">Plan ändern</a></li>
+          <li><a href="arbeitszeit.html">Arbeitszeitgesetz</a></li>
+          <li><a href="nachtbereitschaft.html">Nachtbereitschaft</a></li>
+          <li><a href="ohne-cloud.html">Ohne Cloud</a></li>
+          <li><a href="vergleich.html">Vergleich</a></li>
+          <li><a href="vorlage.html">Excel-Vorlage</a></li>
+          <li><a href="betrieb.html">Für Betriebe</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="fuss-ueber">
+        <h2 id="fuss-ueber">Über</h2>
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="beitrag.html">Beitragen</a></li>
+          <li><a href="mailto:kontakt@dienstplan-jugendhilfe.de">Kontakt</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="fuss-recht">
+        <h2 id="fuss-recht">Rechtliches</h2>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </nav>
+    </div>
     <span>Dienstplan Jugendhilfe · dienstplan-jugendhilfe.de</span>
-    <span class="rechts">
-      <a href="vorlage.html">Excel-Vorlage</a>
-      <a href="dienstplan-erstellen.html">Plan erstellen</a>
-      <a href="arbeitszeit.html">Arbeitszeitgesetz</a>
-      <a href="dienstplan-aendern.html">Plan ändern</a>
-      <a href="nachtbereitschaft.html">Nachtbereitschaft</a>
-      <a href="ohne-cloud.html">Ohne Cloud</a>
-      <a href="vergleich.html">Vergleich</a>
-      <a href="betrieb.html">Für Betriebe</a>
-      <a href="beitrag.html">Beitragen</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="mailto:kontakt@dienstplan-jugendhilfe.de">Kontakt</a>
-    </span>
   </div>
 </footer>
 <script>
@@ -187,6 +227,16 @@ document.getElementById("modus").addEventListener("click", function(){
   document.documentElement.setAttribute("data-theme", neu);
   try{ localStorage.setItem("farbmodus", neu); }catch(e){}
 });
+(function(){
+  var menue = document.querySelector(".menue");
+  if (!menue) return;
+  document.addEventListener("click", function(e){
+    if (menue.open && !menue.contains(e.target)) menue.open = false;
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && menue.open){ menue.open = false; menue.querySelector("summary").focus(); }
+  });
+})();
 </script>
 </body>
 </html>

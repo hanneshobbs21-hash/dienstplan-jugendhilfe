@@ -15,8 +15,8 @@ Installationspaket unter [Releases](../../releases/latest).
 
 | System | Datei |
 |---|---|
-| macOS 11+, Apple-Chip | [Dienstplan-Mac-AppleChip.dmg](../../releases/latest/download/Dienstplan-Mac-AppleChip.dmg) |
-| macOS 11+, Intel | [Dienstplan-Mac-Intel.dmg](../../releases/latest/download/Dienstplan-Mac-Intel.dmg) |
+| macOS 12 (Monterey) oder neuer, Apple-Chip (M1 oder neuer) | [Dienstplan-Mac-AppleChip.dmg](../../releases/latest/download/Dienstplan-Mac-AppleChip.dmg) |
+| macOS 12 (Monterey) oder neuer, Intel | [Dienstplan-Mac-Intel.dmg](../../releases/latest/download/Dienstplan-Mac-Intel.dmg) |
 | Windows 10/11, 64 Bit | [Dienstplan-Windows-Setup.exe](../../releases/latest/download/Dienstplan-Windows-Setup.exe) |
 
 Kein Konto, keine Anmeldung, kein Schlüssel. Herunterladen, installieren, loslegen.
@@ -24,8 +24,8 @@ Kein Konto, keine Anmeldung, kein Schlüssel. Herunterladen, installieren, losle
 ## Was sie kann
 
 - Beliebig viele Dienstarten je Gruppe, minutengenau, auch Splitdienst über Nacht
-- Arbeitszeitregeln laufen beim Planen mit: Ruhezeit (§ 5 ArbZG), Arbeitstage am Stück
-  (§ 9 ArbZG), Nachtdienst-Kontingente
+- Regeln laufen beim Planen mit: Ruhezeit (§ 5 ArbZG), dazu eure eigenen Grenzen für
+  Arbeitstage am Stück und Nachtdienste je Person (Hausregeln, keine Gesetzesvorgaben)
 - Nachtbereitschaft anteilig aufs Zeitkonto — 0 bis 100 %, nach eurem Tarif
 - Zeitkonto mit Übertrag, Urlaubskonto, Aushang fürs Brett, PDF und Excel
 - Zwei Fassungen aus einem Programm: Jugendhilfe und allgemeiner Betrieb
