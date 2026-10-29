@@ -62,7 +62,6 @@ Frist, keine Mahnung.
 - [Dienstplan ohne Cloud](https://dienstplan-jugendhilfe.de/ohne-cloud.html): Datenschutz, Auftragsverarbeitung, Checkliste
 - [Vergleich](https://dienstplan-jugendhilfe.de/vergleich.html): Excel, Cloud oder lokale Anwendung über fünf Jahre
 - [Für Betriebe](https://dienstplan-jugendhilfe.de/betrieb.html): Pflege, Gastronomie, Handwerk, Produktion
-- [Excel-Vorlage](https://dienstplan-jugendhilfe.de/vorlage.html): kostenlose Monatsvorlage, ohne Anmeldung
 - [Impressum](https://dienstplan-jugendhilfe.de/impressum.html) · [Datenschutz](https://dienstplan-jugendhilfe.de/datenschutz.html)
 
 Die Fachseiten sind Arbeitshilfen, keine Rechtsberatung.
