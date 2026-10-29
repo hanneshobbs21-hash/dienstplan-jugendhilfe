@@ -8,6 +8,8 @@
 Anbieter: Dienstplan Jugendhilfe, Waldachtal (Deutschland). Kontakt:
 kontakt@dienstplan-jugendhilfe.de
 Systeme: macOS 12 (Monterey) oder neuer, Windows 10/11 (64 Bit). Sprache: Deutsch.
+Nach der Installation arbeitet sie offline; Internet braucht es nur, um eine neue
+Fassung herunterzuladen.
 
 ## Was sie kostet
 
